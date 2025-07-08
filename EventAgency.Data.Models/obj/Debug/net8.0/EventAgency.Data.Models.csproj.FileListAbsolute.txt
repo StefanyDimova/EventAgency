@@ -15,3 +15,4 @@ C:\Users\stefa\OneDrive\Работен плот\Final Project\EventAgencyFinalPr
 C:\Users\stefa\OneDrive\Работен плот\Final Project\EventAgencyFinalProject\EventAgency.Data.Models\obj\Debug\net8.0\refint\EventAgency.Data.Models.dll
 C:\Users\stefa\OneDrive\Работен плот\Final Project\EventAgencyFinalProject\EventAgency.Data.Models\obj\Debug\net8.0\EventAgency.Data.Models.pdb
 C:\Users\stefa\OneDrive\Работен плот\Final Project\EventAgencyFinalProject\EventAgency.Data.Models\obj\Debug\net8.0\ref\EventAgency.Data.Models.dll
+C:\Users\stefa\OneDrive\Работен плот\Final Project\EventAgencyFinalProject\EventAgency.Data.Models\obj\Debug\net8.0\EventAgency.Data.Models.sourcelink.json

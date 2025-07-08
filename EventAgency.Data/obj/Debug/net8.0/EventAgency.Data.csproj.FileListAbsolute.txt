@@ -19,3 +19,4 @@ C:\Users\stefa\OneDrive\Работен плот\Final Project\EventAgencyFinalPr
 C:\Users\stefa\OneDrive\Работен плот\Final Project\EventAgencyFinalProject\EventAgency.Data\obj\Debug\net8.0\EventAgency.Data.pdb
 C:\Users\stefa\OneDrive\Работен плот\Final Project\EventAgencyFinalProject\EventAgency.Data\obj\Debug\net8.0\EventAgency.Data.genruntimeconfig.cache
 C:\Users\stefa\OneDrive\Работен плот\Final Project\EventAgencyFinalProject\EventAgency.Data\obj\Debug\net8.0\ref\EventAgency.Data.dll
+C:\Users\stefa\OneDrive\Работен плот\Final Project\EventAgencyFinalProject\EventAgency.Data\obj\Debug\net8.0\EventAgency.Data.sourcelink.json

@@ -21,3 +21,4 @@ C:\Users\stefa\OneDrive\Работен плот\Final Project\EventAgencyFinalPr
 C:\Users\stefa\OneDrive\Работен плот\Final Project\EventAgencyFinalProject\EventAgency.Services.Core\obj\Debug\net8.0\refint\EventAgency.Services.Core.dll
 C:\Users\stefa\OneDrive\Работен плот\Final Project\EventAgencyFinalProject\EventAgency.Services.Core\obj\Debug\net8.0\EventAgency.Services.Core.pdb
 C:\Users\stefa\OneDrive\Работен плот\Final Project\EventAgencyFinalProject\EventAgency.Services.Core\obj\Debug\net8.0\ref\EventAgency.Services.Core.dll
+C:\Users\stefa\OneDrive\Работен плот\Final Project\EventAgencyFinalProject\EventAgency.Services.Core\obj\Debug\net8.0\EventAgency.Services.Core.sourcelink.json

@@ -304,3 +304,4 @@ C:\Users\stefa\OneDrive\Работен плот\Final Project\EventAgencyFinalPr
 C:\Users\stefa\OneDrive\Работен плот\Final Project\EventAgencyFinalProject\EventAgencyFinalProject\obj\Debug\net8.0\EventAgency.Web.pdb
 C:\Users\stefa\OneDrive\Работен плот\Final Project\EventAgencyFinalProject\EventAgencyFinalProject\obj\Debug\net8.0\EventAgency.Web.genruntimeconfig.cache
 C:\Users\stefa\OneDrive\Работен плот\Final Project\EventAgencyFinalProject\EventAgencyFinalProject\obj\Debug\net8.0\ref\EventAgency.Web.dll
+C:\Users\stefa\OneDrive\Работен плот\Final Project\EventAgencyFinalProject\EventAgencyFinalProject\obj\Debug\net8.0\EventAgency.Web.sourcelink.json
