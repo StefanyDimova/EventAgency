@@ -1,0 +1,296 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\stefa\\OneDrive\\\u0420\u0430\u0431\u043E\u0442\u0435\u043D \u043F\u043B\u043E\u0442\\Final Project\\EventAgencyFinalProject\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{AB14965E-2C28-4BF6-AAE8-E9A0B054E8DC}|EventAgencyFinalProject\\EventAgency.Web.csproj|c:\\users\\stefa\\onedrive\\\u0440\u0430\u0431\u043E\u0442\u0435\u043D \u043F\u043B\u043E\u0442\\final project\\eventagencyfinalproject\\eventagencyfinalproject\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AB14965E-2C28-4BF6-AAE8-E9A0B054E8DC}|EventAgencyFinalProject\\EventAgency.Web.csproj|solutionrelative:eventagencyfinalproject\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AB14965E-2C28-4BF6-AAE8-E9A0B054E8DC}|EventAgencyFinalProject\\EventAgency.Web.csproj|c:\\users\\stefa\\onedrive\\\u0440\u0430\u0431\u043E\u0442\u0435\u043D \u043F\u043B\u043E\u0442\\final project\\eventagencyfinalproject\\eventagencyfinalproject\\eventagency.web.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{AB14965E-2C28-4BF6-AAE8-E9A0B054E8DC}|EventAgencyFinalProject\\EventAgency.Web.csproj|solutionrelative:eventagencyfinalproject\\eventagency.web.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AB14965E-2C28-4BF6-AAE8-E9A0B054E8DC}|EventAgencyFinalProject\\EventAgency.Web.csproj|c:\\users\\stefa\\onedrive\\\u0440\u0430\u0431\u043E\u0442\u0435\u043D \u043F\u043B\u043E\u0442\\final project\\eventagencyfinalproject\\eventagencyfinalproject\\controllers\\basecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AB14965E-2C28-4BF6-AAE8-E9A0B054E8DC}|EventAgencyFinalProject\\EventAgency.Web.csproj|solutionrelative:eventagencyfinalproject\\controllers\\basecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AB14965E-2C28-4BF6-AAE8-E9A0B054E8DC}|EventAgencyFinalProject\\EventAgency.Web.csproj|c:\\users\\stefa\\onedrive\\\u0440\u0430\u0431\u043E\u0442\u0435\u043D \u043F\u043B\u043E\u0442\\final project\\eventagencyfinalproject\\eventagencyfinalproject\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{AB14965E-2C28-4BF6-AAE8-E9A0B054E8DC}|EventAgencyFinalProject\\EventAgency.Web.csproj|solutionrelative:eventagencyfinalproject\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{35085347-F675-477B-BCB6-3BF692969785}|EventAgency.Data\\EventAgency.Data.csproj|c:\\users\\stefa\\onedrive\\\u0440\u0430\u0431\u043E\u0442\u0435\u043D \u043F\u043B\u043E\u0442\\final project\\eventagencyfinalproject\\eventagency.data\\eventagencydbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{35085347-F675-477B-BCB6-3BF692969785}|EventAgency.Data\\EventAgency.Data.csproj|solutionrelative:eventagency.data\\eventagencydbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9C43BB1D-4B3D-4C93-82F6-D1EB4443C58B}|EventAgencyFinalProject.GCommon\\EventAgency.GCommon.csproj|c:\\users\\stefa\\onedrive\\\u0440\u0430\u0431\u043E\u0442\u0435\u043D \u043F\u043B\u043E\u0442\\final project\\eventagencyfinalproject\\eventagencyfinalproject.gcommon\\eventagency.gcommon.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{9C43BB1D-4B3D-4C93-82F6-D1EB4443C58B}|EventAgencyFinalProject.GCommon\\EventAgency.GCommon.csproj|solutionrelative:eventagencyfinalproject.gcommon\\eventagency.gcommon.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F77CD8C6-FF48-4329-A799-A9FE1D65A0F8}|EventAgency.Web.ViewModels\\EventAgency.Web.ViewModels.csproj|c:\\users\\stefa\\onedrive\\\u0440\u0430\u0431\u043E\u0442\u0435\u043D \u043F\u043B\u043E\u0442\\final project\\eventagencyfinalproject\\eventagency.web.viewmodels\\eventagency.web.viewmodels.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{F77CD8C6-FF48-4329-A799-A9FE1D65A0F8}|EventAgency.Web.ViewModels\\EventAgency.Web.ViewModels.csproj|solutionrelative:eventagency.web.viewmodels\\eventagency.web.viewmodels.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{07B32690-F041-44BC-AF06-A5EFCD824937}|EventAgency.Web.Infrastructure\\EventAgency.Web.Infrastructure.csproj|c:\\users\\stefa\\onedrive\\\u0440\u0430\u0431\u043E\u0442\u0435\u043D \u043F\u043B\u043E\u0442\\final project\\eventagencyfinalproject\\eventagency.web.infrastructure\\eventagency.web.infrastructure.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{07B32690-F041-44BC-AF06-A5EFCD824937}|EventAgency.Web.Infrastructure\\EventAgency.Web.Infrastructure.csproj|solutionrelative:eventagency.web.infrastructure\\eventagency.web.infrastructure.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D5B527B3-D8F0-494F-B25B-DC933A5D4547}|EventAgency.Services.Core\\EventAgency.Services.Core.csproj|c:\\users\\stefa\\onedrive\\\u0440\u0430\u0431\u043E\u0442\u0435\u043D \u043F\u043B\u043E\u0442\\final project\\eventagencyfinalproject\\eventagency.services.core\\eventagency.services.core.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{D5B527B3-D8F0-494F-B25B-DC933A5D4547}|EventAgency.Services.Core\\EventAgency.Services.Core.csproj|solutionrelative:eventagency.services.core\\eventagency.services.core.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C23EE2B6-A19C-4422-BC35-EDB8A5DC8768}|EventAgency.Services.Common\\EventAgency.Services.Common.csproj|c:\\users\\stefa\\onedrive\\\u0440\u0430\u0431\u043E\u0442\u0435\u043D \u043F\u043B\u043E\u0442\\final project\\eventagencyfinalproject\\eventagency.services.common\\eventagency.services.common.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{C23EE2B6-A19C-4422-BC35-EDB8A5DC8768}|EventAgency.Services.Common\\EventAgency.Services.Common.csproj|solutionrelative:eventagency.services.common\\eventagency.services.common.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{44688776-AB39-4ACF-8A2D-3FE5353255B3}|EventAgency.Data.Models\\EventAgency.Data.Models.csproj|c:\\users\\stefa\\onedrive\\\u0440\u0430\u0431\u043E\u0442\u0435\u043D \u043F\u043B\u043E\u0442\\final project\\eventagencyfinalproject\\eventagency.data.models\\eventagency.data.models.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{44688776-AB39-4ACF-8A2D-3FE5353255B3}|EventAgency.Data.Models\\EventAgency.Data.Models.csproj|solutionrelative:eventagency.data.models\\eventagency.data.models.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C042050A-0430-4E21-A5E6-EFBE93290AF1}|EventAgency.Data.Common\\EventAgency.Data.Common.csproj|c:\\users\\stefa\\onedrive\\\u0440\u0430\u0431\u043E\u0442\u0435\u043D \u043F\u043B\u043E\u0442\\final project\\eventagencyfinalproject\\eventagency.data.common\\eventagency.data.common.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{C042050A-0430-4E21-A5E6-EFBE93290AF1}|EventAgency.Data.Common\\EventAgency.Data.Common.csproj|solutionrelative:eventagency.data.common\\eventagency.data.common.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{35085347-F675-477B-BCB6-3BF692969785}|EventAgency.Data\\EventAgency.Data.csproj|c:\\users\\stefa\\onedrive\\\u0440\u0430\u0431\u043E\u0442\u0435\u043D \u043F\u043B\u043E\u0442\\final project\\eventagencyfinalproject\\eventagency.data\\eventagency.data.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{35085347-F675-477B-BCB6-3BF692969785}|EventAgency.Data\\EventAgency.Data.csproj|solutionrelative:eventagency.data\\eventagency.data.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9C43BB1D-4B3D-4C93-82F6-D1EB4443C58B}|EventAgencyFinalProject.GCommon\\EventAgency.GCommon.csproj|c:\\users\\stefa\\onedrive\\\u0440\u0430\u0431\u043E\u0442\u0435\u043D \u043F\u043B\u043E\u0442\\final project\\eventagencyfinalproject\\eventagencyfinalproject.gcommon\\applicationconstants.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9C43BB1D-4B3D-4C93-82F6-D1EB4443C58B}|EventAgencyFinalProject.GCommon\\EventAgency.GCommon.csproj|solutionrelative:eventagencyfinalproject.gcommon\\applicationconstants.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C042050A-0430-4E21-A5E6-EFBE93290AF1}|EventAgency.Data.Common\\EventAgency.Data.Common.csproj|c:\\users\\stefa\\onedrive\\\u0440\u0430\u0431\u043E\u0442\u0435\u043D \u043F\u043B\u043E\u0442\\final project\\eventagencyfinalproject\\eventagency.data.common\\exceptionmessages.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C042050A-0430-4E21-A5E6-EFBE93290AF1}|EventAgency.Data.Common\\EventAgency.Data.Common.csproj|solutionrelative:eventagency.data.common\\exceptionmessages.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C042050A-0430-4E21-A5E6-EFBE93290AF1}|EventAgency.Data.Common\\EventAgency.Data.Common.csproj|c:\\users\\stefa\\onedrive\\\u0440\u0430\u0431\u043E\u0442\u0435\u043D \u043F\u043B\u043E\u0442\\final project\\eventagencyfinalproject\\eventagency.data.common\\entityconstants.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C042050A-0430-4E21-A5E6-EFBE93290AF1}|EventAgency.Data.Common\\EventAgency.Data.Common.csproj|solutionrelative:eventagency.data.common\\entityconstants.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "BaseController.cs",
+              "DocumentMoniker": "C:\\Users\\stefa\\OneDrive\\\u0420\u0430\u0431\u043E\u0442\u0435\u043D \u043F\u043B\u043E\u0442\\Final Project\\EventAgencyFinalProject\\EventAgencyFinalProject\\Controllers\\BaseController.cs",
+              "RelativeDocumentMoniker": "EventAgencyFinalProject\\Controllers\\BaseController.cs",
+              "ToolTip": "C:\\Users\\stefa\\OneDrive\\\u0420\u0430\u0431\u043E\u0442\u0435\u043D \u043F\u043B\u043E\u0442\\Final Project\\EventAgencyFinalProject\\EventAgencyFinalProject\\Controllers\\BaseController.cs",
+              "RelativeToolTip": "EventAgencyFinalProject\\Controllers\\BaseController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-08T11:49:43.962Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\stefa\\OneDrive\\\u0420\u0430\u0431\u043E\u0442\u0435\u043D \u043F\u043B\u043E\u0442\\Final Project\\EventAgencyFinalProject\\EventAgencyFinalProject\\Program.cs",
+              "RelativeDocumentMoniker": "EventAgencyFinalProject\\Program.cs",
+              "ToolTip": "C:\\Users\\stefa\\OneDrive\\\u0420\u0430\u0431\u043E\u0442\u0435\u043D \u043F\u043B\u043E\u0442\\Final Project\\EventAgencyFinalProject\\EventAgencyFinalProject\\Program.cs",
+              "RelativeToolTip": "EventAgencyFinalProject\\Program.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAgAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-08T11:38:52.427Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "EventAgency.Web.ViewModels.csproj",
+              "DocumentMoniker": "C:\\Users\\stefa\\OneDrive\\\u0420\u0430\u0431\u043E\u0442\u0435\u043D \u043F\u043B\u043E\u0442\\Final Project\\EventAgencyFinalProject\\EventAgency.Web.ViewModels\\EventAgency.Web.ViewModels.csproj",
+              "RelativeDocumentMoniker": "EventAgency.Web.ViewModels\\EventAgency.Web.ViewModels.csproj",
+              "ToolTip": "C:\\Users\\stefa\\OneDrive\\\u0420\u0430\u0431\u043E\u0442\u0435\u043D \u043F\u043B\u043E\u0442\\Final Project\\EventAgencyFinalProject\\EventAgency.Web.ViewModels\\EventAgency.Web.ViewModels.csproj",
+              "RelativeToolTip": "EventAgency.Web.ViewModels\\EventAgency.Web.ViewModels.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-07-08T11:38:00.984Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "EventAgency.Web.Infrastructure.csproj",
+              "DocumentMoniker": "C:\\Users\\stefa\\OneDrive\\\u0420\u0430\u0431\u043E\u0442\u0435\u043D \u043F\u043B\u043E\u0442\\Final Project\\EventAgencyFinalProject\\EventAgency.Web.Infrastructure\\EventAgency.Web.Infrastructure.csproj",
+              "RelativeDocumentMoniker": "EventAgency.Web.Infrastructure\\EventAgency.Web.Infrastructure.csproj",
+              "ToolTip": "C:\\Users\\stefa\\OneDrive\\\u0420\u0430\u0431\u043E\u0442\u0435\u043D \u043F\u043B\u043E\u0442\\Final Project\\EventAgencyFinalProject\\EventAgency.Web.Infrastructure\\EventAgency.Web.Infrastructure.csproj",
+              "RelativeToolTip": "EventAgency.Web.Infrastructure\\EventAgency.Web.Infrastructure.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-07-08T11:37:40.473Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "EventAgency.Web.csproj",
+              "DocumentMoniker": "C:\\Users\\stefa\\OneDrive\\\u0420\u0430\u0431\u043E\u0442\u0435\u043D \u043F\u043B\u043E\u0442\\Final Project\\EventAgencyFinalProject\\EventAgencyFinalProject\\EventAgency.Web.csproj",
+              "RelativeDocumentMoniker": "EventAgencyFinalProject\\EventAgency.Web.csproj",
+              "ToolTip": "C:\\Users\\stefa\\OneDrive\\\u0420\u0430\u0431\u043E\u0442\u0435\u043D \u043F\u043B\u043E\u0442\\Final Project\\EventAgencyFinalProject\\EventAgencyFinalProject\\EventAgency.Web.csproj",
+              "RelativeToolTip": "EventAgencyFinalProject\\EventAgency.Web.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-07-08T11:36:09.3Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "EventAgency.GCommon.csproj",
+              "DocumentMoniker": "C:\\Users\\stefa\\OneDrive\\\u0420\u0430\u0431\u043E\u0442\u0435\u043D \u043F\u043B\u043E\u0442\\Final Project\\EventAgencyFinalProject\\EventAgencyFinalProject.GCommon\\EventAgency.GCommon.csproj",
+              "RelativeDocumentMoniker": "EventAgencyFinalProject.GCommon\\EventAgency.GCommon.csproj",
+              "ToolTip": "C:\\Users\\stefa\\OneDrive\\\u0420\u0430\u0431\u043E\u0442\u0435\u043D \u043F\u043B\u043E\u0442\\Final Project\\EventAgencyFinalProject\\EventAgencyFinalProject.GCommon\\EventAgency.GCommon.csproj",
+              "RelativeToolTip": "EventAgencyFinalProject.GCommon\\EventAgency.GCommon.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-07-08T11:38:13.248Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\stefa\\OneDrive\\\u0420\u0430\u0431\u043E\u0442\u0435\u043D \u043F\u043B\u043E\u0442\\Final Project\\EventAgencyFinalProject\\EventAgencyFinalProject\\appsettings.json",
+              "RelativeDocumentMoniker": "EventAgencyFinalProject\\appsettings.json",
+              "ToolTip": "C:\\Users\\stefa\\OneDrive\\\u0420\u0430\u0431\u043E\u0442\u0435\u043D \u043F\u043B\u043E\u0442\\Final Project\\EventAgencyFinalProject\\EventAgencyFinalProject\\appsettings.json",
+              "RelativeToolTip": "EventAgencyFinalProject\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAABNAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-07-08T11:41:58.375Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "EventAgencyDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\stefa\\OneDrive\\\u0420\u0430\u0431\u043E\u0442\u0435\u043D \u043F\u043B\u043E\u0442\\Final Project\\EventAgencyFinalProject\\EventAgency.Data\\EventAgencyDbContext.cs",
+              "RelativeDocumentMoniker": "EventAgency.Data\\EventAgencyDbContext.cs",
+              "ToolTip": "C:\\Users\\stefa\\OneDrive\\\u0420\u0430\u0431\u043E\u0442\u0435\u043D \u043F\u043B\u043E\u0442\\Final Project\\EventAgencyFinalProject\\EventAgency.Data\\EventAgencyDbContext.cs",
+              "RelativeToolTip": "EventAgency.Data\\EventAgencyDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-08T11:28:00.251Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "EventAgency.Services.Core.csproj",
+              "DocumentMoniker": "C:\\Users\\stefa\\OneDrive\\\u0420\u0430\u0431\u043E\u0442\u0435\u043D \u043F\u043B\u043E\u0442\\Final Project\\EventAgencyFinalProject\\EventAgency.Services.Core\\EventAgency.Services.Core.csproj",
+              "RelativeDocumentMoniker": "EventAgency.Services.Core\\EventAgency.Services.Core.csproj",
+              "ToolTip": "C:\\Users\\stefa\\OneDrive\\\u0420\u0430\u0431\u043E\u0442\u0435\u043D \u043F\u043B\u043E\u0442\\Final Project\\EventAgencyFinalProject\\EventAgency.Services.Core\\EventAgency.Services.Core.csproj",
+              "RelativeToolTip": "EventAgency.Services.Core\\EventAgency.Services.Core.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-07-08T11:35:40.033Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "EventAgency.Services.Common.csproj",
+              "DocumentMoniker": "C:\\Users\\stefa\\OneDrive\\\u0420\u0430\u0431\u043E\u0442\u0435\u043D \u043F\u043B\u043E\u0442\\Final Project\\EventAgencyFinalProject\\EventAgency.Services.Common\\EventAgency.Services.Common.csproj",
+              "RelativeDocumentMoniker": "EventAgency.Services.Common\\EventAgency.Services.Common.csproj",
+              "ToolTip": "C:\\Users\\stefa\\OneDrive\\\u0420\u0430\u0431\u043E\u0442\u0435\u043D \u043F\u043B\u043E\u0442\\Final Project\\EventAgencyFinalProject\\EventAgency.Services.Common\\EventAgency.Services.Common.csproj",
+              "RelativeToolTip": "EventAgency.Services.Common\\EventAgency.Services.Common.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-07-08T11:35:32.429Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "EventAgency.Data.Models.csproj",
+              "DocumentMoniker": "C:\\Users\\stefa\\OneDrive\\\u0420\u0430\u0431\u043E\u0442\u0435\u043D \u043F\u043B\u043E\u0442\\Final Project\\EventAgencyFinalProject\\EventAgency.Data.Models\\EventAgency.Data.Models.csproj",
+              "RelativeDocumentMoniker": "EventAgency.Data.Models\\EventAgency.Data.Models.csproj",
+              "ToolTip": "C:\\Users\\stefa\\OneDrive\\\u0420\u0430\u0431\u043E\u0442\u0435\u043D \u043F\u043B\u043E\u0442\\Final Project\\EventAgencyFinalProject\\EventAgency.Data.Models\\EventAgency.Data.Models.csproj",
+              "RelativeToolTip": "EventAgency.Data.Models\\EventAgency.Data.Models.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-07-08T11:34:39.658Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "EventAgency.Data.Common.csproj",
+              "DocumentMoniker": "C:\\Users\\stefa\\OneDrive\\\u0420\u0430\u0431\u043E\u0442\u0435\u043D \u043F\u043B\u043E\u0442\\Final Project\\EventAgencyFinalProject\\EventAgency.Data.Common\\EventAgency.Data.Common.csproj",
+              "RelativeDocumentMoniker": "EventAgency.Data.Common\\EventAgency.Data.Common.csproj",
+              "ToolTip": "C:\\Users\\stefa\\OneDrive\\\u0420\u0430\u0431\u043E\u0442\u0435\u043D \u043F\u043B\u043E\u0442\\Final Project\\EventAgencyFinalProject\\EventAgency.Data.Common\\EventAgency.Data.Common.csproj",
+              "RelativeToolTip": "EventAgency.Data.Common\\EventAgency.Data.Common.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-07-08T11:34:32.515Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "EventAgency.Data.csproj",
+              "DocumentMoniker": "C:\\Users\\stefa\\OneDrive\\\u0420\u0430\u0431\u043E\u0442\u0435\u043D \u043F\u043B\u043E\u0442\\Final Project\\EventAgencyFinalProject\\EventAgency.Data\\EventAgency.Data.csproj",
+              "RelativeDocumentMoniker": "EventAgency.Data\\EventAgency.Data.csproj",
+              "ToolTip": "C:\\Users\\stefa\\OneDrive\\\u0420\u0430\u0431\u043E\u0442\u0435\u043D \u043F\u043B\u043E\u0442\\Final Project\\EventAgencyFinalProject\\EventAgency.Data\\EventAgency.Data.csproj",
+              "RelativeToolTip": "EventAgency.Data\\EventAgency.Data.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-07-08T11:32:24.118Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "ApplicationConstants.cs",
+              "DocumentMoniker": "C:\\Users\\stefa\\OneDrive\\\u0420\u0430\u0431\u043E\u0442\u0435\u043D \u043F\u043B\u043E\u0442\\Final Project\\EventAgencyFinalProject\\EventAgencyFinalProject.GCommon\\ApplicationConstants.cs",
+              "RelativeDocumentMoniker": "EventAgencyFinalProject.GCommon\\ApplicationConstants.cs",
+              "ToolTip": "C:\\Users\\stefa\\OneDrive\\\u0420\u0430\u0431\u043E\u0442\u0435\u043D \u043F\u043B\u043E\u0442\\Final Project\\EventAgencyFinalProject\\EventAgencyFinalProject.GCommon\\ApplicationConstants.cs",
+              "RelativeToolTip": "EventAgencyFinalProject.GCommon\\ApplicationConstants.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-08T11:31:52.587Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "ExceptionMessages.cs",
+              "DocumentMoniker": "C:\\Users\\stefa\\OneDrive\\\u0420\u0430\u0431\u043E\u0442\u0435\u043D \u043F\u043B\u043E\u0442\\Final Project\\EventAgencyFinalProject\\EventAgency.Data.Common\\ExceptionMessages.cs",
+              "RelativeDocumentMoniker": "EventAgency.Data.Common\\ExceptionMessages.cs",
+              "ToolTip": "C:\\Users\\stefa\\OneDrive\\\u0420\u0430\u0431\u043E\u0442\u0435\u043D \u043F\u043B\u043E\u0442\\Final Project\\EventAgencyFinalProject\\EventAgency.Data.Common\\ExceptionMessages.cs",
+              "RelativeToolTip": "EventAgency.Data.Common\\ExceptionMessages.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-08T11:29:37.144Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "EntityConstants.cs",
+              "DocumentMoniker": "C:\\Users\\stefa\\OneDrive\\\u0420\u0430\u0431\u043E\u0442\u0435\u043D \u043F\u043B\u043E\u0442\\Final Project\\EventAgencyFinalProject\\EventAgency.Data.Common\\EntityConstants.cs",
+              "RelativeDocumentMoniker": "EventAgency.Data.Common\\EntityConstants.cs",
+              "ToolTip": "C:\\Users\\stefa\\OneDrive\\\u0420\u0430\u0431\u043E\u0442\u0435\u043D \u043F\u043B\u043E\u0442\\Final Project\\EventAgencyFinalProject\\EventAgency.Data.Common\\EntityConstants.cs",
+              "RelativeToolTip": "EventAgency.Data.Common\\EntityConstants.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-08T11:29:22.704Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EventAgency.Data.Models\EventAgency.Data.Models.csproj" />
+    <ProjectReference Include="..\EventAgencyFinalProject.GCommon\EventAgency.GCommon.csproj" />
+  </ItemGroup>
+
+</Project>

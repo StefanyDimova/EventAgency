@@ -1,0 +1,11 @@
+C:\Users\stefa\OneDrive\Работен плот\Final Project\EventAgencyFinalProject\EventAgencyFinalProject.GCommon\bin\Debug\net8.0\EventAgency.GCommon.deps.json
+C:\Users\stefa\OneDrive\Работен плот\Final Project\EventAgencyFinalProject\EventAgencyFinalProject.GCommon\bin\Debug\net8.0\EventAgency.GCommon.dll
+C:\Users\stefa\OneDrive\Работен плот\Final Project\EventAgencyFinalProject\EventAgencyFinalProject.GCommon\bin\Debug\net8.0\EventAgency.GCommon.pdb
+C:\Users\stefa\OneDrive\Работен плот\Final Project\EventAgencyFinalProject\EventAgencyFinalProject.GCommon\obj\Debug\net8.0\EventAgency.GCommon.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\stefa\OneDrive\Работен плот\Final Project\EventAgencyFinalProject\EventAgencyFinalProject.GCommon\obj\Debug\net8.0\EventAgency.GCommon.AssemblyInfoInputs.cache
+C:\Users\stefa\OneDrive\Работен плот\Final Project\EventAgencyFinalProject\EventAgencyFinalProject.GCommon\obj\Debug\net8.0\EventAgency.GCommon.AssemblyInfo.cs
+C:\Users\stefa\OneDrive\Работен плот\Final Project\EventAgencyFinalProject\EventAgencyFinalProject.GCommon\obj\Debug\net8.0\EventAgency.GCommon.csproj.CoreCompileInputs.cache
+C:\Users\stefa\OneDrive\Работен плот\Final Project\EventAgencyFinalProject\EventAgencyFinalProject.GCommon\obj\Debug\net8.0\EventAgency.GCommon.dll
+C:\Users\stefa\OneDrive\Работен плот\Final Project\EventAgencyFinalProject\EventAgencyFinalProject.GCommon\obj\Debug\net8.0\refint\EventAgency.GCommon.dll
+C:\Users\stefa\OneDrive\Работен плот\Final Project\EventAgencyFinalProject\EventAgencyFinalProject.GCommon\obj\Debug\net8.0\EventAgency.GCommon.pdb
+C:\Users\stefa\OneDrive\Работен плот\Final Project\EventAgencyFinalProject\EventAgencyFinalProject.GCommon\obj\Debug\net8.0\ref\EventAgency.GCommon.dll
