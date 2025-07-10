@@ -9,3 +9,4 @@ C:\Users\stefa\OneDrive\Работен плот\Final Project\EventAgencyFinalPr
 C:\Users\stefa\OneDrive\Работен плот\Final Project\EventAgencyFinalProject\EventAgencyFinalProject.GCommon\obj\Debug\net8.0\refint\EventAgency.GCommon.dll
 C:\Users\stefa\OneDrive\Работен плот\Final Project\EventAgencyFinalProject\EventAgencyFinalProject.GCommon\obj\Debug\net8.0\EventAgency.GCommon.pdb
 C:\Users\stefa\OneDrive\Работен плот\Final Project\EventAgencyFinalProject\EventAgencyFinalProject.GCommon\obj\Debug\net8.0\ref\EventAgency.GCommon.dll
+C:\Users\stefa\OneDrive\Работен плот\Final Project\EventAgencyFinalProject\EventAgencyFinalProject.GCommon\obj\Debug\net8.0\EventAgency.GCommon.sourcelink.json

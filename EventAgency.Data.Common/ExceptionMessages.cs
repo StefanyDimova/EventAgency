@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace EventAgency.Data.Common
 {
-    internal class ExceptionMessages
+    public static class ExceptionMessages
     {
+        public const string SoftDeleteOnNonSoftDeletableEntity = "Soft Delete can not be performed on an Entity which does not support Soft Delete";
     }
 }

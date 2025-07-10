@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("EventAgency.GCommon")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+51d12393a20a73f0050efb08778fb2c79c52d046")]
 [assembly: System.Reflection.AssemblyProductAttribute("EventAgency.GCommon")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EventAgency.GCommon")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

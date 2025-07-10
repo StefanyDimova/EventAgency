@@ -13,3 +13,4 @@ C:\Users\stefa\OneDrive\Работен плот\Final Project\EventAgencyFinalPr
 C:\Users\stefa\OneDrive\Работен плот\Final Project\EventAgencyFinalProject\EventAgency.Web.Infrastructure\obj\Debug\net8.0\refint\EventAgency.Web.Infrastructure.dll
 C:\Users\stefa\OneDrive\Работен плот\Final Project\EventAgencyFinalProject\EventAgency.Web.Infrastructure\obj\Debug\net8.0\EventAgency.Web.Infrastructure.pdb
 C:\Users\stefa\OneDrive\Работен плот\Final Project\EventAgencyFinalProject\EventAgency.Web.Infrastructure\obj\Debug\net8.0\ref\EventAgency.Web.Infrastructure.dll
+C:\Users\stefa\OneDrive\Работен плот\Final Project\EventAgencyFinalProject\EventAgency.Web.Infrastructure\obj\Debug\net8.0\EventAgency.Web.Infrastructure.sourcelink.json
