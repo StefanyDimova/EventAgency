@@ -1,5 +1,25 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@using EventAgency.Web.ViewModels.Event;
+@model IEnumerable<AllEventsViewModel>
+
 @{
+    ViewData["Title"] = "Нашите събития";
 }
+
+<h2>Нашите събития</h2>
+
+<div class="events-container">
+    @foreach (var item in Model)
+    {
+        <div class="event-card">
+            <img src="@item.ImageUrl" alt="@item.Name" class="event-image" />
+            <div class="event-content">
+                <h3 class="event-title">@item.Name</h3>
+                <p class="event-description">
+                    @(item.Description.Length > 100 ? item.Description.Substring(0, 100) + "..." : item.Description)
+                </p>
+                <a class="btn btn-primary" href="@Url.Action("Details", "Event", new { id = item.Id })">Виж детайли</a>
+            </div>
+        </div>
+    }
+</div>
+

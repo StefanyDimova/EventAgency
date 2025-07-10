@@ -1,0 +1,96 @@
+h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #3a3a3a;
+    margin-bottom: 30px;
+    position: relative;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+    /* ƒобав€ме декоративна лини€ под заглавието */
+    h2::after {
+        content: "";
+        display: block;
+        width: 80px;
+        height: 4px;
+        background: linear-gradient(90deg, #ff7e5f, #feb47b);
+        margin: 12px auto 0 auto;
+        border-radius: 2px;
+        box-shadow: 0 2px 6px rgba(255, 126, 95, 0.6);
+    }
+
+
+.events-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+.event-card {
+    width: 300px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    overflow: hidden;
+    background-color: #fff;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+    .event-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    }
+
+.event-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+}
+
+.event-content {
+    padding: 15px;
+}
+
+.event-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.event-description {
+    font-size: 0.95rem;
+    color: #666;
+    line-height: 1.4;
+}
+
+/* бутони */
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background: linear-gradient(45deg, #ff6fa3, #ff95c5);
+    color: white;
+    font-weight: 700;
+    border: none;
+    border-radius: 30px;
+    box-shadow: 0 4px 15px rgba(255, 111, 163, 0.4);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    user-select: none;
+}
+
+    .btn:hover,
+    .btn:focus {
+        background: linear-gradient(45deg, #ff95c5, #ff6fa3);
+        box-shadow: 0 6px 20px rgba(255, 149, 197, 0.6);
+        transform: translateY(-3px);
+        outline: none;
+    }
+
+

@@ -22,15 +22,7 @@
                     @if (SignInManager.IsSignedIn(User))
                     {
                         <a class="nav-link" href="@Url.Action("Index", "Profile")">Профил</a>
-                        @*    <form method="post" asp-area="" asp-controller="Account" asp-action="Logout" id="logoutForm">
-                            <button type="submit">Изход</button>
-                        </form> *@
                     }
-                    @*  else
-                    {
-                        <a href="/Identity/Account/Register">Регистрация</a>
-                        <a href="/Identity/Account/Login">Вход</a>
-                    } *@
                 </li>
             </ul>
         </div>

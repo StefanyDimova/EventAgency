@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("EventAgency.Data.Models")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+51d12393a20a73f0050efb08778fb2c79c52d046")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2d8c10c0ce923a120e3a18aacb1325c6cf6d115f")]
 [assembly: System.Reflection.AssemblyProductAttribute("EventAgency.Data.Models")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EventAgency.Data.Models")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

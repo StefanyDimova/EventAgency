@@ -1,3 +1,7 @@
+using EventAgency.Data.Repository;
+using EventAgency.Data.Repository.Interfaces;
+using EventAgency.Services.Core;
+using EventAgency.Services.Core.Interfaces;
 using EventAgencyFinalProject.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -36,6 +40,10 @@ namespace EventAgencyFinalProject
             })
                 .AddEntityFrameworkStores<EventAgencyDbContext>();
 
+            builder.Services.AddScoped<IEventRepository, EventRepository>();
+
+
+            builder.Services.AddScoped<IEventService, EventService>();
 
             builder.Services.AddControllersWithViews();
 
