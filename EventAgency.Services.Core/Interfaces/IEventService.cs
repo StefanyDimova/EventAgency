@@ -10,5 +10,9 @@ namespace EventAgency.Services.Core.Interfaces
     public interface IEventService 
     {
         Task<IEnumerable<AllEventsViewModel>> GetAllEventsAsync();
+
+        Task AddEventAsync(EventFormInputModel inputModel);
+
+        Task<DetailsEventViewModel> GetEventDetailsByIdAsync(string? id);
     }
 }

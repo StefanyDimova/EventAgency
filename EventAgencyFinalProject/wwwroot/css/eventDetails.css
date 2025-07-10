@@ -1,0 +1,67 @@
+/* Основна карта */
+.card {
+    background-color: #fff0f6;
+    border: none;
+    border-radius: 1rem;
+    box-shadow: 0 4px 12px rgba(255, 105, 180, 0.2);
+}
+
+/* Заглавие */
+h2.text-center {
+    font-family: 'Segoe UI', sans-serif;
+    font-weight: 700;
+    color: #e91e63;
+}
+
+/* Описание */
+.card-text {
+    color: #444;
+    line-height: 1.6;
+}
+
+/* Бутони */
+.btn {
+    border-radius: 30px;
+    padding: 10px 24px;
+    font-weight: 600;
+}
+
+.btn-warning {
+    background-color: #ffb6c1;
+    border: none;
+    color: #fff;
+}
+
+    .btn-warning:hover {
+        background-color: #ff9eb3;
+        color: white;
+    }
+
+.btn-danger {
+    background-color: #ff5c8d;
+    border: none;
+    color: #fff;
+}
+
+    .btn-danger:hover {
+        background-color: #e64472;
+    }
+
+.btn-secondary {
+    background-color: #f8bbd0;
+    border: none;
+    color: #333;
+}
+
+    .btn-secondary:hover {
+        background-color: #f48fb1;
+        color: white;
+    }
+
+/* Responsive image */
+.card-img-top {
+    border-radius: 0.5rem;
+    object-fit: cover;
+    max-height: 400px;
+    width: 100%;
+}

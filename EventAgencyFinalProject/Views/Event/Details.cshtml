@@ -1,5 +1,41 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿﻿@using EventAgency.Web.ViewModels.Event
+@model DetailsEventViewModel
+
 @{
+    ViewData["Title"] = "Event Details";
 }
+
+<h2 class="text-center mb-4">@Model.Name</h2>
+
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card shadow-sm p-4" style="background-color: #fffafc;">
+            <img src="@Model.ImageUrl" class="card-img-top rounded mb-4" alt="@Model.Name" style="max-height: 400px; object-fit: cover;" />
+
+            <div class="card-body">
+                <p class="card-text fs-5">@Model.Description</p>
+
+                @if (this.User.Identity?.IsAuthenticated ?? false)
+                {
+                    <div class="d-flex justify-content-between mt-4">
+                        <a asp-controller="Event" asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">
+                            <i class="fas fa-edit me-1"></i> Редактирай
+                        </a>
+
+                        <form asp-controller="Event" asp-action="Delete" asp-route-id="@Model.Id" method="post" onsubmit="return confirm('Сигурни ли сте, че искате да изтриете това събитие?');">
+                            <button type="submit" class="btn btn-danger">
+                                <i class="fas fa-trash-alt me-1"></i> Изтрий
+                            </button>
+                        </form>
+                    </div>
+                }
+
+                <div class="text-end mt-3">
+                    <a asp-controller="Event" asp-action="Index" class="btn btn-secondary">
+                        <i class="fas fa-arrow-left me-1"></i> Назад
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
