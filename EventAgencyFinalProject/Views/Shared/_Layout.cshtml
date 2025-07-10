@@ -11,9 +11,11 @@
 
     <!-- Стилове -->
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/css/allEvents.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/css/addEvent.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/css/eventDetails.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/Event/allEvents.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/Event/addEvent.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/Event/eventDetails.css" asp-append-version="true" />
+
+    @RenderSection("Styles", required: false)
 </head>
 <body>
     <header>

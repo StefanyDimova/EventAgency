@@ -1,6 +1,6 @@
-wwwroot\css\addEvent.css
-wwwroot\css\allEvents.css
-wwwroot\css\eventDetails.css
+wwwroot\css\Event\addEvent.css
+wwwroot\css\Event\allEvents.css
+wwwroot\css\Event\eventDetails.css
 wwwroot\css\site.css
 wwwroot\favicon.ico
 wwwroot\images\background-image.png
