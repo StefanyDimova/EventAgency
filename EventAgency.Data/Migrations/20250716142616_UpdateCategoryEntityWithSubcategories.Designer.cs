@@ -4,6 +4,7 @@ using EventAgencyFinalProject.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EventAgency.Data.Migrations
 {
     [DbContext(typeof(EventAgencyDbContext))]
-    partial class EventAgencyDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250716142616_UpdateCategoryEntityWithSubcategories")]
+    partial class UpdateCategoryEntityWithSubcategories
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -30,11 +33,6 @@ namespace EventAgency.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<bool>("IsDeleted")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bit")
-                        .HasDefaultValue(false);
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(30)
@@ -48,78 +46,6 @@ namespace EventAgency.Data.Migrations
                     b.HasIndex("ParentCategoryId");
 
                     b.ToTable("Categories");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            IsDeleted = false,
-                            Name = "Декорации"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            IsDeleted = false,
-                            Name = "Балони"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            IsDeleted = false,
-                            Name = "Надписи"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            IsDeleted = false,
-                            Name = "Покани"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            IsDeleted = false,
-                            Name = "Подаръци за гости"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            IsDeleted = false,
-                            Name = "Оборудване под наем"
-                        },
-                        new
-                        {
-                            Id = 7,
-                            IsDeleted = false,
-                            Name = "Банери"
-                        },
-                        new
-                        {
-                            Id = 8,
-                            IsDeleted = false,
-                            Name = "Фолиеви Балони",
-                            ParentCategoryId = 2
-                        },
-                        new
-                        {
-                            Id = 9,
-                            IsDeleted = false,
-                            Name = "Латексови Балони",
-                            ParentCategoryId = 2
-                        },
-                        new
-                        {
-                            Id = 10,
-                            IsDeleted = false,
-                            Name = "Комплекти",
-                            ParentCategoryId = 2
-                        },
-                        new
-                        {
-                            Id = 11,
-                            IsDeleted = false,
-                            Name = "Аксесоари за балони",
-                            ParentCategoryId = 2
-                        });
                 });
 
             modelBuilder.Entity("EventAgency.Data.Models.Event", b =>

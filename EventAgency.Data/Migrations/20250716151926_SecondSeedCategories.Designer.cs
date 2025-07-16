@@ -4,6 +4,7 @@ using EventAgencyFinalProject.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EventAgency.Data.Migrations
 {
     [DbContext(typeof(EventAgencyDbContext))]
-    partial class EventAgencyDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250716151926_SecondSeedCategories")]
+    partial class SecondSeedCategories
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -91,34 +94,6 @@ namespace EventAgency.Data.Migrations
                             Id = 7,
                             IsDeleted = false,
                             Name = "Банери"
-                        },
-                        new
-                        {
-                            Id = 8,
-                            IsDeleted = false,
-                            Name = "Фолиеви Балони",
-                            ParentCategoryId = 2
-                        },
-                        new
-                        {
-                            Id = 9,
-                            IsDeleted = false,
-                            Name = "Латексови Балони",
-                            ParentCategoryId = 2
-                        },
-                        new
-                        {
-                            Id = 10,
-                            IsDeleted = false,
-                            Name = "Комплекти",
-                            ParentCategoryId = 2
-                        },
-                        new
-                        {
-                            Id = 11,
-                            IsDeleted = false,
-                            Name = "Аксесоари за балони",
-                            ParentCategoryId = 2
                         });
                 });
 

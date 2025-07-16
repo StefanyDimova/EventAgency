@@ -4,6 +4,7 @@ using EventAgencyFinalProject.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EventAgency.Data.Migrations
 {
     [DbContext(typeof(EventAgencyDbContext))]
-    partial class EventAgencyDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250716143749_SeedCategories")]
+    partial class SeedCategories
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -29,11 +32,6 @@ namespace EventAgency.Data.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<bool>("IsDeleted")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bit")
-                        .HasDefaultValue(false);
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -53,72 +51,79 @@ namespace EventAgency.Data.Migrations
                         new
                         {
                             Id = 1,
-                            IsDeleted = false,
                             Name = "Декорации"
                         },
                         new
                         {
                             Id = 2,
-                            IsDeleted = false,
-                            Name = "Балони"
+                            Name = "Балони",
+                            ParentCategoryId = 1
                         },
                         new
                         {
                             Id = 3,
-                            IsDeleted = false,
-                            Name = "Надписи"
+                            Name = "Фолиеви цифри",
+                            ParentCategoryId = 2
                         },
                         new
                         {
                             Id = 4,
-                            IsDeleted = false,
-                            Name = "Покани"
+                            Name = "Фолиеви балони",
+                            ParentCategoryId = 2
                         },
                         new
                         {
                             Id = 5,
-                            IsDeleted = false,
-                            Name = "Подаръци за гости"
+                            Name = "Латексови балони",
+                            ParentCategoryId = 2
                         },
                         new
                         {
                             Id = 6,
-                            IsDeleted = false,
-                            Name = "Оборудване под наем"
+                            Name = "Стикери за балони",
+                            ParentCategoryId = 2
                         },
                         new
                         {
                             Id = 7,
-                            IsDeleted = false,
-                            Name = "Банери"
+                            Name = "Балони с щампа",
+                            ParentCategoryId = 2
                         },
                         new
                         {
                             Id = 8,
-                            IsDeleted = false,
-                            Name = "Фолиеви Балони",
+                            Name = "Балони с конфети",
                             ParentCategoryId = 2
                         },
                         new
                         {
                             Id = 9,
-                            IsDeleted = false,
-                            Name = "Латексови Балони",
+                            Name = "Аксесоари за балони",
                             ParentCategoryId = 2
                         },
                         new
                         {
                             Id = 10,
-                            IsDeleted = false,
-                            Name = "Комплекти",
-                            ParentCategoryId = 2
+                            Name = "Надписи",
+                            ParentCategoryId = 1
                         },
                         new
                         {
                             Id = 11,
-                            IsDeleted = false,
-                            Name = "Аксесоари за балони",
-                            ParentCategoryId = 2
+                            Name = "Надписи за деца",
+                            ParentCategoryId = 10
+                        },
+                        new
+                        {
+                            Id = 12,
+                            Name = "Надписи за възрастни",
+                            ParentCategoryId = 10
+                        },
+                        new
+                        {
+                            Id = 13,
+                            Name = "Надписи за бебета",
+                            ParentCategoryId = 10
                         });
                 });
 

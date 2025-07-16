@@ -44,7 +44,7 @@ namespace EventAgencyFinalProject
             builder.Services.AddRepositories(typeof(IEventRepository).Assembly);
             builder.Services.AddUserDefinedServices(typeof(IEventService).Assembly);
 
-
+            builder.Services.AddRazorPages();
             builder.Services.AddControllersWithViews();
 
             var app = builder.Build();
