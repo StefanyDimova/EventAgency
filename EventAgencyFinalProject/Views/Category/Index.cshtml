@@ -1,34 +1,76 @@
 ﻿@using EventAgency.Web.ViewModels.Category;
 @model IEnumerable<CategoryViewModel>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light text-center">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">Категории</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#categoriesNavbar" aria-controls="categoriesNavbar" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+@{
+    ViewData["Title"] = "Категории";
+}
 
-        <div class="collapse navbar-collapse" id="categoriesNavbar">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                @foreach (var category in Model)
-                {
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown@category.Id" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            @category.Name
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown@category.Id">
-                            @foreach (var sub in category.SubCategories)
+<h2 class="text-center mb-4">Категории</h2>
+
+<div class="category-page">
+    <div class="container py-4">
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+            @foreach (var category in Model)
+            {
+                <div class="col">
+                    <div class="card category-card shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title toggle-subcategories d-flex justify-content-between align-items-center" data-category-id="@category.Id">
+                                <span>
+                                    <i class="bi bi-bookmark-heart-fill me-2 text-pink"></i> @category.Name
+                                </span>
+                                <span class="arrow-icon">&#9660;</span> @* ▼ *@
+                            </h5>
+
+                            @if (category.SubCategories.Any())
                             {
-                                <li>
-                                    <a class="dropdown-item" asp-controller="Product" asp-action="ByCategory" asp-route-id="@sub.Id">
-                                        @sub.Name
-                                    </a>
-                                </li>
+                                <ul class="list-group list-group-flush subcategories collapse" id="subcat-@category.Id">
+                                    @foreach (var sub in category.SubCategories)
+                                    {
+                                        <li class="list-group-item">
+                                            <a asp-controller="Product" asp-action="ByCategory" asp-route-id="@sub.Id">
+                                                @sub.Name
+                                            </a>
+                                        </li>
+                                    }
+                                </ul>
                             }
-                        </ul>
-                    </li>
-                }
-            </ul>
+                            else
+                            {
+                                <p class="text-muted">Няма подкатегории</p>
+                            }
+                        </div>
+                    </div>
+                </div>
+            }
         </div>
     </div>
-</nav>
+</div>
+
+
+@section Scripts {
+    <script>
+        document.querySelectorAll('.toggle-subcategories').forEach(header => {
+            header.addEventListener('click', function () {
+                const id = this.getAttribute('data-category-id');
+                const list = document.getElementById('subcat-' + id);
+                const isOpen = list.classList.toggle('show');
+
+                // За завъртане на стрелката
+                if (isOpen) {
+                    this.classList.add('open');
+                } else {
+                    this.classList.remove('open');
+                }
+            });
+        });
+    </script>
+}
+
+
+
+
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/categoryPage.css" />
+}

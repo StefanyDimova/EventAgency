@@ -1,6 +1,8 @@
-﻿using EventAgency.Data.Repository.Interfaces;
+﻿using EventAgency.Data.Models;
+using EventAgency.Data.Repository.Interfaces;
 using EventAgency.Services.Core.Interfaces;
 using EventAgency.Web.ViewModels.Category;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 
 namespace EventAgency.Services.Core
@@ -13,6 +15,7 @@ namespace EventAgency.Services.Core
         {
             this.categoryRepository = categoryRepository;
         }
+
         public async Task<IEnumerable<CategoryViewModel>> GetAllCategoriesAsync()
         {
             var allCategories = await this.categoryRepository
@@ -37,5 +40,32 @@ namespace EventAgency.Services.Core
             return allCategories;
         }
 
+        public async Task<IEnumerable<SelectListItem>> GetCategorySelectListAsync()
+        {
+            var categories = await this.categoryRepository
+                .GetAllAttached()
+                .Where(c => c.ParentCategoryId == null)
+                .ToListAsync();
+                
+               return categories
+                .Select(c => new SelectListItem
+                {
+                    Text = c.Name,
+                    Value = c.Id.ToString()
+                });
+
+        }
+
+
+        public async Task CreateCategoryAsync(CategoryFormModel model)
+        {
+            Category category = new Category()
+            {
+                Name = model.Name,
+                ParentCategoryId = model.ParentCategoryId
+            };
+
+            await this.categoryRepository.AddAsync(category);
+        }
     }
 }

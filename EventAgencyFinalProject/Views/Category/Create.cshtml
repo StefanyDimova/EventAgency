@@ -1,0 +1,29 @@
+﻿@using EventAgency.Web.ViewModels.Category;
+@model CategoryFormModel
+
+<h2>Добавяне на категория</h2>
+<div class="categories-page-create">
+    <form asp-action="Create" method="post" class="create-form">
+        <div class="mb-3">
+            <label asp-for="Name" class="form-label"></label>
+            <input asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="ParentCategoryId" class="form-label">Главна категория (ако е подкатегория)</label>
+            <select asp-for="ParentCategoryId" class="form-select"
+                    asp-items="Model.AvailableCategories">
+                <option value="">-- Без родител (главна категория) --</option>
+            </select>
+        </div>
+
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary">Добави</button>
+        </div>
+    </form>
+</div>
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/create.css" />
+}

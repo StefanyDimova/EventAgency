@@ -168,3 +168,20 @@ footer {
             gap: 1rem;
         }
     }
+
+
+/* Показване на подменюто при hover */
+.navbar-nav .dropdown:hover > .dropdown-menu {
+    display: block;
+    margin-top: 0;
+}
+
+/* Премахване на нуждата от клик (предотвратява 'флашване') */
+.dropdown-toggle::after {
+    transition: transform 0.15s ease-in-out;
+}
+
+/* По избор: стил при hover на подменю */
+.dropdown-menu a:hover {
+    background-color: #f8f9fa;
+}

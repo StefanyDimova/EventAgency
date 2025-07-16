@@ -1,0 +1,52 @@
+﻿.category-page .category-card {
+    border: none;
+    border-radius: 16px;
+    background: linear-gradient(145deg, #ffe6f0, #fff0f5);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    padding: 12px;
+}
+
+    .category-page .category-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    }
+
+.category-page .card-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #d63384;
+    cursor: pointer;
+}
+
+.category-page .text-pink {
+    color: #d63384;
+}
+
+.category-page .list-group-item {
+    border: none;
+    background: transparent;
+    padding-left: 0;
+}
+
+    .category-page .list-group-item a {
+        text-decoration: none;
+        color: #c2185b;
+        transition: color 0.2s ease;
+    }
+
+        .category-page .list-group-item a:hover {
+            color: #ad1457;
+            text-decoration: underline;
+        }
+
+/* Стил за стрелката */
+.category-page .arrow-icon {
+    transition: transform 0.3s ease;
+    font-size: 1rem;
+    color: #d63384;
+}
+
+/* Завъртане на стрелката при отваряне */
+.category-page .card-title.open .arrow-icon {
+    transform: rotate(180deg);
+}

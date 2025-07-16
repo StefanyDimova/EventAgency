@@ -1,0 +1,32 @@
+﻿.categories-page-create {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    background-color: #ffe6f0; /* мек розов фон */
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(255, 105, 180, 0.2);
+}
+
+    .categories-page-create label {
+        font-weight: 600;
+        color: #a8326a; /* тъмно розово */
+    }
+
+    .categories-page-create .form-control,
+    .categories-page-create .form-select {
+        border-color: #f080a0;
+    }
+
+    .categories-page-create .create-form {
+        padding: 20px;
+    }
+
+    .categories-page-create .btn-primary {
+        background-color: #d14774;
+        border-color: #d14774;
+    }
+
+        .categories-page-create .btn-primary:hover {
+            background-color: #a8326a;
+            border-color: #a8326a;
+        }
