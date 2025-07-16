@@ -1,0 +1,34 @@
+﻿@using EventAgency.Web.ViewModels.Category;
+@model IEnumerable<CategoryViewModel>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light text-center">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Категории</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#categoriesNavbar" aria-controls="categoriesNavbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="categoriesNavbar">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                @foreach (var category in Model)
+                {
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown@category.Id" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            @category.Name
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown@category.Id">
+                            @foreach (var sub in category.SubCategories)
+                            {
+                                <li>
+                                    <a class="dropdown-item" asp-controller="Product" asp-action="ByCategory" asp-route-id="@sub.Id">
+                                        @sub.Name
+                                    </a>
+                                </li>
+                            }
+                        </ul>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+</nav>
