@@ -125,6 +125,53 @@ namespace EventAgency.Services.Core
             return result;
         }
 
+        public async Task<DeleteEventViewModel?> GetEventDeleteDetailsByIdAsync(string? id)
+        {
+            DeleteEventViewModel? deleteEventViewModel = null;
+
+            Event? eventToBeDeleted = await this.FindEventByStringId(id);
+            if (eventToBeDeleted != null)
+            {
+                deleteEventViewModel = new DeleteEventViewModel()
+                {
+                    Id = eventToBeDeleted.Id.ToString(),
+                    Name = eventToBeDeleted.Name,
+                    ImageUrl = eventToBeDeleted.ImageUrl ?? $"/images/{NoImageUrl}",
+                };
+            }
+
+            return deleteEventViewModel;
+        }
+
+
+
+        public async Task<bool> SoftDeleteEventAsync(string? id)
+        {
+            bool result = false;
+            Event? eventToDelete = await this.FindEventByStringId(id);
+
+            if (eventToDelete == null)
+            {
+                return false;
+            }
+
+            result = await this.eventRepository.DeleteAsync(eventToDelete);
+            return result;
+        }
+
+        public async Task<bool> DeleteEventAsync(string? id)
+        {
+            Event? eventToDelete = await this.FindEventByStringId(id);
+
+            if (eventToDelete == null)
+            {
+                return false;
+            }
+            await this.eventRepository.HardDeleteAsync(eventToDelete);
+
+            return true;
+        }
+
 
 
         private async Task<Event?> FindEventByStringId(string? id)
