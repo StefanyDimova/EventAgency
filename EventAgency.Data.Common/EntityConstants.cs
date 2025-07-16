@@ -36,5 +36,24 @@ namespace EventAgency.Data.Common
             /// </summary>
             public const int ImageUrlMaxLength = 2048;
         }
+
+        public static class Product
+        {
+            public const int NameMinLength = 2;
+            public const int NameMaxLength = 50;
+
+            public const int DescriptionMinLength = 10;
+            public const int DescriptionMaxLength = 1000;
+
+            public const int ImageUrlMaxLength = 2048;
+        }
+
+        public static class Category
+        {
+            public const int NameMinLength = 3;
+            public const int NameMaxLength = 30;
+
+
+        }
     }
 }
