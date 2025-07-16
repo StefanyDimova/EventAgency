@@ -13,6 +13,8 @@ namespace EventAgencyFinalProject.Data
         }
 
         public virtual DbSet<Event> Events { get; set; } = null!;
+        public virtual DbSet<Product> Products { get; set; } = null!;
+        public virtual DbSet<Category> Categories { get; set; } = null!;
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

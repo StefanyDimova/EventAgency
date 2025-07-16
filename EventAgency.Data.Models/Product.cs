@@ -1,4 +1,4 @@
-﻿using EventAgency.Data.Common.Enums;
+﻿
 using Microsoft.EntityFrameworkCore;
 
 namespace EventAgency.Data.Models
