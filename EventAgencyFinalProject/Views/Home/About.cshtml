@@ -1,0 +1,78 @@
+﻿@{
+    ViewData["Title"] = "За нас";
+}
+
+<section class="about-us container py-5">
+    <div class="title-container text-center mb-4" style="position: relative; display: inline-block;">
+        <h1>За <span>SisiPartyAgency</span></h1>
+        <div class="bubbles"></div>
+    </div>
+
+
+    <div class="row align-items-center mb-5">
+        <div class="col-md-6">
+            <img src="~/images/team.jpg" alt="Екипът на SisiPartyAgency" class="img-fluid rounded shadow-lg about-img" />
+        </div>
+        <div class="col-md-6 elegant-animate">
+            <p class="lead">
+                Добре дошли в <strong>SisiPartyAgency</strong> – вашият нов партньор за незабравими събития и парти емоции! Въпреки че сме нова агенция на пазара, нашият ентусиазъм, креативност и внимание към детайла са на най-високо ниво.
+            </p>
+            <p>
+                Нашата мисия е да направим всеки празник специален и уникален – независимо дали планирате рожден ден, корпоративно събитие, сватба или тематично парти. Ние предлагаме персонализирани решения, които съчетават модерен дизайн, качествени продукти и професионално обслужване.
+            </p>
+            <p>
+                Запознайте се с нашия млад и динамичен екип, който вярва, че всяко парти заслужава магия!
+            </p>
+
+            <blockquote class="quote mt-4">
+                „Всеки повод заслужава своята магия.“
+            </blockquote>
+        </div>
+
+
+
+
+    <div class="row mb-5">
+        <div class="col-12 text-center">
+            <h2>Нашите услуги</h2>
+        </div>
+
+        <div class="col-md-4 text-center service-card">
+            <img src="~/images/decorations.jpg" alt="Декорации" class="img-fluid rounded mb-3 service-img" />
+            <h4>Креативни декорации</h4>
+            <p>От балони до тематични аранжировки – ние превръщаме всяко място в истинска парти атмосфера.</p>
+        </div>
+        <div class="col-md-4 text-center service-card">
+            <img src="~/images/catering.jpg" alt="Кетъринг" class="img-fluid rounded mb-3 service-img" />
+            <h4>Професионален кетъринг</h4>
+            <p>Подбираме вкусна и стилна храна, съобразена с вашите предпочитания и тип събитие.</p>
+        </div>
+        <div class="col-md-4 text-center service-card">
+            <img src="~/images/entertainment.jpg" alt="Забавления" class="img-fluid rounded mb-3 service-img" />
+            <h4>Забавления и анимации</h4>
+            <p>Динамични водещи, музика и игри, които ще превърнат вашето събитие в незабравимо преживяване.</p>
+        </div>
+    </div>
+
+    <div class="text-center">
+        <a href="/Home/Contact" class="btn btn-primary btn-lg px-5">Свържете се с нас</a>
+    </div>
+</section>
+
+<script>
+    const bubblesContainer = document.querySelector('.bubbles');
+
+    function createBubble() {
+        const bubble = document.createElement('div');
+        bubble.classList.add('bubble');
+        bubble.style.left = Math.random() * 100 + 'px';
+        bubble.style.animationDuration = 3 + Math.random() * 3 + 's';
+        bubblesContainer.appendChild(bubble);
+
+        setTimeout(() => {
+            bubble.remove();
+        }, 6000);
+    }
+
+    setInterval(createBubble, 500);
+</script>

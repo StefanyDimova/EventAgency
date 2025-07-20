@@ -6,41 +6,17 @@
     ViewData["Title"] = "Начало";
 }
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
-    <div class="container px-4">
-        <a class="navbar-brand" href="@Url.Action("Index", "Home")">🎉 SiSiParty</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Превключи навигацията">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="@Url.Action("Index", "Category")">Продукти</a>
-                </li>
-                <li>
-                    @if (SignInManager.IsSignedIn(User))
-                    {
-                        <a class="nav-link" href="@Url.Action("Index", "Profile")">Профил</a>
-                    }
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
-
 <!-- Hero Section -->
-<div class="container-fluid p-0">
+
     <div class="hero-image d-flex align-items-center justify-content-center text-center">
         <div class="hero-content p-4 bg-white bg-opacity-75 rounded shadow">
             <h1 class="display-5 mb-3">Добре дошли в SiSiPartyAgency</h1>
             <p class="lead mb-4">Всичко за Вашето незабравимо парти – балони, украси, подаръци и много други!</p>
             <div class="d-flex flex-column flex-md-row justify-content-center gap-3">
                 <a href="@Url.Action("Index", "Category")" class="btn btn-primary btn-lg">Разгледай продуктите</a>
-                <a href="@Url.Action("Index", "Contact")" class="btn btn-outline-secondary btn-lg">Изпрати запитване</a>
+                <a href="@Url.Action("Contact", "Home")" class="btn btn-outline-secondary btn-lg">Изпрати запитване</a>
             </div>
         </div>
     </div>
-</div>
 
 
