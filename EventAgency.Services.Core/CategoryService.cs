@@ -2,6 +2,7 @@
 using EventAgency.Data.Repository.Interfaces;
 using EventAgency.Services.Core.Interfaces;
 using EventAgency.Web.ViewModels.Category;
+using EventAgency.Web.ViewModels.Product;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 
@@ -66,6 +67,20 @@ namespace EventAgency.Services.Core
             };
 
             await this.categoryRepository.AddAsync(category);
+        }
+
+        public async Task<IEnumerable<AddProductCategoryDropDownModel>> GetCategoriesDropdownDataAsync()
+        {
+            IEnumerable<AddProductCategoryDropDownModel> categoriesDropDown = await this.categoryRepository
+                .GetAllAttached()
+                .Select(t => new AddProductCategoryDropDownModel()
+                {
+                    Id = t.Id,
+                    Name = t.Name,
+                })
+                .ToArrayAsync();
+
+            return categoriesDropDown;
         }
     }
 }
