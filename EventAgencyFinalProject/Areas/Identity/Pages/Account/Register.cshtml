@@ -1,0 +1,84 @@
+﻿@page
+@model RegisterModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Register";
+}
+
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 90vh;">
+    <div class="card shadow-lg border-0" style="width: 450px; background-color: #fff0f6;">
+        <div class="card-header text-center text-white" style="background-color: #ff69b4;">
+            <h3 class="mb-0 fw-bold">Create an Account 🎉</h3>
+            <small>Join the party world now!</small>
+        </div>
+
+        <div class="card-body">
+            <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                <div class="mb-3">
+                    <label asp-for="Input.Email" class="form-label text-pink fw-semibold">Email</label>
+                    <input asp-for="Input.Email" class="form-control border-pink" autocomplete="email" placeholder="name@example.com" />
+                    <span asp-validation-for="Input.Email" class="text-danger small"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Input.Password" class="form-label text-pink fw-semibold">Password</label>
+                    <input asp-for="Input.Password" class="form-control border-pink" autocomplete="new-password" placeholder="Create a password" />
+                    <span asp-validation-for="Input.Password" class="text-danger small"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Input.ConfirmPassword" class="form-label text-pink fw-semibold">Confirm Password</label>
+                    <input asp-for="Input.ConfirmPassword" class="form-control border-pink" autocomplete="new-password" placeholder="Repeat your password" />
+                    <span asp-validation-for="Input.ConfirmPassword" class="text-danger small"></span>
+                </div>
+
+                <div class="d-grid mb-3">
+                    <button type="submit" class="btn text-white fw-bold" style="background-color: #ff69b4;">
+                        Register
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        @if (Model.ExternalLogins?.Count > 0)
+        {
+            <div class="card-footer bg-white text-center">
+                <p class="mb-2 text-pink fw-semibold">Or register with:</p>
+                <form asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+                    @foreach (var provider in Model.ExternalLogins)
+                    {
+                        <button type="submit" class="btn btn-outline-pink me-2 mb-2" name="provider" value="@provider.Name">
+                            @provider.DisplayName
+                        </button>
+                    }
+                </form>
+            </div>
+        }
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+
+<style>
+    .text-pink {
+        color: #ff1493;
+    }
+
+    .border-pink {
+        border: 2px solid #ffb6c1;
+    }
+
+    .btn-outline-pink {
+        color: #ff69b4;
+        border-color: #ff69b4;
+    }
+
+        .btn-outline-pink:hover {
+            background-color: #ff69b4;
+            color: white;
+        }
+</style>
