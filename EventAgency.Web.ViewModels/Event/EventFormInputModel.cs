@@ -15,14 +15,17 @@ namespace EventAgency.Web.ViewModels.Event
         [Required(ErrorMessage = NameRequiredMessage)]
         [MinLength(NameMinLength, ErrorMessage = NameMinLengthMessage)]
         [MaxLength(NameMaxLength, ErrorMessage = NameMaxLengthMessage)]
+        [Display(Name = "Име на събитието")]
         public string Name { get; set; } = null!;
 
         [Required(ErrorMessage = DescriptionRequiredMessage)]
         [MinLength(DescriptionMinLength, ErrorMessage = DescriptionMinLengthMessage)]
         [MaxLength(DescriptionMaxLength, ErrorMessage = DescriptionMaxLengthMessage)]
+        [Display(Name = "Описание")]
         public string Description { get; set; } = null!;
 
         [MaxLength(ImageUrlMaxLength, ErrorMessage = ImageUrlMaxLengthMessage)]
+        [Display(Name = "Снимка")]
         public string? ImageUrl { get; set; }
             = $"/images/{NoImageUrl}";
     }
