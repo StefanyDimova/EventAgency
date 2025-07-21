@@ -1,0 +1,57 @@
+﻿/* Основен стил за 404 страницата */
+.event-bg {
+    background: linear-gradient(to right, #ffe6f0, #ffd6ec);
+    padding: 2rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.error-container {
+    background-color: white;
+    border-radius: 16px;
+    padding: 40px;
+    max-width: 600px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(255, 105, 180, 0.25);
+    transition: transform 0.3s ease;
+}
+
+    .error-container:hover {
+        transform: scale(1.02);
+    }
+
+.error-code {
+    font-size: 6rem;
+    font-weight: bold;
+    color: #ff69b4;
+    margin-bottom: 20px;
+}
+
+.error-message {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.error-description {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.btn-home {
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+    background-color: #ff69b4;
+    border-radius: 30px;
+    transition: background-color 0.3s ease, transform 0.2s;
+}
+
+    .btn-home:hover {
+        background-color: #ff1493;
+        transform: translateY(-2px);
+    }
