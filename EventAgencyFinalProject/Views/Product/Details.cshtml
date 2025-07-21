@@ -1,0 +1,60 @@
+﻿@model EventAgency.Web.ViewModels.Product.ProductDetailsViewModel
+
+@{
+    ViewData["Title"] = "Детайли за продукта";
+    decimal priceInEuro = Math.Round(Model.Price / 1.96m, 2);
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/productDetails.css" />
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-lg">
+                <div class="row g-0">
+                    <div class="col-md-5">
+                        <img src="@Model.ImageUrl" class="img-fluid rounded-start" alt="@Model.Name" style="object-fit: cover; height: 100%; width: 100%;" />
+                    </div>
+                    <div class="col-md-7">
+                        <div class="card-body">
+                            <h3 class="card-title text-pink fw-bold">@Model.Name</h3>
+
+                            <p><strong>Описание:</strong> @Model.Description</p>
+                            <p><strong>Категория:</strong> @Model.CategoryName</p>
+                            <p><strong>Цена:</strong> @Model.Price лв. (~ @priceInEuro €)</p>
+                            <p><strong>Налично количество:</strong> @Model.Quantity бр.</p>
+
+                            @if (Model.Quantity > 0)
+                            {
+                                <form asp-controller="ShoppingCart" asp-action="AddToCart" method="post" class="mt-3">
+                                    <input type="hidden" name="productId" value="@Model.Id" />
+                                    <div class="mb-3 d-flex align-items-center">
+                                        <label for="quantity" class="me-2">Брой:</label>
+                                        <input type="number" name="quantity" value="1" min="1" max="@Model.Quantity" class="form-control w-25" />
+                                    </div>
+                                    <button type="submit" class="btn btn-success me-2">Добави в количка</button>
+                                    <a asp-action="Index" asp-controller="Product" class="btn btn-secondary">Обратно към продуктите</a>
+                                </form>
+                            }
+                            else
+                            {
+                                <p class="text-danger mt-3 fw-bold">Продуктът е изчерпан.</p>
+                                <a asp-action="Index" asp-controller="Product" class="btn btn-secondary">Обратно към продуктите</a>
+                            }
+
+                            <hr />
+                            <div class="d-flex justify-content-end">
+                                <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-outline-primary me-2">Редактирай</a>
+                                <form asp-action="Delete" asp-route-id="@Model.Id" method="post" onsubmit="return confirm('Сигурни ли сте, че искате да изтриете този продукт?');">
+                                    <button type="submit" class="btn btn-outline-danger">Изтрий</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,121 @@
+﻿.card {
+    border: none;
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+.card-title {
+    font-size: 1.8rem;
+    color: #ff1493;
+}
+
+.card-body p {
+    font-size: 1rem;
+    margin-bottom: 0.6rem;
+}
+
+.btn {
+    border-radius: 0.6rem;
+    padding: 0.5rem 1.2rem;
+    font-weight: 500;
+}
+
+.btn-success {
+    background-color: #ff69b4;
+    border: none;
+}
+
+    .btn-success:hover {
+        background-color: #ff1493;
+    }
+
+.btn-outline-primary {
+    border-color: #6c63ff;
+    color: #6c63ff;
+}
+
+    .btn-outline-primary:hover {
+        background-color: #6c63ff;
+        color: white;
+    }
+
+.btn-outline-danger {
+    border-color: #dc3545;
+    color: #dc3545;
+}
+
+    .btn-outline-danger:hover {
+        background-color: #dc3545;
+        color: white;
+    }
+
+.img-fluid {
+    max-height: 100%;
+    object-fit: cover;
+}
+
+label {
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+}
+
+input[type="number"] {
+    padding: 0.3rem 0.6rem;
+    border-radius: 0.4rem;
+    border: 1px solid #ddd;
+}
+
+
+/* editProduct */
+
+.text-pink {
+    color: #ff1493;
+}
+
+.bg-light-pink {
+    background-color: #fff0f6;
+}
+
+.btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+    font-weight: 600;
+}
+
+    .btn-success:hover {
+        background-color: #218838;
+        border-color: #1e7e34;
+    }
+
+.btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+    font-weight: 600;
+}
+
+    .btn-secondary:hover {
+        background-color: #5a6268;
+        border-color: #545b62;
+    }
+
+.form-control, .form-select {
+    border: 2px solid #ffb6c1;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease-in-out;
+}
+
+    .form-control:focus, .form-select:focus {
+        box-shadow: 0 0 5px rgba(255, 105, 180, 0.5);
+        border-color: #ff69b4;
+    }
+
+label.form-label {
+    font-weight: 600;
+}
+
+h2.text-pink {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+

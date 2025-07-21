@@ -1,5 +1,6 @@
 ﻿using EventAgency.Services.Core.Interfaces;
 using EventAgency.Web.ViewModels.Product;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using static EventAgency.Web.ViewModels.ValidationMessages.Event;
 
@@ -27,7 +28,7 @@ namespace EventAgency.Web.Controllers
             //{
             //    foreach (AllProductsViewModel productIndexVM in allProducts)
             //    {
-            //        productIndexVM.IsAddedToUserWatchlist = await this.watchlistService
+            //        productIndexVM.IsAddedToCart = await this.watchlistService
             //            .IsMovieAddedToWatchlist(movieIndexVM.Id, this.GetUserId());
             //    }
             //}
@@ -102,6 +103,150 @@ namespace EventAgency.Web.Controllers
                 // тук си добавяме наша грешка , която си е наша
                 this.ModelState.AddModelError(string.Empty, ServiceCreateError);
                 return this.View(inputModel);
+            }
+        }
+
+        [HttpGet]
+        [AllowAnonymous]
+
+        public async Task<IActionResult> Details(string? id)
+        {
+            try
+            {
+                ProductDetailsViewModel? productDetails = await this.productService
+                    .GetProductDetailsByIdAsync(id);
+
+                if (productDetails == null)
+                {
+                    return this.RedirectToAction(nameof(Index));
+                }
+
+                return this.View("Details", productDetails);
+            }
+            catch (Exception e)
+            {
+
+                Console.WriteLine(e.Message);
+
+                return this.RedirectToAction(nameof(Index));
+            }
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Edit(string? id)
+        {
+            try
+            {
+                ProductEditInputModel? editableProduct = await this.productService
+                    .GetEditableProductByIdAsync(id);
+                if (editableProduct == null)
+                {
+                    // TODO: Custom 404 page
+                    return this.RedirectToAction(nameof(Index));
+                }
+
+                return this.View(editableProduct);
+            }
+            catch (Exception e)
+            {
+                // TODO: Implement it with the ILogger
+                // TODO: Add JS bars to indicate such errors
+                Console.WriteLine(e.Message);
+
+                return this.RedirectToAction(nameof(Index));
+            }
+        }
+
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(ProductEditInputModel inputModel)
+        {
+            if (!this.ModelState.IsValid)
+            {
+                return this.View(inputModel);
+            }
+
+            try
+            {
+                bool editSuccess = await this.productService.EditProductAsync(inputModel);
+                if (!editSuccess)
+                {
+                    // TODO: Custom 404 page
+                    return this.RedirectToAction(nameof(Index));
+                }
+
+                return this.RedirectToAction(nameof(Details), new { id = inputModel.Id });
+
+            }
+            catch (Exception e)
+            {
+                // TODO: Implement it with the ILogger
+                // TODO: Add JS bars to indicate such errors
+                Console.WriteLine(e.Message);
+
+                return this.RedirectToAction(nameof(Index));
+            }
+
+
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Delete(string? id)
+        {
+            try
+            {
+                DeleteProductViewModel? productToBeDeleted = await this.productService
+                    .GetProductDeleteDetailsByIdAsync(id);
+                if (productToBeDeleted == null)
+                {
+                    // TODO: Custom 404 page
+                    return this.RedirectToAction(nameof(Index));
+                }
+
+                return this.View(productToBeDeleted);
+            }
+            catch (Exception e)
+            {
+                // TODO: Implement it with the ILogger
+                // TODO: Add JS bars to indicate such errors
+                Console.WriteLine(e.Message);
+
+                return this.RedirectToAction(nameof(Index));
+            }
+        }
+
+
+        [HttpPost]
+        public async Task<IActionResult> Delete(DeleteProductViewModel inputModel)
+        {
+            try
+            {
+                if (!this.ModelState.IsValid)
+                {
+                    // TODO: Implement JS notifications
+                    Console.WriteLine(">>> ModelState invalid!");
+                    return this.RedirectToAction(nameof(Index));
+                }
+
+                bool deleteResult = await this.productService
+                    .SoftDeleteProductAsync(inputModel.Id);
+                if (deleteResult == false)
+                {
+                    // TODO: Implement JS notifications
+                    // TODO: Alt_Redirect to Not Found page
+                    return this.RedirectToAction(nameof(Index));
+                }
+
+                // TODO: Success notification
+                return this.RedirectToAction(nameof(Index));
+            }
+            catch (Exception e)
+            {
+                // TODO: Implement it with the ILogger
+                // TODO: Add JS bars to indicate such errors
+                Console.WriteLine(e.Message);
+
+                return this.RedirectToAction(nameof(Index));
             }
         }
 
