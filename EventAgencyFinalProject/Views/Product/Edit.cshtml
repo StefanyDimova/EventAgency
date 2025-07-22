@@ -54,6 +54,15 @@
                     <span asp-validation-for="CategoryId" class="text-danger small"></span>
                 </div>
 
+                <div class="mb-3">
+                    <label asp-for="SubCategoryId" class="form-label fw-bold">Подкатегория</label>
+                    <select asp-for="SubCategoryId" class="form-select" asp-items="@(new SelectList(Model.SubCategories, "Id", "Name"))">
+                        <option value="">Избери подкатегория</option>
+                    </select>
+                    <span asp-validation-for="SubCategoryId" class="text-danger small"></span>
+                </div>
+
+
                 <div class="d-flex justify-content-between">
                     <button type="submit" class="btn btn-success">Запази промените</button>
                     <a asp-action="Index" class="btn btn-secondary">Назад към продуктите</a>

@@ -19,5 +19,6 @@ namespace EventAgency.Services.Core.Interfaces
         Task CreateCategoryAsync(CategoryFormModel model);
 
         Task<IEnumerable<AddProductCategoryDropDownModel>> GetCategoriesDropdownDataAsync();
+        Task<IEnumerable<AddProductCategoryDropDownModel>> GetSubCategoriesDropdownDataAsync(int parentCategoryId);
     }
 }

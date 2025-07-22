@@ -4,6 +4,7 @@ using EventAgencyFinalProject.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EventAgency.Data.Migrations
 {
     [DbContext(typeof(EventAgencyDbContext))]
-    partial class EventAgencyDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250722092159_UpdateSeedingProducts")]
+    partial class UpdateSeedingProducts
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -220,15 +223,9 @@ namespace EventAgency.Data.Migrations
                         .HasColumnType("int")
                         .HasComment("Product quantity");
 
-                    b.Property<int?>("SubCategoryId")
-                        .HasColumnType("int")
-                        .HasComment("Product's Subcategory");
-
                     b.HasKey("Id");
 
                     b.HasIndex("CategoryId");
-
-                    b.HasIndex("SubCategoryId");
 
                     b.ToTable("Products", t =>
                         {
@@ -502,14 +499,7 @@ namespace EventAgency.Data.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("EventAgency.Data.Models.Category", "SubCategory")
-                        .WithMany()
-                        .HasForeignKey("SubCategoryId")
-                        .OnDelete(DeleteBehavior.Restrict);
-
                     b.Navigation("Category");
-
-                    b.Navigation("SubCategory");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

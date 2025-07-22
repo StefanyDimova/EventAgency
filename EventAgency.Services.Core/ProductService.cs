@@ -29,6 +29,7 @@ namespace EventAgency.Services.Core
                 Price = inputModel.Price,
                 Quantity = inputModel.Quantity,
                 CategoryId = inputModel.CategoryId,
+                SubCategoryId = inputModel.SubCategoryId
             };
 
             await this.productRepository.AddAsync(newProduct);
@@ -60,21 +61,24 @@ namespace EventAgency.Services.Core
         }
 
 
-        public async Task<IEnumerable<AllProductsViewModel>> GetProductsByCategoryIdAsync(int categoryId)
+        public async Task<IEnumerable<AllProductsViewModel>> GetProductsBySubCategoryIdAsync(int subCategoryId)
         {
             var products = await this.productRepository
-                 .GetAllAttached()
-                 .Where(p => p.CategoryId == categoryId && !p.IsDeleted)
-                 .ToListAsync();
+                .GetAllAttached()
+                .Where(p => p.SubCategoryId == subCategoryId && !p.IsDeleted)
+                .ToListAsync();
 
             return products.Select(p => new AllProductsViewModel
             {
                 Id = p.Id.ToString(),
                 Name = p.Name,
-                ImageUrl = p.ImageUrl,
+                ImageUrl = string.IsNullOrEmpty(p.ImageUrl) ? $"/images/{NoImageUrl}" : p.ImageUrl,
                 Price = p.Price
             });
         }
+
+
+
 
 
         public async Task<ProductDetailsViewModel> GetProductDetailsByIdAsync(string? id)
@@ -109,30 +113,40 @@ namespace EventAgency.Services.Core
         {
             ProductEditInputModel? editableProduct = null;
 
+            bool isIdValidGuid = Guid.TryParse(id, out Guid productId);
+            if (!isIdValidGuid)
+            {
+                return null;
+            }
+            var productEntity = await this.productRepository
+                .GetAllAttached()
+                .AsNoTracking()
+                .FirstOrDefaultAsync(p => p.Id == productId);
+
+            if (productEntity == null)
+            {
+                return null;
+            }
             var categories = await this.categoryService.GetCategoriesDropdownDataAsync();
 
-            bool isIdValidGuid = Guid.TryParse(id, out Guid productId);
-            if (isIdValidGuid)
+            var subcategories = await this.categoryService.GetSubCategoriesDropdownDataAsync(productEntity.CategoryId);
+
+            editableProduct = new ProductEditInputModel()
             {
-                editableProduct = await this.productRepository
-                    .GetAllAttached()
-                    .AsNoTracking()
-                    .Where(p => p.Id == productId)
-                    .Select(p => new ProductEditInputModel()
-                    {
-                        Name = p.Name,
-                        Description = p.Description,
-                        Price = p.Price,
-                        Quantity = p.Quantity,
-                        ImageUrl = p.ImageUrl ?? $"/images/{NoImageUrl}",
-                        CategoryId = p.CategoryId,
-                        Categories = categories
-                    })
-                    .SingleOrDefaultAsync();
-            }
+                Name = productEntity.Name,
+                Description = productEntity.Description,
+                Price = productEntity.Price,
+                Quantity = productEntity.Quantity,
+                ImageUrl = productEntity.ImageUrl ?? $"/images/{NoImageUrl}",
+                CategoryId = productEntity.CategoryId,
+                SubCategoryId = productEntity.SubCategoryId,
+                Categories = categories,
+                SubCategories = subcategories
+            };
 
             return editableProduct;
         }
+
 
         public async Task<bool> EditProductAsync(ProductEditInputModel inputModel)
         {
@@ -150,6 +164,7 @@ namespace EventAgency.Services.Core
             editableProduct.Quantity = inputModel.Quantity;
             editableProduct.Price = inputModel.Price;
             editableProduct.CategoryId = inputModel.CategoryId;
+            editableProduct.SubCategoryId = inputModel.SubCategoryId;
 
             result = await this.productRepository.UpdateAsync(editableProduct);
 
@@ -219,5 +234,6 @@ namespace EventAgency.Services.Core
 
             return product;
         }
+
     }
 }

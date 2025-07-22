@@ -4,6 +4,7 @@ using EventAgencyFinalProject.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EventAgency.Data.Migrations
 {
     [DbContext(typeof(EventAgencyDbContext))]
-    partial class EventAgencyDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250722091433_SeedFirstProducts")]
+    partial class SeedFirstProducts
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -220,15 +223,9 @@ namespace EventAgency.Data.Migrations
                         .HasColumnType("int")
                         .HasComment("Product quantity");
 
-                    b.Property<int?>("SubCategoryId")
-                        .HasColumnType("int")
-                        .HasComment("Product's Subcategory");
-
                     b.HasKey("Id");
 
                     b.HasIndex("CategoryId");
-
-                    b.HasIndex("SubCategoryId");
 
                     b.ToTable("Products", t =>
                         {
@@ -257,28 +254,6 @@ namespace EventAgency.Data.Migrations
                             Name = "Балони металик GEMAR – 12 см Синьо",
                             Price = 10m,
                             Quantity = 20
-                        },
-                        new
-                        {
-                            Id = new Guid("83f1b3af-f580-4913-86a9-94ac941f589d"),
-                            CategoryId = 8,
-                            Description = "Фолиев балон - Емоджи, подходящ за всякакъв вид партита. ",
-                            ImageUrl = "https://slonbalonparty.com/wp-content/uploads/2023/05/53921.jpg",
-                            IsDeleted = false,
-                            Name = "Балон -Емоджи /фолио/",
-                            Price = 3m,
-                            Quantity = 15
-                        },
-                        new
-                        {
-                            Id = new Guid("92bbd767-698f-440f-a98e-92346204bf49"),
-                            CategoryId = 14,
-                            Description = "Надписът ще бъде изработен с име или друг текст по Ваше желание.\r\nТемата и докорациите също могат да бъдат променяни според Вашето жаление.",
-                            ImageUrl = "https://www.party-market.bg/uploads/thumbs/500x500/a1e6dfda92ce84a8f0525bf34f9089f1.jpg",
-                            IsDeleted = false,
-                            Name = "Надпис - Мечета",
-                            Price = 2m,
-                            Quantity = 10
                         });
                 });
 
@@ -502,14 +477,7 @@ namespace EventAgency.Data.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("EventAgency.Data.Models.Category", "SubCategory")
-                        .WithMany()
-                        .HasForeignKey("SubCategoryId")
-                        .OnDelete(DeleteBehavior.Restrict);
-
                     b.Navigation("Category");
-
-                    b.Navigation("SubCategory");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

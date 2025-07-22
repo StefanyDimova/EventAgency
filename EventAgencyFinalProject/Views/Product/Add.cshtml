@@ -1,4 +1,4 @@
-﻿@using EventAgency.Web.ViewModels.Product
+﻿@* @using EventAgency.Web.ViewModels.Product
 @model AddProductInputModel
 
 @{
@@ -63,3 +63,118 @@
         </div>
     </div>
 </div>
+ *@
+
+
+@using EventAgency.Web.ViewModels.Product
+@model AddProductInputModel
+
+@{
+    ViewData["Title"] = "Добавяне на продукт";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-lg rounded-4">
+                <div class="card-header bg-light text-center rounded-top-4">
+                    <h2 class="mb-0 text-dark">Добавяне на продукт</h2>
+                </div>
+                <div class="card-body">
+                    <form asp-action="Add" method="post">
+                        <div class="mb-3">
+                            <label asp-for="Name" class="form-label fw-bold">Име</label>
+                            <input asp-for="Name" class="form-control" placeholder="Име на продукта" />
+                            <span asp-validation-for="Name" class="text-danger small"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="CategoryId" class="form-label fw-bold">Категория</label>
+                            <select asp-for="CategoryId" class="form-select" asp-items="@(new SelectList(Model.Categories, "Id", "Name"))">
+                                <option value="">-- Избери главна категория --</option>
+                            </select>
+                            <span asp-validation-for="CategoryId" class="text-danger small"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="SubCategoryId" class="form-label fw-bold">Подкатегория</label>
+                            <select asp-for="SubCategoryId" class="form-select">
+                                <option value="">-- Моля, изберете категория първо --</option>
+                            </select>
+                            <span asp-validation-for="SubCategoryId" class="text-danger small"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Description" class="form-label fw-bold">Описание</label>
+                            <textarea asp-for="Description" class="form-control" rows="4" placeholder="Описание на продукта..."></textarea>
+                            <span asp-validation-for="Description" class="text-danger small"></span>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="Price" class="form-label fw-bold">Цена</label>
+                                <input asp-for="Price" type="number" step="0.01" class="form-control" />
+                                <span asp-validation-for="Price" class="text-danger small"></span>
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="Quantity" class="form-label fw-bold">Количество</label>
+                                <input asp-for="Quantity" type="number" class="form-control" />
+                                <span asp-validation-for="Quantity" class="text-danger small"></span>
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label asp-for="ImageUrl" class="form-label fw-bold">URL на снимка</label>
+                            <input asp-for="ImageUrl" type="text" class="form-control" placeholder="https://example.com/image.jpg" />
+                            <span asp-validation-for="ImageUrl" class="text-danger small"></span>
+                        </div>
+
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-success px-4 py-2 fw-bold">Добави продукт</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#CategoryId').change(function () {
+                var parentId = $(this).val();
+
+                if (parentId) {
+                    $.ajax({
+                        url: '/Product/GetSubcategories',
+                        type: 'GET',
+                        data: { parentId: parentId },
+                        success: function (subcategories) {
+                            var $subCatSelect = $('#SubCategoryId');
+                            $subCatSelect.empty();
+
+                            if (subcategories.length === 0) {
+                                $subCatSelect.append('<option value="">-- Няма подкатегории --</option>');
+                            } else {
+                                $subCatSelect.append('<option value="">-- Избери подкатегория --</option>');
+                                $.each(subcategories, function (i, subcat) {
+                                    $subCatSelect.append($('<option>', {
+                                        value: subcat.id,
+                                        text: subcat.name
+                                    }));
+                                });
+                            }
+                        },
+                        error: function () {
+                            alert('Възникна грешка при зареждане на подкатегории.');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+}

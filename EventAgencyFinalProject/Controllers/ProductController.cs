@@ -38,21 +38,12 @@ namespace EventAgency.Web.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> ByCategory(int id)
+        public async Task<IActionResult> BySubCategory(int id)
         {
-            try
-            {
-                IEnumerable<AllProductsViewModel> products = await this.productService.GetProductsByCategoryIdAsync(id);
-
-                return this.View("Index", products); // използваме същия изглед като Index
-            }
-            catch (Exception e)
-            {
-                // Може да добавиш логика за логване
-                Console.WriteLine(e.Message);
-                return this.RedirectToAction("Index");
-            }
+            var products = await productService.GetProductsBySubCategoryIdAsync(id);
+            return View("Index", products);
         }
+
 
 
         [HttpGet]
@@ -62,7 +53,8 @@ namespace EventAgency.Web.Controllers
             {
                 AddProductInputModel model = new AddProductInputModel()
                 {
-                    Categories = await this.categoryService.GetCategoriesDropdownDataAsync()
+                    Categories = await this.categoryService.GetCategoriesDropdownDataAsync(),
+                    SubCategories = new List<AddProductCategoryDropDownModel>()
                 };
 
                 return this.View(model);
@@ -74,14 +66,23 @@ namespace EventAgency.Web.Controllers
             }
         }
 
+        [HttpGet]
+        public async Task<JsonResult> GetSubcategories(int parentId)
+        {
+            var subcategories = await categoryService.GetSubCategoriesDropdownDataAsync(parentId);
+            return Json(subcategories);
+        }
+
+
         [HttpPost]
         public async Task<IActionResult> Add(AddProductInputModel inputModel)
         {
             // modelState пази стейта на моделната валидация за този момент
             if (!this.ModelState.IsValid)
             {
-                // пренасочва ни към вюто за създаване 
-                // данните които са били попълнени ще си останат , зашото сме подали inputModel на вюто
+                inputModel.Categories = await this.categoryService.GetCategoriesDropdownDataAsync();
+                inputModel.SubCategories = await this.categoryService.GetSubCategoriesDropdownDataAsync(inputModel.CategoryId);
+
                 return this.View(inputModel);
             }
 
@@ -137,25 +138,32 @@ namespace EventAgency.Web.Controllers
         {
             try
             {
-                ProductEditInputModel? editableProduct = await this.productService
-                    .GetEditableProductByIdAsync(id);
+                ProductEditInputModel? editableProduct = await this.productService.GetEditableProductByIdAsync(id);
                 if (editableProduct == null)
                 {
-                    // TODO: Custom 404 page
                     return this.RedirectToAction(nameof(Index));
+                }
+
+                editableProduct.Categories = await categoryService.GetCategoriesDropdownDataAsync();
+
+                if (editableProduct.CategoryId != 0)
+                {
+                    editableProduct.SubCategories = await categoryService.GetSubCategoriesDropdownDataAsync(editableProduct.CategoryId);
+                }
+                else
+                {
+                    editableProduct.SubCategories = new List<AddProductCategoryDropDownModel>();
                 }
 
                 return this.View(editableProduct);
             }
             catch (Exception e)
             {
-                // TODO: Implement it with the ILogger
-                // TODO: Add JS bars to indicate such errors
                 Console.WriteLine(e.Message);
-
                 return this.RedirectToAction(nameof(Index));
             }
         }
+
 
 
         [HttpPost]
@@ -163,6 +171,15 @@ namespace EventAgency.Web.Controllers
         {
             if (!this.ModelState.IsValid)
             {
+                inputModel.Categories = await categoryService.GetCategoriesDropdownDataAsync();
+                if (inputModel.CategoryId != 0)
+                {
+                    inputModel.SubCategories = await categoryService.GetSubCategoriesDropdownDataAsync(inputModel.CategoryId);
+                }
+                else
+                {
+                    inputModel.SubCategories = new List<AddProductCategoryDropDownModel>();
+                }
                 return this.View(inputModel);
             }
 
@@ -171,7 +188,6 @@ namespace EventAgency.Web.Controllers
                 bool editSuccess = await this.productService.EditProductAsync(inputModel);
                 if (!editSuccess)
                 {
-                    // TODO: Custom 404 page
                     return this.RedirectToAction(nameof(Index));
                 }
 
@@ -180,15 +196,11 @@ namespace EventAgency.Web.Controllers
             }
             catch (Exception e)
             {
-                // TODO: Implement it with the ILogger
-                // TODO: Add JS bars to indicate such errors
                 Console.WriteLine(e.Message);
-
                 return this.RedirectToAction(nameof(Index));
             }
-
-
         }
+
 
         [HttpGet]
         public async Task<IActionResult> Delete(string? id)

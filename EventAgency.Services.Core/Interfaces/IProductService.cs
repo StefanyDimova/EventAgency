@@ -13,7 +13,7 @@ namespace EventAgency.Services.Core.Interfaces
 
         Task<IEnumerable<AllProductsViewModel>> GetAllProductsAsync();
 
-        Task<IEnumerable<AllProductsViewModel>> GetProductsByCategoryIdAsync(int categoryId);
+        Task<IEnumerable<AllProductsViewModel>> GetProductsBySubCategoryIdAsync(int subCategoryId);
 
         Task<ProductDetailsViewModel> GetProductDetailsByIdAsync(string? id);
 

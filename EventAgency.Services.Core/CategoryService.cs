@@ -73,6 +73,7 @@ namespace EventAgency.Services.Core
         {
             IEnumerable<AddProductCategoryDropDownModel> categoriesDropDown = await this.categoryRepository
                 .GetAllAttached()
+                .Where(c => c.ParentCategoryId == null)
                 .Select(t => new AddProductCategoryDropDownModel()
                 {
                     Id = t.Id,
@@ -81,6 +82,22 @@ namespace EventAgency.Services.Core
                 .ToArrayAsync();
 
             return categoriesDropDown;
+        }
+
+        public async Task<IEnumerable<AddProductCategoryDropDownModel>> GetSubCategoriesDropdownDataAsync(int parentCategoryId)
+        {
+
+            IEnumerable<AddProductCategoryDropDownModel> subCategoriesDropDown = await this.categoryRepository
+                .GetAllAttached()
+                .Where(c => c.ParentCategoryId == parentCategoryId)
+                .Select(subcategory => new AddProductCategoryDropDownModel()
+                {
+                    Id= subcategory.Id,
+                    Name = subcategory.Name,
+                })
+                .ToArrayAsync();
+
+            return subCategoriesDropDown;
         }
     }
 }

@@ -32,5 +32,11 @@ namespace EventAgency.Web.ViewModels.Product
         public int CategoryId { get; set; }
 
         public IEnumerable<AddProductCategoryDropDownModel>? Categories { get; set; }
+
+        public IEnumerable<AddProductCategoryDropDownModel>? SubCategories { get; set; }
+
+        [Required]
+        public int? SubCategoryId { get; set; }
+
     }
 }

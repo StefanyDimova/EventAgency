@@ -25,6 +25,10 @@ namespace EventAgency.Data.Models
         public int CategoryId { get; set; }
         public virtual Category Category { get; set; } = null!;
 
+        [Comment("Product's Subcategory")]
+        public int? SubCategoryId { get; set; }
+        public virtual Category? SubCategory { get; set; }
+
         [Comment("Product image url from the image store")]
         public string? ImageUrl { get; set; }
 

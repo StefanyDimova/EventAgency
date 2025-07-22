@@ -34,7 +34,7 @@
                                     @foreach (var sub in category.SubCategories)
                                     {
                                         <li class="list-group-item">
-                                            <a asp-controller="Product" asp-action="ByCategory" asp-route-id="@sub.Id">
+                                            <a asp-controller="Product" asp-action="BySubCategory" asp-route-id="@sub.Id">
                                                 @sub.Name
                                             </a>
                                         </li>
