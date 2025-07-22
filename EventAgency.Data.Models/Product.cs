@@ -34,5 +34,8 @@ namespace EventAgency.Data.Models
 
         [Comment("Shows if Product is deleted")]
         public bool IsDeleted { get; set; }
+
+        public virtual ICollection<ApplicationUserProduct> UserCart { get; set; }
+            = new HashSet<ApplicationUserProduct>();
     }
 }
