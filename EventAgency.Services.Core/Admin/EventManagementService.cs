@@ -1,4 +1,5 @@
-﻿using EventAgency.Data.Repository.Interfaces;
+﻿using EventAgency.Data.Models;
+using EventAgency.Data.Repository.Interfaces;
 using EventAgency.Services.Core.Admin.Interfaces;
 using EventAgency.Web.ViewModels.Admin.EventManagement;
 using EventAgency.Web.ViewModels.Event;
@@ -32,9 +33,16 @@ namespace EventAgency.Services.Core.Admin
 
             return allEvents;
         }
-        public Task<bool> AddEventAsync(EventFormInputModel? inputModel)
+        public async Task AddEventAsync(EventFormInputModel inputModel)
         {
-            throw new NotImplementedException();
+            Event newEvent = new Event()
+            {
+                Name = inputModel.Name,
+                Description = inputModel.Description,
+                ImageUrl = inputModel.ImageUrl
+            };
+
+            await this.eventRepository.AddAsync(newEvent);
         }
 
         public Task<Tuple<bool, bool>> DeleteOrRestoreEventAsync(string? id)
