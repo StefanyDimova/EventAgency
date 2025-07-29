@@ -540,9 +540,49 @@ p {
 }
 
 
+/* Search and filter */
 
 
+/* Основен контейнер за филтри и търсене */
+.row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
 
+/* Контейнер за търсачката */
+#searchBar {
+    width: 100%; /* Разширяваме търсачката да заема целия контейнер */
+    margin-bottom: 20px;
+}
+
+/* Контейнер за филтрите (десния ъгъл) */
+#filterContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-right: 20px;
+}
+
+/* Филтри за ценови диапазон */
+#minPrice, #maxPrice {
+    width: 100%;
+}
+
+/* За филтър по категория */
+#categoryFilter {
+    width: 100%;
+}
+
+/* Подравняване на картите за продуктите */
+#productList {
+    margin-top: 30px;
+}
+
+/* Разстояние между картите */
+.product-card {
+    margin-bottom: 20px;
+}
 
 
 
