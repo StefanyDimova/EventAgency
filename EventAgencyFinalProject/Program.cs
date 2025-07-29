@@ -66,6 +66,8 @@ namespace EventAgencyFinalProject
 
             app.UseAuthorization();
 
+            app.UseAdminRedirection();
+
             app.MapControllerRoute(
                 name: "areas",
                 pattern: "{area}/{controller=Home}/{action=Index}/{id?}");
