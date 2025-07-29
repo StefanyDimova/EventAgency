@@ -12,7 +12,7 @@ namespace EventAgency.Services.Core.Admin.Interfaces
     {
         Task<IEnumerable<EventManagementIndexViewModel>> GetAllEventsDataAsync();
 
-        Task<bool> AddEventAsync(EventFormInputModel? inputModel);
+        Task AddEventAsync(EventFormInputModel inputModel);
 
         Task<EventFormInputModel?> GetEventEditFormModelAsync(string? id);
 
