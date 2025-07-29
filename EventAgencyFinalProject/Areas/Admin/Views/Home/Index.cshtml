@@ -1,0 +1,59 @@
+﻿<div class="container mt-5">
+    <div class="text-center">
+        <h1 class="display-4 mb-3 text-warning fw-bold">Добре дошли в Админ панела</h1>
+        <p class="lead mb-5 text-light">Управлявайте приложението с помощта на секциите по-долу:</p>
+    </div>
+
+    <div class="row g-4">
+        <!-- Управление на потребители -->
+        <div class="col-md-4">
+            <div class="card shadow-lg border-0 bg-light text-dark rounded-3 h-100">
+                <div class="card-body d-flex flex-column align-items-center text-center">
+                    <i class="bi bi-person-fill text-warning display-3 mb-3"></i>
+                    <h5 class="card-title fw-bold">Управление на потребители</h5>
+                    <p class="card-text text-muted">Добавете, редактирайте или премахвайте потребители и задавайте роли.</p>
+                    <div class="mt-auto w-100">
+                        <a asp-area="Admin" asp-controller="UserManagement" asp-action="Index"
+                           class="btn btn-warning fw-bold shadow-sm w-100 py-2">
+                            <i class="bi bi-person-badge-fill"></i> Отидете на потребители
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Управление на събития -->
+        <div class="col-md-4">
+            <div class="card shadow-lg border-0 bg-light text-dark rounded-3 h-100">
+                <div class="card-body d-flex flex-column align-items-center text-center">
+                    <i class="bi bi-calendar-event text-primary display-3 mb-3"></i>
+                    <h5 class="card-title fw-bold">Управление на събития</h5>
+                    <p class="card-text text-muted">Създавайте, актуализирайте и изтривайте събития.</p>
+                    <div class="mt-auto w-100">
+                        <a asp-area="Admin" asp-controller="EventManagement" asp-action="Manage"
+                           class="btn btn-primary fw-bold shadow-sm w-100 py-2">
+                            <i class="bi bi-calendar-check-fill"></i> Отидете на събития
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Управление на продукти -->
+        <div class="col-md-4">
+            <div class="card shadow-lg border-0 bg-light text-dark rounded-3 h-100">
+                <div class="card-body d-flex flex-column align-items-center text-center">
+                    <i class="bi bi-gear-fill text-danger display-3 mb-3"></i>
+                    <h5 class="card-title fw-bold">Управление на продукти</h5>
+                    <p class="card-text text-muted">Добавяйте нови продукти, редактирайте подробности или ги премахвайте.</p>
+                    <div class="mt-auto w-100">
+                        <a asp-area="Admin" asp-controller="ProductManagement" asp-action="Manage"
+                           class="btn btn-danger fw-bold shadow-sm w-100 py-2">
+                            <i class="bi bi-box-arrow-in-down-right"></i> Отидете на продукти
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -7,8 +7,7 @@
 
         public const string userRoleName = "User";
         public const string adminRoleName = "Admin";
-
-        public const string testUserEmail = "testUser@eventApp.com";
+        public const string adminAreaName = "Admin";
 
     }
 }
