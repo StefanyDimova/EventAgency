@@ -26,16 +26,7 @@ namespace EventAgencyFinalProject
 
             builder.Services.AddDefaultIdentity<IdentityUser>(options =>
             {
-                options.SignIn.RequireConfirmedEmail = false;
-                options.SignIn.RequireConfirmedAccount = false;
-                options.SignIn.RequireConfirmedPhoneNumber = false;
-
-                options.Password.RequiredLength = 3;
-                options.Password.RequireNonAlphanumeric = false;
-                options.Password.RequireDigit = false;
-                options.Password.RequireLowercase = false;
-                options.Password.RequireUppercase = false;
-                options.Password.RequiredUniqueChars = 0;
+                ConfigureIdentity(builder.Configuration, options);
             })
                 .AddEntityFrameworkStores<EventAgencyDbContext>();
 
@@ -76,6 +67,29 @@ namespace EventAgencyFinalProject
             app.MapRazorPages();
 
             app.Run();
+        }
+
+        private static void ConfigureIdentity(IConfigurationManager configurationManager, IdentityOptions identityOptions)
+        {
+            identityOptions.SignIn.RequireConfirmedEmail =
+                configurationManager.GetValue<bool>($"IdentityConfiguration:SignIn:RequireConfirmedEmail");
+            identityOptions.SignIn.RequireConfirmedAccount =
+                configurationManager.GetValue<bool>($"IdentityConfiguration:SignIn:RequireConfirmedAccount");
+            identityOptions.SignIn.RequireConfirmedPhoneNumber =
+                configurationManager.GetValue<bool>($"IdentityConfiguration:SignIn:RequireConfirmedPhoneNumber");
+
+            identityOptions.Password.RequiredLength =
+                configurationManager.GetValue<int>($"IdentityConfiguration:Password:RequiredLength");
+            identityOptions.Password.RequireNonAlphanumeric =
+                configurationManager.GetValue<bool>($"IdentityConfiguration:Password:RequireNonAlphanumeric");
+            identityOptions.Password.RequireDigit =
+                configurationManager.GetValue<bool>($"IdentityConfiguration:Password:RequireDigit");
+            identityOptions.Password.RequireLowercase =
+                configurationManager.GetValue<bool>($"IdentityConfiguration:Password:RequireLowercase");
+            identityOptions.Password.RequireUppercase =
+                configurationManager.GetValue<bool>($"IdentityConfiguration:Password:RequireUppercase");
+            identityOptions.Password.RequiredUniqueChars =
+                configurationManager.GetValue<int>($"IdentityConfiguration:Password:RequiredUniqueChars");
         }
     }
 }
