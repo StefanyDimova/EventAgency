@@ -45,19 +45,6 @@ namespace EventAgency.Services.Core
             return allEvents;
         }
 
-
-        public async Task AddEventAsync(EventFormInputModel inputModel)
-        {
-            Event newEvent = new Event()
-            {
-                Name = inputModel.Name,
-                Description = inputModel.Description,
-                ImageUrl = inputModel.ImageUrl
-            };
-
-            await this.eventRepository.AddAsync(newEvent);
-        }
-
         public async Task<DetailsEventViewModel> GetEventDetailsByIdAsync(string? id)
         {
             DetailsEventViewModel? eventDetails = null;

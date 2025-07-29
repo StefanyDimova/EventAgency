@@ -11,8 +11,6 @@ namespace EventAgency.Services.Core.Interfaces
     {
         Task<IEnumerable<AllEventsViewModel>> GetAllEventsAsync();
 
-        Task AddEventAsync(EventFormInputModel inputModel);
-
         Task<DetailsEventViewModel> GetEventDetailsByIdAsync(string? id);
 
         Task<EventFormInputModel?> GetEditableEventByIdAsync(string? id);

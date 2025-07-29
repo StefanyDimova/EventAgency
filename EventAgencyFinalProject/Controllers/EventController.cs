@@ -27,35 +27,6 @@ namespace EventAgency.Web.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Add()
-        {
-            return this.View();
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> Add(EventFormInputModel inputModel)
-        {
-            if (!this.ModelState.IsValid)
-            {
-                return this.View(inputModel);
-            }
-
-            try
-            {
-                await this.eventService.AddEventAsync(inputModel);
-                return this.RedirectToAction(nameof(Index));
-            }
-            catch (Exception e)
-            {
-                // TODO: Implement it with the ILogger
-                Console.WriteLine(e.Message);
-
-                this.ModelState.AddModelError(string.Empty, ServiceCreateError);
-                return this.View(inputModel);
-            }
-        }
-
-        [HttpGet]
         [AllowAnonymous]
         public async Task<IActionResult> Details(string? id)
         {
