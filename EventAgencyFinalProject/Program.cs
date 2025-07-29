@@ -4,6 +4,8 @@ using Microsoft.EntityFrameworkCore;
 using EventAgency.Web.Infrastructure.Extensions;
 using EventAgency.Data.Repository.Interfaces;
 using EventAgency.Services.Core.Interfaces;
+using EventAgency.Data.Seeding.Interfaces;
+using EventAgency.Data.Seeding;
 
 namespace EventAgencyFinalProject
 {
@@ -28,12 +30,14 @@ namespace EventAgencyFinalProject
             {
                 ConfigureIdentity(builder.Configuration, options);
             })
+                .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<EventAgencyDbContext>();
 
 
 
             builder.Services.AddRepositories(typeof(IEventRepository).Assembly);
             builder.Services.AddUserDefinedServices(typeof(IEventService).Assembly);
+            builder.Services.AddTransient<IIdentitySeeder, IdentitySeeder>();
 
             builder.Services.AddRazorPages();
             builder.Services.AddControllersWithViews();
@@ -58,6 +62,7 @@ namespace EventAgencyFinalProject
             app.UseStaticFiles();
 
             app.UseRouting();
+            app.SeedDefaultIdentity();
 
             app.UseAuthorization();
 
