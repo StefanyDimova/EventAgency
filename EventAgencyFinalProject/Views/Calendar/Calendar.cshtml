@@ -1,0 +1,268 @@
+﻿<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Calendar</title>
+
+    <!-- Зареждаме CSS за jQuery UI Datepicker -->
+    <link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet">
+
+    <!-- Зареждаме jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Зареждаме jQuery UI (за Datepicker) -->
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+
+    <style>
+        /* Контейнер за календара */
+        .calendar-container {
+            width: 80%;
+            max-width: 900px;
+            margin: 0 auto;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .calendar-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        button {
+            background-color: #f0f0f0;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+            button:hover {
+                background-color: #ddd;
+            }
+
+        .days-of-week {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            margin-top: 10px;
+        }
+
+        .day {
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .calendar-days {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 5px;
+            margin-top: 10px;
+        }
+
+        .calendar-day {
+            width: 40px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+            .calendar-day:hover {
+                background-color: #ddd;
+            }
+
+            .calendar-day.empty {
+                background-color: #f0f0f0;
+            }
+
+            /* Добавяне на клас за избраната дата */
+            .calendar-day.selected {
+                background-color: red;
+                color: white;
+            }
+
+        #reservationForm {
+            width: 100%;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            display: none;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 5px 15px;
+            cursor: pointer;
+        }
+
+            .btn-primary:hover {
+                background-color: #0056b3;
+            }
+    </style>
+</head>
+<body>
+
+    <div class="calendar-container">
+        <div class="calendar-header">
+            <button class="prev-month">&#8249;</button>
+            <h2 class="calendar-title">Януари 2022</h2>
+            <button class="next-month">&#8250;</button>
+        </div>
+
+        <div class="calendar-body">
+            <div class="days-of-week">
+                <div class="day">Пон</div>
+                <div class="day">Вто</div>
+                <div class="day">Сря</div>
+                <div class="day">Чет</div>
+                <div class="day">Пет</div>
+                <div class="day">Съб</div>
+                <div class="day">Нед</div>
+            </div>
+
+            <div class="calendar-days">
+                <!-- Дните от месеца ще бъдат добавени тук -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Форма за резервация -->
+    <div id="reservationForm">
+        <h3>Reserve Event</h3>
+        <form>
+            <div class="form-group">
+                <label for="eventDate">Event Date</label>
+                <input type="text" class="form-control" id="eventDate" readonly />
+            </div>
+            <div class="form-group">
+                <label for="eventType">Event Type</label>
+                <input type="text" class="form-control" id="eventType" placeholder="Enter event type" />
+            </div>
+            <button type="submit" class="btn btn-primary">Reserve</button>
+        </form>
+    </div>
+
+    <script>
+        // Масив с имената на месеците
+        const months = ['Януари', 'Февруари', 'Март', 'Април', 'Май', 'Юни', 'Юли', 'Август', 'Септември', 'Октомври', 'Ноември', 'Декември'];
+
+        // Начална дата
+        let currentDate = new Date();
+        let selectedDate = null;
+
+        // Функция за рендиране на календар
+        function renderCalendar() {
+            const month = currentDate.getMonth();
+            const year = currentDate.getFullYear();
+            document.querySelector('.calendar-title').textContent = `${months[month]} ${year}`;
+
+            const firstDay = new Date(year, month, 1);
+            const lastDay = new Date(year, month + 1, 0);
+
+            const firstDayOfWeek = firstDay.getDay();
+            const lastDate = lastDay.getDate();
+
+            document.querySelector('.calendar-days').innerHTML = '';
+
+            for (let i = 0; i < firstDayOfWeek; i++) {
+                const emptyDay = document.createElement('div');
+                emptyDay.classList.add('calendar-day', 'empty');
+                document.querySelector('.calendar-days').appendChild(emptyDay);
+            }
+
+            for (let i = 1; i <= lastDate; i++) {
+                const dayElement = document.createElement('div');
+                dayElement.classList.add('calendar-day');
+                dayElement.textContent = i;
+
+                // Премахваме оцветяването при кликване
+                dayElement.classList.remove('selected');
+
+                        dayElement.addEventListener('click', () => {
+            // Създаваме нов обект Date
+            let selectedDate = new Date(year, month, i);
+
+            // Форматираме датата в формат YYYY-MM-DD
+            let formattedDate = selectedDate.toISOString().split('T')[0];
+
+            $('#eventDate').val(formattedDate); // Попълваме избраната дата в input полето
+            $('#reservationForm').show(); // Показваме формата за резервация
+        });
+
+
+                document.querySelector('.calendar-days').appendChild(dayElement);
+            }
+        }
+
+        renderCalendar();
+
+        document.querySelector('.prev-month').addEventListener('click', () => {
+            currentDate.setMonth(currentDate.getMonth() - 1);
+            renderCalendar();
+        });
+
+        document.querySelector('.next-month').addEventListener('click', () => {
+            currentDate.setMonth(currentDate.getMonth() + 1);
+            renderCalendar();
+        });
+
+        $('#reservationForm').on('submit', function (e) {
+            e.preventDefault();
+
+            var eventDate = $('#eventDate').val();
+            var eventType = $('#eventType').val();
+
+            if (!eventDate || !eventType) {
+                alert("Моля, попълнете всички полета!");
+                return;
+            }
+
+            console.log(eventDate, eventType); // Проверка на стойностите
+
+            $.ajax({
+                url: '/api/eventreservationrequests',
+                method: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({
+                    requestedDate: eventDate,
+                    eventType: eventType
+                }),
+                success: function (response) {
+                    alert('Event reserved successfully!');
+                    $('#reservationForm').hide();
+                },
+                error: function (xhr, status, error) {
+                    console.log(xhr.responseText);  // Показваме подробности за грешката
+                    alert('Error while reserving the event: ' + error);
+                }
+            });
+        });
+
+    </script>
+</body>
+</html>

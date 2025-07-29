@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.16">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EventAgency.Data\EventAgency.Data.csproj" />
+    <ProjectReference Include="..\EventAgency.Services.Core\EventAgency.Services.Core.csproj" />
+    <ProjectReference Include="..\EventAgency.Web.Infrastructure\EventAgency.Web.Infrastructure.csproj" />
+    <ProjectReference Include="..\EventAgency.Web.ViewModels\EventAgency.Web.ViewModels.csproj" />
+    <ProjectReference Include="..\EventAgencyFinalProject.GCommon\EventAgency.GCommon.csproj" />
+  </ItemGroup>
+
+</Project>
