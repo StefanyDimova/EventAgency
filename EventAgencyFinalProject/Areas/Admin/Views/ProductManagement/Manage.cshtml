@@ -1,0 +1,85 @@
+﻿@using EventAgency.Web.ViewModels.Admin.ProductManagement
+@model IEnumerable<ProductManagementIndexViewModel>
+
+@{
+    ViewData["Title"] = "Управление на продукти";
+}
+
+<div class="container mt-4">
+    <h1 class="text-center text-warning fw-bold">Управление на продукти</h1>
+    <p class="text-center text-muted">Преглеждай, редактирай или изтривай продуктови записи.</p>
+
+    <div class="d-flex justify-content-between mb-3">
+        <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="btn btn-secondary fw-bold">
+            <i class="bi bi-arrow-left"></i> Назад към таблото
+        </a>
+        <a asp-area="Admin" asp-action="Create" class="btn btn-success fw-bold shadow-lg">
+            <i class="bi bi-plus-circle"></i> Добави нов продукт
+        </a>
+    </div>
+
+    @if (!Model.Any())
+    {
+        <div class="alert alert-info text-center" role="alert">
+            <i class="bi bi-exclamation-circle"></i> Няма налични продукти. Кликни на "Добави нов продукт", за да създадеш такъв.
+        </div>
+    }
+    else
+    {
+        <div class="table-responsive">
+            <table class="table table-dark table-hover shadow-lg rounded-3">
+                <thead class="thead-light">
+                    <tr class="text-warning text-center">
+                        <th scope="col">Снимка</th>
+                        <th scope="col">Име на продукта</th>
+                        <th scope="col">Категория</th>
+                        <th scope="col">Подкатегория</th>
+                        <th scope="col">Цена</th>
+                        <th scope="col">Количество</th>
+                        <th scope="col">Действия</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var product in Model)
+                    {
+                        <tr class="align-middle text-center @(product.IsDeleted ? "table-danger" : "")">
+                            <td>
+                                @if (!string.IsNullOrEmpty(product.ImageUrl))
+                                {
+                                    <img src="@product.ImageUrl" alt="Product Image" style="max-width: 100px; max-height: 100px; object-fit: cover;" />
+                                }
+                                else
+                                {
+                                    <span>Без снимка</span>
+                                }
+                            </td>
+                            <td class="fw-bold">
+                                @product.Name
+                                @if (product.IsDeleted)
+                                {
+                                    <span class="badge bg-danger ms-2">Изтрит</span>
+                                }
+                            </td>
+                            <td>@product.Category</td>
+                            <td>@(product.SubCategory ?? "Няма подкатегория")</td>
+                            <td>@product.Price</td>
+                            <td>@product.Quantity</td>
+                            <td>
+                                <div class="d-flex justify-content-center gap-2">
+                                    <a asp-area="Admin" asp-action="Edit" asp-route-id="@product.Id" class="btn btn-primary btn-sm fw-bold">
+                                        <i class="bi bi-pencil-square"></i> Редактирай
+                                    </a>
+
+                                    <a asp-area="Admin" asp-action="ToggleDelete" asp-route-id="@product.Id" class="btn @(product.IsDeleted ? "btn-warning" : "btn-danger") btn-sm fw-bold">
+                                        <i class="bi @(product.IsDeleted ? "bi-arrow-clockwise" : "bi-trash")"></i>
+                                        @(product.IsDeleted ? "Възстанови" : "Изтрий")
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+</div>

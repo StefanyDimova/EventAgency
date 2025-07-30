@@ -24,15 +24,6 @@ namespace EventAgency.Web.Controllers
             IEnumerable<AllProductsViewModel> allProducts = await this.productService
                 .GetAllProductsAsync();
 
-            //if (this.isUserAuthenticated())
-            //{
-            //    foreach (AllProductsViewModel productIndexVM in allProducts)
-            //    {
-            //        productIndexVM.IsAddedToCart = await this.watchlistService
-            //            .IsMovieAddedToWatchlist(movieIndexVM.Id, this.GetUserId());
-            //    }
-            //}
-
 
             return View(allProducts);
         }
