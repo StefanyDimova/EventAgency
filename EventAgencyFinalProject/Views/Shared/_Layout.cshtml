@@ -43,9 +43,6 @@
                             @if (User.IsInRole("Admin"))
                             {
                                 <li class="nav-item"><a class="nav-link text-white" asp-area="Admin" asp-controller="Home" asp-action="Index">Табло за управление</a></li>
-                                <li class="nav-item"><a class="nav-link text-white" asp-area="Admin" asp-controller="UserManagement" asp-action="Index">Управление на потребители</a></li>
-                                <li class="nav-item"><a class="nav-link text-white" asp-area="Admin" asp-controller="EventManagement" asp-action="Manage">Управление на събития</a></li>
-                                <li class="nav-item"><a class="nav-link text-white" asp-area="Admin" asp-controller="ProductManagement" asp-action="Manage">Управление на продукти</a></li>
                             }
                             else
                             {

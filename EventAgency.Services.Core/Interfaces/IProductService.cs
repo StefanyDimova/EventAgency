@@ -1,4 +1,5 @@
-﻿using EventAgency.Web.ViewModels.Product;
+﻿using EventAgency.Web.ViewModels.Admin.ProductManagement;
+using EventAgency.Web.ViewModels.Product;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,6 @@ namespace EventAgency.Services.Core.Interfaces
 {
     public interface IProductService
     {
-        Task AddProductAsync(AddProductInputModel inputModel);
 
         Task<IEnumerable<AllProductsViewModel>> GetAllProductsAsync();
 

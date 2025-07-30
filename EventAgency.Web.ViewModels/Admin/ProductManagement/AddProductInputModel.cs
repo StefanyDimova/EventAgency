@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.ComponentModel.DataAnnotations;
 
-namespace EventAgency.Web.ViewModels.Product
+namespace EventAgency.Web.ViewModels.Admin.ProductManagement
 {
     public class AddProductInputModel
     {

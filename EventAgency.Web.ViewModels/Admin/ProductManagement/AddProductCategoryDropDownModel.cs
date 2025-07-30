@@ -1,4 +1,4 @@
-﻿namespace EventAgency.Web.ViewModels.Product
+﻿namespace EventAgency.Web.ViewModels.Admin.ProductManagement
 {
     public class AddProductCategoryDropDownModel
     {

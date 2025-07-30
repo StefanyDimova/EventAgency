@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EventAgency.Web.ViewModels.Product
+namespace EventAgency.Web.ViewModels.Admin.ProductManagement
 {
     public class ProductEditInputModel
     {

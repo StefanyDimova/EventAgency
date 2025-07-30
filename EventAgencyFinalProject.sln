@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36127.28 d17.14
+VisualStudioVersion = 17.14.36127.28
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventAgency.Web", "EventAgencyFinalProject\EventAgency.Web.csproj", "{AB14965E-2C28-4BF6-AAE8-E9A0B054E8DC}"
 EndProject
@@ -28,6 +28,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventAgency.Web.Infrastructure", "EventAgency.Web.Infrastructure\EventAgency.Web.Infrastructure.csproj", "{07B32690-F041-44BC-AF06-A5EFCD824937}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventAgency.Web.ViewModels", "EventAgency.Web.ViewModels\EventAgency.Web.ViewModels.csproj", "{F77CD8C6-FF48-4329-A799-A9FE1D65A0F8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventAgency.WebApi", "EventAgency.WebApi\EventAgency.WebApi.csproj", "{15F296F7-95BE-4C8E-9CA0-D6B49C0BAF04}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -71,6 +73,10 @@ Global
 		{F77CD8C6-FF48-4329-A799-A9FE1D65A0F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F77CD8C6-FF48-4329-A799-A9FE1D65A0F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F77CD8C6-FF48-4329-A799-A9FE1D65A0F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{15F296F7-95BE-4C8E-9CA0-D6B49C0BAF04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15F296F7-95BE-4C8E-9CA0-D6B49C0BAF04}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15F296F7-95BE-4C8E-9CA0-D6B49C0BAF04}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15F296F7-95BE-4C8E-9CA0-D6B49C0BAF04}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -84,6 +90,7 @@ Global
 		{D5B527B3-D8F0-494F-B25B-DC933A5D4547} = {2BA54D40-8BB4-4B49-95C1-FC1924D334FC}
 		{07B32690-F041-44BC-AF06-A5EFCD824937} = {2482A051-79D7-4D6E-A96D-6F7161C990B0}
 		{F77CD8C6-FF48-4329-A799-A9FE1D65A0F8} = {2482A051-79D7-4D6E-A96D-6F7161C990B0}
+		{15F296F7-95BE-4C8E-9CA0-D6B49C0BAF04} = {2482A051-79D7-4D6E-A96D-6F7161C990B0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {58BA3E52-7C22-46D8-A915-FC2036029766}

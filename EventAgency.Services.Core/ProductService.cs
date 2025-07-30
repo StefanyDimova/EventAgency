@@ -1,6 +1,7 @@
 ﻿using EventAgency.Data.Models;
 using EventAgency.Data.Repository.Interfaces;
 using EventAgency.Services.Core.Interfaces;
+using EventAgency.Web.ViewModels.Admin.ProductManagement;
 using EventAgency.Web.ViewModels.Product;
 using Microsoft.EntityFrameworkCore;
 
@@ -18,21 +19,6 @@ namespace EventAgency.Services.Core
         {
             this.productRepository = productRepository;
             this.categoryService = categoryService;
-        }
-        public async Task AddProductAsync(AddProductInputModel inputModel)
-        {
-            Product newProduct = new Product()
-            {
-                Name = inputModel.Name,
-                Description = inputModel.Description,
-                ImageUrl = inputModel.ImageUrl,
-                Price = inputModel.Price,
-                Quantity = inputModel.Quantity,
-                CategoryId = inputModel.CategoryId,
-                SubCategoryId = inputModel.SubCategoryId
-            };
-
-            await this.productRepository.AddAsync(newProduct);
         }
 
         public async Task<IEnumerable<AllProductsViewModel>> GetAllProductsAsync()

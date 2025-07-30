@@ -1,8 +1,8 @@
 ﻿using EventAgency.Data.Models;
 using EventAgency.Data.Repository.Interfaces;
 using EventAgency.Services.Core.Interfaces;
+using EventAgency.Web.ViewModels.Admin.ProductManagement;
 using EventAgency.Web.ViewModels.Category;
-using EventAgency.Web.ViewModels.Product;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 
