@@ -1,5 +1,6 @@
 using System.Diagnostics;
 using EventAgencyFinalProject.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EventAgencyFinalProject.Controllers
@@ -18,6 +19,7 @@ namespace EventAgencyFinalProject.Controllers
             return View();
         }
 
+        [AllowAnonymous]
         public IActionResult About()
         {
             return View();

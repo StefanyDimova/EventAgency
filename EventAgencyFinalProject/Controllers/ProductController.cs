@@ -19,7 +19,7 @@ namespace EventAgency.Web.Controllers
         }
 
         [HttpGet]
-
+        [AllowAnonymous]
         public async Task<IActionResult> Index()
         {
             IEnumerable<AllProductsViewModel> allProducts = await this.productService
@@ -30,6 +30,7 @@ namespace EventAgency.Web.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public async Task<IActionResult> BySubCategory(int id)
         {
             var products = await productService.GetProductsBySubCategoryIdAsync(id);
@@ -37,6 +38,7 @@ namespace EventAgency.Web.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public async Task<JsonResult> GetSubcategories(int parentId)
         {
             var subcategories = await categoryService.GetSubCategoriesDropdownDataAsync(parentId);
