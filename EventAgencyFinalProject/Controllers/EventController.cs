@@ -52,60 +52,6 @@ namespace EventAgency.Web.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Edit(string? id)
-        {
-            try
-            {
-                EventFormInputModel? editableEvent = await this.eventService
-                    .GetEditableEventByIdAsync(id);
-                if (editableEvent == null)
-                {
-                    // TODO: Custom 404 page
-                    return this.RedirectToAction(nameof(Index));
-                }
-
-                return this.View(editableEvent);
-            }
-            catch (Exception e)
-            {
-                // TODO: Implement it with the ILogger
-                // TODO: Add JS bars to indicate such errors
-                Console.WriteLine(e.Message);
-
-                return this.RedirectToAction(nameof(Index));
-            }
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> Edit(EventFormInputModel inputModel)
-        {
-            if (!this.ModelState.IsValid)
-            {
-                return this.View(inputModel);
-            }
-
-            try
-            {
-                bool editSuccess = await this.eventService.EditEventAsync(inputModel);
-                if (!editSuccess)
-                {
-                    // TODO: Custom 404 page
-                    return this.RedirectToAction(nameof(Index));
-                }
-
-                return this.RedirectToAction(nameof(Details), new { id = inputModel.Id });
-            }
-            catch (Exception e)
-            {
-                // TODO: Implement it with the ILogger
-                // TODO: Add JS bars to indicate such errors
-                Console.WriteLine(e.Message);
-
-                return this.RedirectToAction(nameof(Index));
-            }
-        }
-
-        [HttpGet]
         public async Task<IActionResult> Delete(string? id)
         {
             try

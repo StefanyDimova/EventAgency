@@ -13,10 +13,6 @@ namespace EventAgency.Services.Core.Interfaces
 
         Task<DetailsEventViewModel> GetEventDetailsByIdAsync(string? id);
 
-        Task<EventFormInputModel?> GetEditableEventByIdAsync(string? id);
-
-        Task<bool> EditEventAsync(EventFormInputModel inputModel);
-
         Task<bool> SoftDeleteEventAsync(string? id);
         Task<bool> DeleteEventAsync(string? id);
         Task<DeleteEventViewModel?> GetEventDeleteDetailsByIdAsync(string? id);

@@ -70,48 +70,6 @@ namespace EventAgency.Services.Core
             return eventDetails;
         }
 
-        public async Task<EventFormInputModel?> GetEditableEventByIdAsync(string? id)
-        {
-            EventFormInputModel? editableEvent = null;
-
-            bool isIdValidGuid = Guid.TryParse(id, out Guid eventId);
-            if (isIdValidGuid)
-            {
-                editableEvent = await this.eventRepository
-                    .GetAllAttached()
-                    .AsNoTracking()
-                    .Where(e => e.Id == eventId)
-                    .Select(e => new EventFormInputModel()
-                    {
-                        Name = e.Name,
-                        Description = e.Description,
-                        ImageUrl = e.ImageUrl ?? $"/images/{NoImageUrl}"
-                    })
-                    .SingleOrDefaultAsync();
-            }
-
-            return editableEvent;
-        }
-
-        public async Task<bool> EditEventAsync(EventFormInputModel inputModel)
-        {
-            Event? editableEvent = await this.FindEventByStringId(inputModel.Id);
-
-            bool result = false;
-            if (editableEvent == null)
-            {
-                return false;
-            }
-
-            editableEvent.Name = inputModel.Name;
-            editableEvent.Description = inputModel.Description;
-            editableEvent.ImageUrl = inputModel.ImageUrl ?? $"/images/{NoImageUrl}";
-
-            result = await this.eventRepository.UpdateAsync(editableEvent);
-
-            return result;
-        }
-
         public async Task<DeleteEventViewModel?> GetEventDeleteDetailsByIdAsync(string? id)
         {
             DeleteEventViewModel? deleteEventViewModel = null;

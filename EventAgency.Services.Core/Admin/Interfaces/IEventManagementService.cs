@@ -14,9 +14,9 @@ namespace EventAgency.Services.Core.Admin.Interfaces
 
         Task AddEventAsync(EventFormInputModel inputModel);
 
-        Task<EventFormInputModel?> GetEventEditFormModelAsync(string? id);
+        Task<EventFormInputModel?> GetEditableEventByIdAsync(string? id);
 
-        Task<bool> EditEventAsync(EventFormInputModel? inputModel);
+        Task<bool> EditEventAsync(EventFormInputModel inputModel);
 
         Task<Tuple<bool, bool>> DeleteOrRestoreEventAsync(string? id);
     }

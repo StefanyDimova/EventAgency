@@ -7,11 +7,10 @@
 
 <h2 class="text-center fw-bold mb-4 custom-title">Редактиране на събитие</h2>
 
-
 <div class="row justify-content-center">
     <div class="col-md-8">
         <div class="card shadow-sm p-4" style="background-color: #fff0f6;">
-            <form asp-action="Edit" method="post" class="edit-form">
+            <form asp-area="Admin" asp-action="Edit" method="post" class="edit-form">
                 <input type="hidden" asp-for="Id" />
 
                 <div class="form-group mb-3">
@@ -33,7 +32,7 @@
                 </div>
 
                 <div class="d-flex justify-content-between mt-4">
-                    <a asp-controller="Event" asp-action="Details" asp-route-id="@Model.Id" class="btn btn-secondary fw-bold">
+                    <a asp-area="Admin" asp-controller="EventManagement" asp-action="Manage" class="btn btn-secondary fw-bold">
                         <i class="fas fa-arrow-left me-1"></i> Назад
                     </a>
 
@@ -84,8 +83,7 @@
         }
 
         .edit-form {
-            padding:12px;
+            padding: 12px;
         }
     </style>
 }
- 
