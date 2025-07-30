@@ -3,7 +3,7 @@ using EventAgency.Web.ViewModels.Admin.ProductManagement;
 
 namespace EventAgency.Services.Core.Admin.Interfaces
 {
-    public interface IProductManagementService : IProductService
+    public interface IProductManagementService 
     {
         Task<IEnumerable<ProductManagementIndexViewModel>> GetProductManagementDataAsync();
 
@@ -12,5 +12,7 @@ namespace EventAgency.Services.Core.Admin.Interfaces
         Task<ProductEditInputModel?> GetEditableProductByIdAsync(string? id);
 
         Task<bool> EditProductAsync(ProductEditInputModel inputModel);
+
+        Task<Tuple<bool, bool>> DeleteOrRestoreProductAsync(string? id);
     }
 }

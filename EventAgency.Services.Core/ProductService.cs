@@ -13,12 +13,10 @@ namespace EventAgency.Services.Core
     {
 
         private readonly IProductRepository productRepository;
-        private readonly ICategoryService categoryService;
 
-        public ProductService(IProductRepository productRepository, ICategoryService categoryService)
+        public ProductService(IProductRepository productRepository)
         {
             this.productRepository = productRepository;
-            this.categoryService = categoryService;
         }
 
         public async Task<IEnumerable<AllProductsViewModel>> GetAllProductsAsync()
@@ -93,132 +91,6 @@ namespace EventAgency.Services.Core
             }
 
             return productDetails;
-        }
-
-        public async Task<ProductEditInputModel?> GetEditableProductByIdAsync(string? id)
-        {
-            ProductEditInputModel? editableProduct = null;
-
-            bool isIdValidGuid = Guid.TryParse(id, out Guid productId);
-            if (!isIdValidGuid)
-            {
-                return null;
-            }
-            var productEntity = await this.productRepository
-                .GetAllAttached()
-                .AsNoTracking()
-                .FirstOrDefaultAsync(p => p.Id == productId);
-
-            if (productEntity == null)
-            {
-                return null;
-            }
-            var categories = await this.categoryService.GetCategoriesDropdownDataAsync();
-
-            var subcategories = await this.categoryService.GetSubCategoriesDropdownDataAsync(productEntity.CategoryId);
-
-            editableProduct = new ProductEditInputModel()
-            {
-                Name = productEntity.Name,
-                Description = productEntity.Description,
-                Price = productEntity.Price,
-                Quantity = productEntity.Quantity,
-                ImageUrl = productEntity.ImageUrl ?? $"/images/{NoImageUrl}",
-                CategoryId = productEntity.CategoryId,
-                SubCategoryId = productEntity.SubCategoryId,
-                Categories = categories,
-                SubCategories = subcategories
-            };
-
-            return editableProduct;
-        }
-
-
-        public async Task<bool> EditProductAsync(ProductEditInputModel inputModel)
-        {
-            Product? editableProduct = await this.FindProductByStringId(inputModel.Id);
-
-            bool result = false;
-            if (editableProduct == null)
-            {
-                return false;
-            }
-
-            editableProduct.Name = inputModel.Name;
-            editableProduct.Description = inputModel.Description;
-            editableProduct.ImageUrl = inputModel.ImageUrl ?? $"/images/{NoImageUrl}";
-            editableProduct.Quantity = inputModel.Quantity;
-            editableProduct.Price = inputModel.Price;
-            editableProduct.CategoryId = inputModel.CategoryId;
-            editableProduct.SubCategoryId = inputModel.SubCategoryId;
-
-            result = await this.productRepository.UpdateAsync(editableProduct);
-
-            return result;
-        }
-
-
-
-        public async Task<DeleteProductViewModel?> GetProductDeleteDetailsByIdAsync(string? id)
-        {
-            DeleteProductViewModel? deleteProductViewModel = null;
-
-            Product? productToBeDeleted = await this.FindProductByStringId(id);
-            if (productToBeDeleted != null)
-            {
-                deleteProductViewModel = new DeleteProductViewModel()
-                {
-                    Id = productToBeDeleted.Id.ToString(),
-                    Name = productToBeDeleted.Name,
-                    ImageUrl = productToBeDeleted.ImageUrl ?? $"/images/{NoImageUrl}"
-                    
-                };
-            }
-
-            return deleteProductViewModel;
-        }
-
-        public async Task<bool> SoftDeleteProductAsync(string? id)
-        {
-            bool result = false;
-            Product? productToDelete = await this.FindProductByStringId(id);
-
-            if (productToDelete == null)
-            {
-                return false;
-            }
-
-            result = await this.productRepository.DeleteAsync(productToDelete);
-            return result;
-        }
-
-        public async Task<bool> DeleteProductAsync(string? id)
-        {
-            Product? productToDelete = await this.FindProductByStringId(id);
-
-            if (productToDelete == null)
-            {
-                return false;
-            }
-            await this.productRepository.HardDeleteAsync(productToDelete);
-
-            return true;
-        }
-
-        private async Task<Product?> FindProductByStringId(string? id)
-        {
-            Product? product = null;
-
-            if (!string.IsNullOrWhiteSpace(id))
-            {
-                bool isGuidValid = Guid.TryParse(id, out Guid productGuid);
-                if (isGuidValid)
-                {
-                    product = await this.productRepository.GetByIdAsync(productGuid);
-                }
-            }
-
-            return product;
         }
 
     }

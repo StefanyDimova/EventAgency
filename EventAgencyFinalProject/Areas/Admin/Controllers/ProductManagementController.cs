@@ -118,7 +118,6 @@ namespace EventAgency.Web.Areas.Admin.Controllers
         }
 
 
-
         [HttpPost]
         public async Task<IActionResult> Edit(ProductEditInputModel inputModel)
         {
@@ -152,6 +151,28 @@ namespace EventAgency.Web.Areas.Admin.Controllers
                 Console.WriteLine(e.Message);
                 return this.RedirectToAction(nameof(Manage));
             }
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> ToggleDelete(string? id)
+        {
+            Tuple<bool, bool> opResult = await this.productManagementService
+                .DeleteOrRestoreProductAsync(id);
+            bool success = opResult.Item1;
+            bool isRestored = opResult.Item2;
+
+            if (!success)
+            {
+                TempData[ErrorMessageKey] = "Product could not be found and updated!";
+            }
+            else
+            {
+                string operation = isRestored ? "restored" : "deleted";
+
+                TempData[SuccessMessageKey] = $"Product {operation} successfully!";
+            }
+
+            return this.RedirectToAction(nameof(Manage));
         }
 
     }

@@ -16,14 +16,5 @@ namespace EventAgency.Services.Core.Interfaces
         Task<IEnumerable<AllProductsViewModel>> GetProductsBySubCategoryIdAsync(int subCategoryId);
 
         Task<ProductDetailsViewModel> GetProductDetailsByIdAsync(string? id);
-
-        Task<ProductEditInputModel?> GetEditableProductByIdAsync(string? id);
-
-        Task<bool> EditProductAsync(ProductEditInputModel inputModel);
-
-        Task<DeleteProductViewModel?> GetProductDeleteDetailsByIdAsync(string? id);
-
-        Task<bool> SoftDeleteProductAsync(string? id);
-        Task<bool> DeleteProductAsync(string? id);
     }
 }

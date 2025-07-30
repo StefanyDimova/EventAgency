@@ -3,23 +3,24 @@ using EventAgency.Data.Repository.Interfaces;
 using EventAgency.Services.Core.Admin.Interfaces;
 using EventAgency.Services.Core.Interfaces;
 using EventAgency.Web.ViewModels.Admin.ProductManagement;
+using EventAgency.Web.ViewModels.Product;
 using Microsoft.EntityFrameworkCore;
 
 using static EventAgency.GCommon.ApplicationConstants;
 
 namespace EventAgency.Services.Core.Admin
 {
-    public class ProductManagementService : ProductService, IProductManagementService
+    public class ProductManagementService : IProductManagementService
     {
-        private readonly IProductService productService;
         private readonly IProductRepository productRepository;
         private readonly ICategoryService categoryService;
-        public ProductManagementService(IProductRepository productRepository, ICategoryService categoryService, IProductService productService) 
-            : base(productRepository, categoryService)
+        private readonly IProductService productService;
+
+        public ProductManagementService(IProductRepository productRepository, ICategoryService categoryService, IProductService productService)
         {
-            this.productService = productService;
             this.productRepository = productRepository;
             this.categoryService = categoryService;
+            this.productService = productService;
         }
 
         public async Task<IEnumerable<ProductManagementIndexViewModel>> GetProductManagementDataAsync()
@@ -137,6 +138,33 @@ namespace EventAgency.Services.Core.Admin
             }
 
             return product;
+        }
+
+        public async Task<Tuple<bool, bool>> DeleteOrRestoreProductAsync(string? id)
+        {
+            bool result = false;
+            bool isRestored = false;
+            if (!String.IsNullOrWhiteSpace(id))
+            {
+                Product? product = await this.productRepository
+                    .GetAllAttached()
+                    .IgnoreQueryFilters()
+                    .SingleOrDefaultAsync(p => p.Id.ToString().ToLower() == id.ToLower());
+                if (product != null)
+                {
+                    if (product.IsDeleted)
+                    {
+                        isRestored = true;
+                    }
+
+                    product.IsDeleted = !product.IsDeleted;
+
+                    result = await this.productRepository
+                        .UpdateAsync(product);
+                }
+            }
+
+            return new Tuple<bool, bool>(result, isRestored);
         }
     }
 }
