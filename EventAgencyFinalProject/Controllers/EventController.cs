@@ -2,7 +2,6 @@
 using EventAgency.Web.ViewModels.Event;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using static EventAgency.Web.ViewModels.ValidationMessages.Event;
 
 namespace EventAgency.Web.Controllers
 {
@@ -45,64 +44,6 @@ namespace EventAgency.Web.Controllers
             catch (Exception e)
             {
 
-                Console.WriteLine(e.Message);
-
-                return this.RedirectToAction(nameof(Index));
-            }
-        }
-
-        [HttpGet]
-        public async Task<IActionResult> Delete(string? id)
-        {
-            try
-            {
-                DeleteEventViewModel? eventToBeDeleted = await this.eventService
-                    .GetEventDeleteDetailsByIdAsync(id);
-                if (eventToBeDeleted == null)
-                {
-                    // TODO: Custom 404 page
-                    return this.RedirectToAction(nameof(Index));
-                }
-
-                return this.View(eventToBeDeleted);
-            }
-            catch (Exception e)
-            {
-                // TODO: Implement it with the ILogger
-                // TODO: Add JS bars to indicate such errors
-                Console.WriteLine(e.Message);
-
-                return this.RedirectToAction(nameof(Index));
-            }
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> Delete(DeleteEventViewModel inputModel)
-        {
-            try
-            {
-                if (!this.ModelState.IsValid)
-                {
-                    // TODO: Implement JS notifications
-                    return this.RedirectToAction(nameof(Index));
-                }
-
-                bool deleteResult = await this.eventService
-                    .SoftDeleteEventAsync(inputModel.Id);
-                if (deleteResult == false)
-                {
-                    // TODO: Implement JS notifications
-                    // TODO: Alt_Redirect to Not Found page
-                    return this.RedirectToAction(nameof(Index));
-                }
-
-                // TODO: Success notification
-                return this.RedirectToAction(nameof(Index));
-            }
-            catch (Exception e)
-            {
-                // TODO: Implement it with the ILogger
-                // TODO: Add JS bars to indicate such errors
                 Console.WriteLine(e.Message);
 
                 return this.RedirectToAction(nameof(Index));

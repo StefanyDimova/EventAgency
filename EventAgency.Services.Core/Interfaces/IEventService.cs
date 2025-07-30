@@ -13,8 +13,5 @@ namespace EventAgency.Services.Core.Interfaces
 
         Task<DetailsEventViewModel> GetEventDetailsByIdAsync(string? id);
 
-        Task<bool> SoftDeleteEventAsync(string? id);
-        Task<bool> DeleteEventAsync(string? id);
-        Task<DeleteEventViewModel?> GetEventDeleteDetailsByIdAsync(string? id);
     }
 }

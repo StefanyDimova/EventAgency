@@ -88,9 +88,31 @@ namespace EventAgency.Services.Core.Admin
         }
 
 
-        public Task<Tuple<bool, bool>> DeleteOrRestoreEventAsync(string? id)
+        public async Task<Tuple<bool, bool>> DeleteOrRestoreEventAsync(string? id)
         {
-            throw new NotImplementedException();
+            bool result = false;
+            bool isRestored = false;
+            if (!String.IsNullOrWhiteSpace(id))
+            {
+                Event? searchedEvent = await this.eventRepository
+                    .GetAllAttached()
+                    .IgnoreQueryFilters()
+                    .SingleOrDefaultAsync(c => c.Id.ToString().ToLower() == id.ToLower());
+                if (searchedEvent != null)
+                {
+                    if (searchedEvent.IsDeleted)
+                    {
+                        isRestored = true;
+                    }
+
+                    searchedEvent.IsDeleted = !searchedEvent.IsDeleted;
+
+                    result = await this.eventRepository
+                        .UpdateAsync(searchedEvent);
+                }
+            }
+
+            return new Tuple<bool, bool>(result, isRestored);
         }
 
         private async Task<Event?> FindEventByStringId(string? id)

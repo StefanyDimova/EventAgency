@@ -9,5 +9,8 @@
         public const string adminRoleName = "Admin";
         public const string adminAreaName = "Admin";
 
+        public const string ErrorMessageKey = "error";
+        public const string SuccessMessageKey = "success";
+
     }
 }

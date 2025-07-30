@@ -2,8 +2,9 @@
 using EventAgency.Web.ViewModels.Admin.EventManagement;
 using EventAgency.Web.ViewModels.Event;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.Blazor;
 using static EventAgency.Web.ViewModels.ValidationMessages.Event;
+
+using static EventAgency.GCommon.ApplicationConstants;
 
 namespace EventAgency.Web.Areas.Admin.Controllers
 {
@@ -67,8 +68,6 @@ namespace EventAgency.Web.Areas.Admin.Controllers
             }
             catch (Exception e)
             {
-                // TODO: Implement it with the ILogger
-                // TODO: Add JS bars to indicate such errors
                 Console.WriteLine(e.Message);
 
                 return this.RedirectToAction(nameof(Manage));
@@ -99,6 +98,28 @@ namespace EventAgency.Web.Areas.Admin.Controllers
 
                 return this.RedirectToAction(nameof(Manage));
             }
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> ToggleDelete(string? id)
+        {
+            Tuple<bool, bool> opResult = await this.eventManagementService
+                .DeleteOrRestoreEventAsync(id);
+            bool success = opResult.Item1;
+            bool isRestored = opResult.Item2;
+
+            if (!success)
+            {
+                TempData[ErrorMessageKey] = "Event could not be found and updated!";
+            }
+            else
+            {
+                string operation = isRestored ? "restored" : "deleted";
+
+                TempData[SuccessMessageKey] = $"Event {operation} successfully!";
+            }
+
+            return this.RedirectToAction(nameof(Manage));
         }
     }
 }
