@@ -15,20 +15,6 @@
             <div class="card-body">
                 <p class="card-text fs-5">@Model.Description</p>
 
-                @if (this.User.Identity?.IsAuthenticated ?? false)
-                {
-                    <div class="d-flex justify-content-between mt-4">
-                        <a asp-controller="Event" asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">
-                            <i class="fas fa-edit me-1"></i> Редактирай
-                        </a>
-
-                        <a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger">
-                            <i class="fas fa-trash-alt me-1"></i> Изтрий
-                        </a>
-
-                    </div>
-                }
-
                 <div class="text-end mt-3">
                     <a asp-controller="Event" asp-action="Index" class="btn btn-secondary">
                         <i class="fas fa-arrow-left me-1"></i> Назад

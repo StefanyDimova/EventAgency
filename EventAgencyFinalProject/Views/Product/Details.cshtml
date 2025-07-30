@@ -51,12 +51,6 @@
                             }
 
                             <hr />
-                            <div class="d-flex justify-content-end">
-                                <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-outline-primary me-2">Редактирай</a>
-                                <form asp-action="Delete" asp-route-id="@Model.Id" method="post" onsubmit="return confirm('Сигурни ли сте, че искате да изтриете този продукт?');">
-                                    <button type="submit" class="btn btn-outline-danger">Изтрий</button>
-                                </form>
-                            </div>
                         </div>
                     </div>
                 </div>
