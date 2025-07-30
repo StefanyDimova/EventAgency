@@ -57,18 +57,6 @@ namespace EventAgency.Services.Core
 
         }
 
-
-        public async Task CreateCategoryAsync(CategoryFormModel model)
-        {
-            Category category = new Category()
-            {
-                Name = model.Name,
-                ParentCategoryId = model.ParentCategoryId
-            };
-
-            await this.categoryRepository.AddAsync(category);
-        }
-
         public async Task<IEnumerable<AddProductCategoryDropDownModel>> GetCategoriesDropdownDataAsync()
         {
             IEnumerable<AddProductCategoryDropDownModel> categoriesDropDown = await this.categoryRepository
@@ -92,7 +80,7 @@ namespace EventAgency.Services.Core
                 .Where(c => c.ParentCategoryId == parentCategoryId)
                 .Select(subcategory => new AddProductCategoryDropDownModel()
                 {
-                    Id= subcategory.Id,
+                    Id = subcategory.Id,
                     Name = subcategory.Name,
                 })
                 .ToArrayAsync();

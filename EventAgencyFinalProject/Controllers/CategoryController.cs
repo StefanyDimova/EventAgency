@@ -23,30 +23,5 @@ namespace EventAgency.Web.Controllers
 
             return View(allCategories);
         }
-
-        [HttpGet]
-        public async Task<IActionResult> Create()
-        {
-            CategoryFormModel model = new CategoryFormModel
-            {
-                AvailableCategories = await categoryService.GetCategorySelectListAsync()
-            };
-
-            return View(model);
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> Create(CategoryFormModel model)
-        {
-            if (!ModelState.IsValid)
-            {
-                model.AvailableCategories = await categoryService.GetCategorySelectListAsync();
-                return View(model);
-            }
-
-            await categoryService.CreateCategoryAsync(model);
-
-            return RedirectToAction("Index", "Category");
-        }
     }
 }

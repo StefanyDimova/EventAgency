@@ -1,0 +1,68 @@
+﻿@using EventAgency.Web.ViewModels.Admin.CategoryManagement
+@model IEnumerable<CategoryManagementViewModel>
+
+
+@{
+    ViewData["Title"] = "Управление на категории";
+}
+
+<div class="container mt-4">
+    <h1 class="text-center text-warning fw-bold">Управление на категории</h1>
+    <p class="text-center text-muted">Преглеждайте категориите и подкатегориите.</p>
+
+    <div class="d-flex justify-content-between mb-3">
+        <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="btn btn-secondary fw-bold">
+            <i class="bi bi-arrow-left"></i> Назад към таблото
+        </a>
+        <a asp-area="Admin" asp-controller="CategoryManagement" asp-action="Create" class="btn btn-success fw-bold shadow-lg">
+            <i class="bi bi-plus-circle"></i> Добави нова категория
+        </a>
+    </div>
+
+    @if (!Model.Any())
+    {
+        <div class="alert alert-info text-center" role="alert">
+            <i class="bi bi-exclamation-circle"></i> Няма категории. Кликнете "Добави нова категория", за да създадете една.
+        </div>
+    }
+    else
+    {
+        <div class="table-responsive">
+            <table class="table table-light table-hover shadow-lg rounded-3">
+                <thead class="thead-light">
+                    <tr class="text-warning text-center">
+                        <th scope="col">Име на категория</th>
+                        <th scope="col">Подкатегории</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (CategoryManagementViewModel category in Model)
+                    {
+                        <tr class="align-middle text-center">
+                            <td class="fw-bold">
+                                @category.Name
+                            </td>
+                            <td>
+                                @if (category.SubCategories.Any())
+                                {
+                                    <ul>
+                                        @foreach (var subCategory in category.SubCategories)
+                                        {
+                                            <li>
+                                                @subCategory.Name
+                                            </li>
+                                        }
+                                    </ul>
+                                }
+                                else
+                                {
+                                    <span>Няма подкатегории</span>
+                                }
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+</div>
