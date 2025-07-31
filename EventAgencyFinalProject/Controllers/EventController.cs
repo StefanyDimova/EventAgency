@@ -19,10 +19,15 @@ namespace EventAgency.Web.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> Index()
         {
-            IEnumerable<AllEventsViewModel> allEvents = await this.eventService
-                .GetAllEventsAsync();
-
-            return View(allEvents);
+            try
+            {
+                IEnumerable<AllEventsViewModel> allEvents = await this.eventService.GetAllEventsAsync();
+                return View(allEvents);
+            }
+            catch (Exception)
+            {
+                return RedirectToAction("Error", "Home", new { statusCode = 500 });
+            }
         }
 
         [HttpGet]
@@ -36,18 +41,17 @@ namespace EventAgency.Web.Controllers
 
                 if (eventDetails == null)
                 {
-                    return this.RedirectToAction(nameof(Index));
+                    return RedirectToAction("Error", "Home", new { statusCode = 404 });
                 }
 
                 return this.View(eventDetails);
             }
             catch (Exception e)
             {
-
                 Console.WriteLine(e.Message);
-
-                return this.RedirectToAction(nameof(Index));
+                return RedirectToAction("Error", "Home", new { statusCode = 500 });
             }
         }
+
     }
 }

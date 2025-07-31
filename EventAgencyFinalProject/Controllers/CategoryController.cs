@@ -18,10 +18,15 @@ namespace EventAgency.Web.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> Index()
         {
-            IEnumerable<CategoryViewModel> allCategories = await this.categoryService
-                .GetAllCategoriesAsync();
-
-            return View(allCategories);
+            try
+            {
+                IEnumerable<CategoryViewModel> allCategories = await this.categoryService.GetAllCategoriesAsync();
+                return View(allCategories);
+            }
+            catch (Exception)
+            {
+                return RedirectToAction("Error", "Home", new { statusCode = 500 });
+            }
         }
     }
 }

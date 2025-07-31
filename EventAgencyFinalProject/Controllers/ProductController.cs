@@ -22,29 +22,45 @@ namespace EventAgency.Web.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> Index()
         {
-            IEnumerable<AllProductsViewModel> allProducts = await this.productService
-                .GetAllProductsAsync();
-
-
-            return View(allProducts);
+            try
+            {
+                IEnumerable<AllProductsViewModel> allProducts = await this.productService.GetAllProductsAsync();
+                return View(allProducts);
+            }
+            catch (Exception)
+            {
+                return RedirectToAction("Error", "Home", new { statusCode = 500 });
+            }
         }
 
         [HttpGet]
         [AllowAnonymous]
         public async Task<IActionResult> BySubCategory(int id)
         {
-            var products = await productService.GetProductsBySubCategoryIdAsync(id);
-            return View("Index", products);
+            try
+            {
+                var products = await productService.GetProductsBySubCategoryIdAsync(id);
+                return View("Index", products);
+            }
+            catch (Exception)
+            {
+                return RedirectToAction("Error", "Home", new { statusCode = 500 });
+            }
         }
-
         [HttpGet]
         [AllowAnonymous]
         public async Task<JsonResult> GetSubcategories(int parentId)
         {
-            var subcategories = await categoryService.GetSubCategoriesDropdownDataAsync(parentId);
-            return Json(subcategories);
+            try
+            {
+                var subcategories = await categoryService.GetSubCategoriesDropdownDataAsync(parentId);
+                return Json(subcategories);
+            }
+            catch (Exception)
+            {
+                return Json(new { error = "An error occurred while retrieving subcategories." });
+            }
         }
-
         [HttpGet]
         [AllowAnonymous]
 
@@ -57,7 +73,7 @@ namespace EventAgency.Web.Controllers
 
                 if (productDetails == null)
                 {
-                    return this.RedirectToAction(nameof(Index));
+                    return RedirectToAction("Error", "Home", new { statusCode = 404 });
                 }
 
                 return this.View("Details", productDetails);
@@ -67,9 +83,10 @@ namespace EventAgency.Web.Controllers
 
                 Console.WriteLine(e.Message);
 
-                return this.RedirectToAction(nameof(Index));
+                return RedirectToAction("Error", "Home", new { statusCode = 500 });
             }
         }
 
     }
 }
+

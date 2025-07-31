@@ -31,12 +31,17 @@ namespace EventAgency.Web.Controllers
                 IEnumerable<CartItemViewModel> userCart = await this.cartService
                     .GetUserCartAsync(userId);
 
+                if (userCart == null)
+                {
+                    return RedirectToAction("Error", "Home", new { statusCode = 404 });
+                }
+
                 return View(userCart);
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
-                return this.RedirectToAction(nameof(Index), "Home");
+                return RedirectToAction("Error", "Home", new { statusCode = 500 });
             }
         }
 
@@ -52,6 +57,10 @@ namespace EventAgency.Web.Controllers
             if (!ModelState.IsValid)
             {
                 var productDetails = await this.productService.GetProductDetailsByIdAsync(model.ProductId);
+                if (productDetails == null)
+                {
+                    return RedirectToAction("Error", "Home", new { statusCode = 404 });
+                }
                 return View("~/Views/Product/Details.cshtml", productDetails);
             }
 
@@ -63,6 +72,10 @@ namespace EventAgency.Web.Controllers
                 {
                     ModelState.AddModelError(string.Empty, "Няма достатъчна наличност от този продукт.");
                     var productDetails = await this.productService.GetProductDetailsByIdAsync(model.ProductId);
+                    if (productDetails == null)
+                    {
+                        return RedirectToAction("Error", "Home", new { statusCode = 404 });
+                    }
                     return View("~/Views/Product/Details.cshtml", productDetails);
                 }
 
@@ -70,11 +83,8 @@ namespace EventAgency.Web.Controllers
             }
             catch (Exception ex)
             {
-                ModelState.AddModelError(string.Empty, "Възникна грешка при добавянето на продукта.");
                 Console.WriteLine(ex.Message);
-
-                var productDetails = await this.productService.GetProductDetailsByIdAsync(model.ProductId);
-                return View("~/Views/Product/Details.cshtml", productDetails);
+                return RedirectToAction("Error", "Home", new { statusCode = 500 });
             }
         }
 
@@ -96,7 +106,6 @@ namespace EventAgency.Web.Controllers
                     .RemoveProductFromCartAsync(productId, userId);
                 if (result == false)
                 {
-                    // TODO: Add JS notifications
                     return this.RedirectToAction(nameof(Index));
                 }
 
@@ -106,7 +115,7 @@ namespace EventAgency.Web.Controllers
             {
                 Console.WriteLine(e.Message);
 
-                return this.RedirectToAction(nameof(Index), "Home");
+                return RedirectToAction("Error", "Home", new { statusCode = 500 });
             }
         }
 
@@ -119,7 +128,6 @@ namespace EventAgency.Web.Controllers
                 return RedirectToAction("Login", "Account");
             }
 
-            // Проверка за валидност на подадените данни
             if (string.IsNullOrEmpty(productId) || quantity < 1)
             {
                 TempData["ErrorMessage"] = "Невалидни данни за обновяване на количката.";
@@ -143,6 +151,7 @@ namespace EventAgency.Web.Controllers
             {
                 Console.WriteLine(ex.Message);
                 TempData["ErrorMessage"] = "Възникна грешка при обновяване на количката.";
+                return RedirectToAction("Error", "Home", new { statusCode = 500 });
             }
 
             return RedirectToAction("Index");

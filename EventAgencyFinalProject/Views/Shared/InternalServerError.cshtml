@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "Internal Server Error";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/error.css" />
+}
+
+<div class="event-bg d-flex align-items-center justify-content-center" style="min-height: 80vh;">
+    <div class="error-container card">
+        <div class="error-code">500</div>
+        <div class="error-message">Internal Server Error</div>
+        <div class="error-description">
+            Oops! Something went wrong on our side.<br />
+            We're working to fix the issue. Please try again later.
+        </div>
+
+        <a asp-controller="Home" asp-action="Index" class="btn-home">Return to Homepage</a>
+    </div>
+</div>
