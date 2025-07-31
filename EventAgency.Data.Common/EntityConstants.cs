@@ -55,5 +55,13 @@ namespace EventAgency.Data.Common
 
 
         }
+
+        public static class Order
+        {
+            public const int AddressMinLength = 10;
+            public const int AddressMaxLength = 500;
+
+            public const int PhoneMaxLength = 15;
+        }
     }
 }

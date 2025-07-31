@@ -17,6 +17,8 @@ namespace EventAgencyFinalProject.Data
         public virtual DbSet<Category> Categories { get; set; } = null!;
         public virtual DbSet<ApplicationUserProduct> ApplicationUserProducts { get; set; } = null!;
         public virtual DbSet<EventReservationRequest> EventReservationRequests { get; set; } = null!;
+        public virtual DbSet<Order> Orders { get; set; } = null!;
+        public virtual DbSet<OrderItem> OrderItems { get; set; } = null!;
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
