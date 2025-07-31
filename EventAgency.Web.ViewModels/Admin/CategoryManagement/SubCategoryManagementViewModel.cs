@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
+using static EventAgency.Data.Common.EntityConstants.Category;
+using static EventAgency.Web.ViewModels.ValidationMessages.Category;
 
 namespace EventAgency.Web.ViewModels.Admin.CategoryManagement
 {
@@ -10,6 +8,9 @@ namespace EventAgency.Web.ViewModels.Admin.CategoryManagement
     {
         public int Id { get; set; }
 
+        [Required(ErrorMessage = CategoryNameRequiredMessage)]
+        [MinLength(NameMinLength, ErrorMessage = CategoryNameMinLengthMessage)]
+        [MaxLength(NameMaxLength, ErrorMessage = CategoryNameMaxLengthMessage)]
         public string Name { get; set; } = null!;
 
         public bool IsDeleted { get; set; }
