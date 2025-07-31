@@ -13,6 +13,7 @@ namespace EventAgency.Web.ViewModels.Product
         public string? ImageUrl { get; set; }
         public decimal Price { get; set; } // В лева
 
+        public int Quantity { get; set; }
         public decimal PriceInEuro => Math.Round(Price / 1.95583m, 2);
     }
 }

@@ -26,7 +26,6 @@
                             <p><strong>Цена:</strong> @Model.Price лв. (~ @priceInEuro €)</p>
                             <p><strong>Налично количество:</strong> @Model.Quantity бр.</p>
 
-                            @* Показване на ModelState грешки *@
                             <div asp-validation-summary="ModelOnly" class="text-danger mb-2"></div>
 
                             @if (Model.Quantity > 0)

@@ -29,7 +29,8 @@ namespace EventAgency.Services.Core
                    Id = product.Id.ToString(),
                    Name = product.Name,
                    ImageUrl = product.ImageUrl,
-                   Price = product.Price
+                   Price = product.Price,
+                   Quantity = product.Quantity
                })
                .ToListAsync();
 
