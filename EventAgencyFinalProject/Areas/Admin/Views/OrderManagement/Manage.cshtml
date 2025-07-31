@@ -1,0 +1,64 @@
+﻿@model IEnumerable<EventAgency.Web.ViewModels.Admin.OrderManagement.OrderManagementViewModel>
+
+<div class="container py-5">
+    <h2 class="text-center mb-4">Управление на поръчки</h2>
+
+    @if (!Model.Any())
+    {
+        <div class="alert alert-warning text-center">
+            Няма поръчки за показване.
+        </div>
+    }
+    else
+    {
+        <table class="table table-bordered table-dark">
+            <thead>
+                <tr>
+                    <th>Номер на поръчката</th>
+                    <th>Имейл на потребителя</th>
+                    <th>Дата на поръчка</th>
+                    <th>Обща стойност</th>
+                    <th>Статус</th>
+                    <th>Действия</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var order in Model)
+                {
+                    <tr>
+                        <td>@order.Id</td>
+                        <td>@order.UserEmail</td>
+                        <td>@order.CreatedAt</td>
+                        <td>@order.TotalPrice</td>
+                        <td>
+                            @if (order.IsConfirmed)
+                            {
+                                <span class="badge bg-success">Потвърдена</span>
+                            }
+                            else if (order.IsCancelled)
+                            {
+                            <span class="badge bg-danger">Отказана</span>
+                            }
+                            else
+                            {
+                            <span class="badge bg-warning">Изчаква</span>
+                            }
+                        </td>
+                        <td>
+                            @if (!order.IsConfirmed && !order.IsCancelled)
+                            {
+                                <form method="post" asp-action="ConfirmOrder" asp-route-orderId="@order.Id" class="d-inline">
+                                    <button type="submit" class="btn btn-success btn-sm">Потвърди</button>
+                                </form>
+                                <form method="post" asp-action="CancelOrder" asp-route-orderId="@order.Id" class="d-inline">
+                                    <button type="submit" class="btn btn-danger btn-sm">Откажи</button>
+                                </form>
+                            }
+                            <a asp-action="Details" asp-route-orderId="@order.Id" class="btn btn-info btn-sm">Детайли</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>
