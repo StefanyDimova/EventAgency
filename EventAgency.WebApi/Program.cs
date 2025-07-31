@@ -20,7 +20,8 @@ namespace EventAgency.WebApi
 
             // Configuring Identity for API usage
             builder.Services.AddIdentityApiEndpoints<IdentityUser>()
-                .AddEntityFrameworkStores<EventAgencyDbContext>();
+               .AddRoles<IdentityRole>()
+               .AddEntityFrameworkStores<EventAgencyDbContext>();
 
             builder.Services.AddRepositories(typeof(IEventRepository).Assembly);
             builder.Services.AddUserDefinedServices(typeof(IEventService).Assembly);

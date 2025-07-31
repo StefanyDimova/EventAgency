@@ -10,5 +10,6 @@ namespace EventAgency.Services.Core.Admin.Interfaces
     public interface IUserService
     {
         Task<IEnumerable<UserManagementIndexViewModel>> GetAllUsersAsync(string userId);
+        Task<bool> AssignUserToRoleAsync(RoleSelectionInputModel inputModel);
     }
 }

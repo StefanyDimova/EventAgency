@@ -2,6 +2,8 @@
 using EventAgency.Web.ViewModels.Admin.UserManagement;
 using Microsoft.AspNetCore.Mvc;
 
+using static EventAgency.GCommon.ApplicationConstants;
+
 namespace EventAgency.Web.Areas.Admin.Controllers
 {
     public class UserManagementController : BaseAdminController
@@ -18,6 +20,25 @@ namespace EventAgency.Web.Areas.Admin.Controllers
                 = await this.userService.GetAllUsersAsync(this.GetUserId()!);
 
             return View(allUsers);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AssignRole(RoleSelectionInputModel inputModel)
+        {
+            try
+            {
+                await this.userService
+                    .AssignUserToRoleAsync(inputModel);
+                TempData[SuccessMessageKey] = "User assigned to role successfully!";
+
+                return this.RedirectToAction(nameof(Index));
+            }
+            catch (Exception e)
+            {
+                TempData[ErrorMessageKey] = e.Message;
+
+                return this.RedirectToAction(nameof(Index));
+            }
         }
     }
 }
