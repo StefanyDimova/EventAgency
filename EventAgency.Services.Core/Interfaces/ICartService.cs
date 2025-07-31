@@ -18,5 +18,7 @@ namespace EventAgency.Services.Core.Interfaces
         Task<bool> IsProductAddedToCart(string? productId, string? userId);
 
         Task<bool> UpdateQuantityAsync(string userId, string productId, int quantity);
+
+        Task<bool> ClearUserCartAsync(string userId);
     }
 }

@@ -1,0 +1,50 @@
+﻿@using EventAgency.Web.ViewModels.Order
+@model OrderCheckoutViewModel
+
+@{
+    ViewData["Title"] = "Финализиране на поръчката";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form asp-action="ConfirmOrder" method="post">
+    <div class="form-group">
+        <label asp-for="FirstName">Първо име</label>
+        <input asp-for="FirstName" class="form-control" />
+        <span asp-validation-for="FirstName" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="LastName">Фамилно име</label>
+        <input asp-for="LastName" class="form-control" />
+        <span asp-validation-for="LastName" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Address">Адрес за доставка</label>
+        <input asp-for="Address" class="form-control" />
+        <span asp-validation-for="Address" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Phone">Телефонен номер</label>
+        <input asp-for="Phone" class="form-control" />
+        <span asp-validation-for="Phone" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="PaymentMethod">Метод на плащане</label>
+        <select asp-for="PaymentMethod" class="form-control">
+            <option value="CashOnDelivery">Наложен платеж</option>
+        </select>
+        <span asp-validation-for="PaymentMethod" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="TotalPriceBGN">Обща стойност (BGN)</label>
+        <input asp-for="TotalPriceBGN" class="form-control" readonly />
+        <span asp-validation-for="TotalPriceBGN" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Потвърди</button>
+</form>

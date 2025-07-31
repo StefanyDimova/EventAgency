@@ -1,5 +1,6 @@
 ﻿using EventAgency.Services.Core.Interfaces;
 using EventAgency.Web.ViewModels.Cart;
+using EventAgency.Web.ViewModels.Product;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 
@@ -56,7 +57,7 @@ namespace EventAgency.Web.Controllers
 
             if (!ModelState.IsValid)
             {
-                var productDetails = await this.productService.GetProductDetailsByIdAsync(model.ProductId);
+                ProductDetailsViewModel productDetails = await this.productService.GetProductDetailsByIdAsync(model.ProductId);
                 if (productDetails == null)
                 {
                     return RedirectToAction("Error", "Home", new { statusCode = 404 });
@@ -122,7 +123,7 @@ namespace EventAgency.Web.Controllers
         [HttpPost]
         public async Task<IActionResult> UpdateQuantity(string productId, int quantity)
         {
-            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             if (string.IsNullOrEmpty(userId))
             {
                 return RedirectToAction("Login", "Account");

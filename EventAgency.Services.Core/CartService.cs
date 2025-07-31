@@ -156,5 +156,35 @@ namespace EventAgency.Services.Core
 
             return await this.cartRepository.UpdateAsync(userProduct);
         }
+
+        public async Task<bool> ClearUserCartAsync(string userId)
+        {
+            bool result = false;
+            try
+            {
+                // Извличаме всички артикули в количката за даден потребител
+                var cartItems = await cartRepository
+                    .GetAllAttached()
+                    .Where(c => c.ApplicationUserId.ToLower() == userId.ToLower())
+                    .ToListAsync();
+
+                if (cartItems.Any())
+                {
+                    foreach (var cartItem in cartItems) 
+                    { 
+                        await this.cartRepository.DeleteAsync(cartItem);
+                    }
+                    await cartRepository.SaveChangesAsync();
+                    result = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error occurred while clearing the cart: {ex.Message}");
+                throw;
+            }
+
+            return result;
+        }
     }
 }
