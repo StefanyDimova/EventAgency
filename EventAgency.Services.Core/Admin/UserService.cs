@@ -21,6 +21,14 @@ namespace EventAgency.Services.Core.Admin
             this.roleManager = roleManager;
         }
 
+        public async Task<bool> UserExistsByIdAsync(Guid userId)
+        {
+            IdentityUser? user = await this.userManager
+                .FindByIdAsync(userId.ToString());
+
+            return user != null;
+        }
+
         public async Task<bool> AssignUserToRoleAsync(RoleSelectionInputModel inputModel)
         {
             IdentityUser? user = await this.userManager
@@ -66,6 +74,52 @@ namespace EventAgency.Services.Core.Admin
                 .ToArrayAsync();
 
             return users;
+        }
+
+        public async Task<bool> RemoveUserRoleAsync(Guid userId, string roleName)
+        {
+            IdentityUser? user = await userManager
+                .FindByIdAsync(userId.ToString());
+            bool roleExists = await this.roleManager.RoleExistsAsync(roleName);
+
+            if (user == null || !roleExists)
+            {
+                return false;
+            }
+
+            bool alreadyInRole = await this.userManager.IsInRoleAsync(user, roleName);
+            if (alreadyInRole)
+            {
+                IdentityResult? result = await this.userManager
+                    .RemoveFromRoleAsync(user, roleName);
+
+                if (!result.Succeeded)
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        public async Task<bool> DeleteUserAsync(Guid userId)
+        {
+            IdentityUser? user = await userManager
+                .FindByIdAsync(userId.ToString());
+
+            if (user == null)
+            {
+                return false;
+            }
+
+            IdentityResult? result = await this.userManager
+                .DeleteAsync(user);
+            if (!result.Succeeded)
+            {
+                return false;
+            }
+
+            return true;
         }
     }
 }

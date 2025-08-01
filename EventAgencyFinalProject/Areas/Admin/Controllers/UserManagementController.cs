@@ -40,5 +40,57 @@ namespace EventAgency.Web.Areas.Admin.Controllers
                 return this.RedirectToAction(nameof(Index));
             }
         }
+
+        [HttpPost]
+        public async Task<IActionResult> RemoveRole(string userId, string role)
+        {
+            Guid userGuid = Guid.Empty;
+            if (!this.IsGuidValid(userId, ref userGuid))
+            {
+                return this.RedirectToAction(nameof(Index));
+            }
+
+            bool userExists = await this.userService
+                .UserExistsByIdAsync(userGuid);
+            if (!userExists)
+            {
+                return this.RedirectToAction(nameof(Index));
+            }
+
+            bool removeResult = await this.userService
+                .RemoveUserRoleAsync(userGuid, role);
+            if (!removeResult)
+            {
+                return this.RedirectToAction(nameof(Index));
+            }
+
+            return this.RedirectToAction(nameof(Index));
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> DeleteUser(string userId)
+        {
+            Guid userGuid = Guid.Empty;
+            if (!this.IsGuidValid(userId, ref userGuid))
+            {
+                return this.RedirectToAction(nameof(Index));
+            }
+
+            bool userExists = await this.userService
+                .UserExistsByIdAsync(userGuid);
+            if (!userExists)
+            {
+                return this.RedirectToAction(nameof(Index));
+            }
+
+            bool removeResult = await this.userService
+                .DeleteUserAsync(userGuid);
+            if (!removeResult)
+            {
+                return this.RedirectToAction(nameof(Index));
+            }
+
+            return this.RedirectToAction(nameof(Index));
+        }
     }
 }

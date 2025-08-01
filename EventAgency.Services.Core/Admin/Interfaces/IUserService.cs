@@ -9,7 +9,12 @@ namespace EventAgency.Services.Core.Admin.Interfaces
 {
     public interface IUserService
     {
+        Task<bool> UserExistsByIdAsync(Guid userId);
         Task<IEnumerable<UserManagementIndexViewModel>> GetAllUsersAsync(string userId);
         Task<bool> AssignUserToRoleAsync(RoleSelectionInputModel inputModel);
+
+        Task<bool> RemoveUserRoleAsync(Guid userId, string roleName);
+
+        Task<bool> DeleteUserAsync(Guid userId);
     }
 }
