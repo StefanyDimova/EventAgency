@@ -58,7 +58,8 @@ namespace EventAgency.Services.Core
                 Id = p.Id.ToString(),
                 Name = p.Name,
                 ImageUrl = string.IsNullOrEmpty(p.ImageUrl) ? $"/images/{NoImageUrl}" : p.ImageUrl,
-                Price = p.Price
+                Price = p.Price,
+                Quantity = p.Quantity
             });
         }
 

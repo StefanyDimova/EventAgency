@@ -29,7 +29,7 @@ namespace EventAgency.Data.Configuration
                 .HasOne(aup => aup.ApplicationUser)
                 .WithMany() // We do not have navigation property from the IdentityUser side
                 .HasForeignKey(aup => aup.ApplicationUserId)
-                .OnDelete(DeleteBehavior.Restrict);
+                .OnDelete(DeleteBehavior.Cascade);
 
             // Configure relation between ApplicationUserProduct and Product
             entity
