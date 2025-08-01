@@ -10,5 +10,10 @@ namespace EventAgency.Services.Core.Admin.Interfaces
     public interface IOrderManagementService
     {
         Task<IEnumerable<OrderManagementViewModel>> GetAllOrdersForAdminAsync();
+
+        Task<bool> ConfirmOrderAsync(string orderId);
+
+        Task<bool> CancelOrderAsync(string orderId);
+
     }
 }
