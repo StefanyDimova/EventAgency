@@ -15,5 +15,7 @@ namespace EventAgency.Services.Core.Admin.Interfaces
 
         Task<bool> CancelOrderAsync(string orderId);
 
+        Task<OrderManagementDetailsViewModel> GetOrderDetailsAsync(string orderId);
+
     }
 }

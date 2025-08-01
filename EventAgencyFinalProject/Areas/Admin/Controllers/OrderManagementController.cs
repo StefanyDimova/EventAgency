@@ -1,5 +1,6 @@
 ﻿using EventAgency.Services.Core;
 using EventAgency.Services.Core.Admin.Interfaces;
+using EventAgency.Web.ViewModels.Admin.OrderManagement;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EventAgency.Web.Areas.Admin.Controllers
@@ -66,6 +67,37 @@ namespace EventAgency.Web.Areas.Admin.Controllers
 
             return RedirectToAction(nameof(Manage));
         }
+
+        [HttpGet]
+        public async Task<IActionResult> Details(string orderId)
+        {
+            try
+            {
+                var orderDetails = await this.orderManagementService.GetOrderDetailsAsync(orderId);
+                return View(orderDetails);
+            }
+            catch (ArgumentNullException ex)
+            {
+                // Логика за обработка на грешка, ако ID-то е null
+                TempData["ErrorMessage"] = ex.Message;
+                return RedirectToAction("Manage");
+            }
+            catch (InvalidOperationException ex)
+            {
+                // Логика за обработка на грешка, ако поръчката не е намерена
+                TempData["ErrorMessage"] = ex.Message;
+                return RedirectToAction("Manage");
+            }
+            catch (Exception ex)
+            {
+                // Логика за обработка на други неочаквани грешки
+                TempData["ErrorMessage"] = "Възникна неочаквана грешка.";
+                Console.WriteLine(ex.Message);
+                return RedirectToAction("Manage");
+            }
+        }
+
+
 
     }
 }

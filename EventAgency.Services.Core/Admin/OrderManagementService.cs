@@ -2,12 +2,8 @@
 using EventAgency.Data.Repository.Interfaces;
 using EventAgency.Services.Core.Admin.Interfaces;
 using EventAgency.Web.ViewModels.Admin.OrderManagement;
+using EventAgency.Web.ViewModels.Order;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EventAgency.Services.Core.Admin
 {
@@ -91,6 +87,53 @@ namespace EventAgency.Services.Core.Admin
                 .ToListAsync();
 
             return orders;
+        }
+
+        public async Task<OrderManagementDetailsViewModel?> GetOrderDetailsAsync(string orderId)
+        {
+            var order = await this.orderRepository
+                .GetAllAttached()
+                .Include(o => o.User)
+                .Include(o => o.OrderItems)
+                    .ThenInclude(oi => oi.Product)
+                .AsNoTracking()
+                .FirstOrDefaultAsync(o => o.Id.ToString().ToLower() == orderId.ToLower());
+
+            if (order == null)
+            {
+                return null;
+            }
+
+            if (order.User == null)
+            {
+                return null;
+            }
+
+            var orderItems = order.OrderItems?
+                .Where(oi => oi.Product != null)
+                .Select(oi => new OrderManagementItemViewModel
+                {
+                    ProductName = oi.Product.Name,
+                    Quantity = oi.Quantity,
+                    Price = oi.Price,
+                    TotalPrice = oi.TotalPrice
+                })
+                .ToList() ?? new List<OrderManagementItemViewModel>();
+
+            var orderDetailsViewModel = new OrderManagementDetailsViewModel
+            {
+                OrderId = order.Id.ToString(),
+                UserEmail = order.User.Email,
+                Address = order.Address,
+                Phone = order.Phone,
+                CreatedAt = order.CreatedAt,
+                TotalPrice = order.TotalPrice,
+                IsConfirmed = order.IsConfirmed,
+                IsCancelled = order.IsCancelled,
+                OrderItems = orderItems
+            };
+
+            return orderDetailsViewModel;
         }
     }
 }

@@ -1,0 +1,94 @@
+﻿@model EventAgency.Web.ViewModels.Admin.OrderManagement.OrderManagementDetailsViewModel
+
+<div class="container py-5 bg-light">
+    <h2 class="text-center mb-4">Детайли на поръчката #@Model.OrderId</h2>
+
+    <div class="row">
+        <!-- Информация за потребителя -->
+        <div class="col-md-6">
+            <h5>Потребител: @Model.UserEmail</h5>
+            <p><strong>Адрес за доставка:</strong> @Model.Address</p>
+            <p><strong>Телефон:</strong> @Model.Phone</p>
+            <p><strong>Дата на поръчка:</strong> @Model.CreatedAt.ToString("dd.MM.yyyy HH:mm")</p>
+        </div>
+
+        <!-- Статус на поръчката -->
+        <div class="col-md-6 text-end">
+            <h5>Статус на поръчката:</h5>
+            @if (Model.IsConfirmed)
+            {
+                <span class="badge bg-success">Потвърдена</span>
+            }
+            else if (Model.IsCancelled)
+            {
+                <span class="badge bg-danger">Отказана</span>
+            }
+            else
+            {
+                <span class="badge bg-warning">Изчаква</span>
+            }
+        </div>
+    </div>
+
+    <!-- Продукти в поръчката -->
+    <h4 class="mt-4">Продукти в поръчката:</h4>
+    <table class="table table-bordered table-striped mt-3">
+        <thead>
+            <tr>
+                <th>Продукт</th>
+                <th>Количество</th>
+                <th>Цена на единица</th>
+                <th>Обща цена</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.OrderItems)
+            {
+                <tr>
+                    <td>@item.ProductName</td>
+                    <td>@item.Quantity</td>
+                    <td>@item.Price.ToString("0.00") лв</td>
+                    <td>@item.TotalPrice.ToString("0.00") лв</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <!-- Обща стойност на поръчката -->
+    <div class="d-flex justify-content-between mt-4">
+        <h4 class="fw-bold">Обща стойност на поръчката:</h4>
+        <h4 class="text-success fw-bold">@Model.TotalPrice.ToString("0.00") лв</h4>
+    </div>
+
+    <!-- Бутони за потвърждаване и отказване на поръчката -->
+    @if(Model.IsCancelled || Model.IsConfirmed)
+    {
+        <div class="alert alert-info mt-4" role="alert">
+            <strong>Забележка:</strong> Поръчката вече е @((Model.IsCancelled ? "отказана" : "потвърдена"))
+            и не може да бъде променяна.
+        </div>
+    }
+    else
+    {
+        <div class="mt-4 d-flex justify-content-between">
+            <form method="post" asp-action="ConfirmOrder" asp-route-orderId="@Model.OrderId" class="d-inline">
+                <button type="submit" class="btn btn-success btn-lg">
+                    <i class="bi bi-check-circle me-1"></i> Потвърдете поръчката
+                </button>
+            </form>
+
+            <form method="post" asp-action="CancelOrder" asp-route-orderId="@Model.OrderId" class="d-inline">
+                <button type="submit" class="btn btn-danger btn-lg">
+                    <i class="bi bi-x-circle me-1"></i> Откажете поръчката
+                </button>
+            </form>
+        </div>
+    }
+
+
+    <div class="mt-3 text-center">
+        <a href="@Url.Action("Manage", "OrderManagement", new { area = "Admin" })" class="btn btn-secondary btn-lg">
+            <i class="bi bi-arrow-left me-2"></i> Назад към управлението на поръчки
+        </a>
+    </div>
+</div>
