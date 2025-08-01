@@ -31,6 +31,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventAgency.Web.ViewModels"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventAgency.WebApi", "EventAgency.WebApi\EventAgency.WebApi.csproj", "{15F296F7-95BE-4C8E-9CA0-D6B49C0BAF04}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventAgency.Services.Tests", "EventAgency.Services.Tests\EventAgency.Services.Tests.csproj", "{5630FE2D-C3CE-45E7-B069-8823F5779369}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -77,6 +79,10 @@ Global
 		{15F296F7-95BE-4C8E-9CA0-D6B49C0BAF04}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{15F296F7-95BE-4C8E-9CA0-D6B49C0BAF04}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{15F296F7-95BE-4C8E-9CA0-D6B49C0BAF04}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5630FE2D-C3CE-45E7-B069-8823F5779369}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5630FE2D-C3CE-45E7-B069-8823F5779369}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5630FE2D-C3CE-45E7-B069-8823F5779369}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5630FE2D-C3CE-45E7-B069-8823F5779369}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -91,6 +97,7 @@ Global
 		{07B32690-F041-44BC-AF06-A5EFCD824937} = {2482A051-79D7-4D6E-A96D-6F7161C990B0}
 		{F77CD8C6-FF48-4329-A799-A9FE1D65A0F8} = {2482A051-79D7-4D6E-A96D-6F7161C990B0}
 		{15F296F7-95BE-4C8E-9CA0-D6B49C0BAF04} = {2482A051-79D7-4D6E-A96D-6F7161C990B0}
+		{5630FE2D-C3CE-45E7-B069-8823F5779369} = {BD2ADFA3-9A2C-47D4-82C9-74D8FF46391A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {58BA3E52-7C22-46D8-A915-FC2036029766}
