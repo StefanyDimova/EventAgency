@@ -9,6 +9,7 @@ using Moq;
 
 namespace EventAgency.Services.Tests
 {
+    [TestFixture]
     public class CategoryServiceTests
     {
         private Mock<ICategoryRepository> categoryRepositoryMock;

@@ -7,8 +7,10 @@ using Moq;
 
 namespace EventAgency.Services.Tests
 {
+    [TestFixture]
     public class ProductServiceTests
     {
+
         private Mock<IProductRepository> productRepositoryMock;
         private ProductService productService;
 

@@ -8,6 +8,7 @@ using Moq;
 
 namespace EventAgency.Services.Tests
 {
+    [TestFixture]
     public class OrderServiceTests
     {
         private Mock<ICartService> cartServiceMock;
