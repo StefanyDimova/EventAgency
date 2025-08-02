@@ -40,6 +40,13 @@ namespace EventAgency.WebApi
                           .AllowAnyMethod()
                           .AllowAnyHeader();
                 });
+
+                options.AddDefaultPolicy(policy =>
+                {
+                    policy.WithOrigins("https://localhost:7225") // MVC клиентът
+                          .AllowAnyHeader()
+                          .AllowAnyMethod();
+                });
             });
 
             builder.Services.AddControllers();
@@ -63,7 +70,7 @@ namespace EventAgency.WebApi
             app.UseAuthorization();
 
             // Enable CORS
-            app.UseCors("AllowAll");
+            app.UseCors();
 
             // Map controllers
             app.MapControllers();

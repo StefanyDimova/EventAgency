@@ -26,6 +26,7 @@
     <ProjectReference Include="..\EventAgency.Data\EventAgency.Data.csproj" />
     <ProjectReference Include="..\EventAgency.Services.Common\EventAgency.Services.Common.csproj" />
     <ProjectReference Include="..\EventAgency.Services.Core\EventAgency.Services.Core.csproj" />
+    <ProjectReference Include="..\EventAgency.WebApi\EventAgency.WebApi.csproj" />
     <ProjectReference Include="..\EventAgencyFinalProject.GCommon\EventAgency.GCommon.csproj" />
   </ItemGroup>
 

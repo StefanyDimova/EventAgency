@@ -62,11 +62,6 @@ namespace EventAgency.Services.Core
                 Quantity = p.Quantity
             });
         }
-
-
-
-
-
         public async Task<ProductDetailsViewModel> GetProductDetailsByIdAsync(string? id)
         {
             ProductDetailsViewModel? productDetails = null;

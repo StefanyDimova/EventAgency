@@ -1,9 +1,7 @@
-﻿using EventAgency.Data.Models;
-using EventAgency.Data.Repository.Interfaces;
+﻿using EventAgency.Data.Repository.Interfaces;
 using EventAgency.Services.Core.Interfaces;
 using EventAgency.Web.ViewModels.Event;
 using Microsoft.EntityFrameworkCore;
-using System.Globalization;
 using static EventAgency.GCommon.ApplicationConstants;
 
 namespace EventAgency.Services.Core

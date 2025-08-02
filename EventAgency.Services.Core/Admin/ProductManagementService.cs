@@ -166,5 +166,6 @@ namespace EventAgency.Services.Core.Admin
 
             return new Tuple<bool, bool>(result, isRestored);
         }
+
     }
 }

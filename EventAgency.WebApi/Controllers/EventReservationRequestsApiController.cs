@@ -1,12 +1,15 @@
 ﻿using EventAgency.Data.Models;
 using EventAgency.Services.Core.Interfaces;
+using EventAgency.Web.ViewModels.EventReservation;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EventAgency.WebApi.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/EventReservationRequestsApi")]
     [ApiController]
+    [AllowAnonymous]
     public class EventReservationRequestsApiController : ControllerBase
     {
         private readonly IEventReservationRequestService eventReservationRequestService;
@@ -17,16 +20,17 @@ namespace EventAgency.WebApi.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<EventReservationRequest>> CreateRequest(EventReservationRequest request)
+        public async Task<ActionResult<EventReservationRequest>> CreateRequest([FromBody] EventReservationRequest request)
         {
             if (request == null)
             {
-                return BadRequest("Invalid request data.");
+                return BadRequest("Invalid request.");
             }
 
             try
             {
-                var createdRequest = await this.eventReservationRequestService.AddRequestAsync(request.RequestedDate.Date, request.EventType);
+                var createdRequest = await this.eventReservationRequestService
+                    .AddRequestAsync(request.RequestedDate.Date, request.EventType);
 
                 return CreatedAtAction(nameof(CreateRequest), new { id = createdRequest.Id }, createdRequest);
             }
@@ -35,6 +39,7 @@ namespace EventAgency.WebApi.Controllers
                 return BadRequest($"An error occurred: {ex.Message}");
             }
         }
+
 
         [HttpGet("pending")]
         public async Task<ActionResult<IEnumerable<EventReservationRequest>>> GetPendingRequests()

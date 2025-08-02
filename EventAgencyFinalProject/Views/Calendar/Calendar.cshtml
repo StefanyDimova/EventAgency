@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@model EventAgency.Web.ViewModels.EventReservation.EventReservationRequestInputModel
+
+<!DOCTYPE html>
 <html lang="bg">
 <head>
     <meta charset="UTF-8">
@@ -153,17 +155,15 @@
 
     <!-- Форма за резервация -->
     <div id="reservationForm">
-        <h3>Reserve Event</h3>
-        <form>
-            <div class="form-group">
-                <label for="eventDate">Event Date</label>
-                <input type="text" class="form-control" id="eventDate" readonly />
-            </div>
-            <div class="form-group">
-                <label for="eventType">Event Type</label>
-                <input type="text" class="form-control" id="eventType" placeholder="Enter event type" />
-            </div>
-            <button type="submit" class="btn btn-primary">Reserve</button>
+        <h3>Резервирай събитие</h3>
+        <form asp-action="CreateReservationRequest" method="post">
+            <label>Дата:</label>
+            <input type="date" asp-for="RequestedDate" class="form-control" id="eventDate" />
+
+            <label>Тип събитие:</label>
+            <input type="text" asp-for="EventType" class="form-control" id="eventType" />
+
+            <button type="submit" class="btn btn-primary">Изпрати заявка</button>
         </form>
     </div>
 
@@ -205,7 +205,7 @@
 
                         dayElement.addEventListener('click', () => {
             // Създаваме нов обект Date
-            let selectedDate = new Date(year, month, i);
+            let selectedDate = new Date(Date.UTC(year, month, i));
 
             // Форматираме датата в формат YYYY-MM-DD
             let formattedDate = selectedDate.toISOString().split('T')[0];
@@ -245,7 +245,7 @@
             console.log(eventDate, eventType); // Проверка на стойностите
 
             $.ajax({
-                url: '/api/eventreservationrequests',
+                url: 'https://localhost:7186/api/EventReservationRequestsApi',
                 method: 'POST',
                 contentType: 'application/json',
                 data: JSON.stringify({
@@ -262,7 +262,7 @@
                 }
             });
         });
-
+        
     </script>
 </body>
 </html>
