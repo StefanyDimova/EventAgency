@@ -89,5 +89,23 @@
                 </div>
             </div>
         </div>
+
+        <!-- Управление на резервации -->
+        <div class="col-md-4">
+            <div class="card shadow-lg border-0 bg-light text-dark rounded-3 h-100">
+                <div class="card-body d-flex flex-column align-items-center text-center">
+                    <i class="bi bi-calendar2-check-fill text-secondary display-3 mb-3"></i>
+                    <h5 class="card-title fw-bold">Управление на резервации</h5>
+                    <p class="card-text text-muted">Преглеждайте заявките за събития и ги одобрявайте или отхвърляйте.</p>
+                    <div class="mt-auto w-100">
+                        <a asp-area="Admin" asp-controller="EventReservationManagement" asp-action="Manage"
+                           class="btn btn-success fw-bold shadow-sm w-100 py-2">
+                            <i class="bi bi-calendar-check-fill"></i> Отидете на резервации
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 </div>

@@ -12,5 +12,7 @@ namespace EventAgency.Services.Core.Interfaces
         Task<EventReservationRequest> AddRequestAsync(DateTime requestedDate, string eventType);
         Task<IEnumerable<EventReservationRequest>> GetPendingRequestsAsync();
         Task<EventReservationRequest?> GetRequestByDateAsync(DateTime date);
+
+        Task ApproveRequestAsync(string id);
     }
 }

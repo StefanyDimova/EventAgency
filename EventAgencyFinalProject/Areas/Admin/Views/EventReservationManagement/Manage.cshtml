@@ -1,0 +1,52 @@
+﻿@model IEnumerable<EventAgency.Web.ViewModels.Admin.EventReservationManagement.ReservationRequestViewModel>
+
+@{
+    ViewData["Title"] = "Управление на резервации";
+}
+
+<h1 class="text-center text-warning fw-bold">Управление на резервации</h1>
+
+<table class="table table-bordered table-hover bg-white">
+    <thead class="table-dark">
+        <tr>
+            <th>Дата</th>
+            <th>Тип събитие</th>
+            <th>Статус</th>
+            <th class="text-center">Действие</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var reservation in Model)
+        {
+            <tr>
+                <td>@reservation.RequestedDate.ToString("dd.MM.yyyy")</td>
+                <td>@reservation.EventType</td>
+                <td>
+                    @if (reservation.IsApproved)
+                    {
+                        <span class="badge bg-success">Одобрено</span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-warning text-dark">Чака одобрение</span>
+                    }
+                </td>
+                <td class="text-center">
+                    @if (!reservation.IsApproved)
+                    {
+                        <form asp-action="Approve" asp-controller="EventReservationManagement" asp-area="Admin" method="post">
+                            <input type="hidden" name="id" value="@reservation.Id" />
+                            <button type="submit" class="btn btn-sm btn-success">
+                                <i class="bi bi-check-circle-fill"></i> Одобри
+                            </button>
+                        </form>
+                    }
+                    else
+                    {
+                        <span class="text-muted">---</span>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

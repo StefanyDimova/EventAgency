@@ -19,7 +19,6 @@ namespace EventAgency.Data.Repository
         public async Task<IEnumerable<EventReservationRequest>> GetAllPendingRequestsAsync()
         {           
                return await this.GetAllAttached()
-                .Where(r => !r.IsApproved)
                 .ToListAsync();
         }
 

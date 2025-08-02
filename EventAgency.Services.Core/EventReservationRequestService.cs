@@ -45,5 +45,19 @@ namespace EventAgency.Services.Core
             return await eventReservationRequestRepository.GetRequestByDateAsync(date);
         }
 
+        public async Task ApproveRequestAsync(string id)
+        {
+            Guid newGuid = Guid.TryParse(id, out Guid parsedGuid) ? parsedGuid : Guid.Empty;
+            var request = await eventReservationRequestRepository.GetByIdAsync(parsedGuid);
+
+            if (request == null)
+            {
+                throw new ArgumentException("Заявката не е намерена.");
+            }
+
+            request.IsApproved = true;
+            await eventReservationRequestRepository.SaveChangesAsync();
+        }
+
     }
 }
