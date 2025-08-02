@@ -10,3 +10,8 @@
 # Others
 *.log
 *.vsidx
+
+# Visual Studio code coverage
+*.coverage
+*.coveragexml
+TestResults/
