@@ -2,6 +2,7 @@
 using EventAgency.Data.Repository.Interfaces;
 using EventAgencyFinalProject.Data;
 using Microsoft.EntityFrameworkCore;
+using System.Linq.Expressions;
 
 namespace EventAgency.Data.Repository
 {
@@ -30,6 +31,14 @@ namespace EventAgency.Data.Repository
                 .FirstOrDefaultAsync(); // Връща първото съвпадение или null
             return result;
         }
+        public async Task<IEnumerable<EventReservationRequest>> GetAllApprovedAsync()
+        {
+            return await dbContext.EventReservationRequests
+                .Where(r => r.IsApproved)
+                .ToListAsync();
+        }
+
+
 
     }
 }

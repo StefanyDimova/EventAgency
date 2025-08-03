@@ -12,5 +12,7 @@ namespace EventAgency.Data.Models
         public DateTime RequestedDate { get; set; }
         public string EventType { get; set; } = null!;
         public bool IsApproved { get; set; } 
+
+        public string? UserEmail { get; set; }
     }
 }

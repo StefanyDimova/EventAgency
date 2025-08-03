@@ -8,6 +8,7 @@ namespace EventAgency.Data.Repository.Interfaces
         Task<TEntity?> SingleOrDefaultAsync(Expression<Func<TEntity, bool>> predicate);
         Task<TEntity?> FirstOrDefaultAsync(Expression<Func<TEntity, bool>> predicate);
         Task<IEnumerable<TEntity>> GetAllAsync();
+
         Task AddAsync(TEntity item);
 
         Task<int> CountAsync();

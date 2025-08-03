@@ -1,4 +1,5 @@
 ﻿using EventAgency.Data.Models;
+using EventAgency.Services.Core.Admin.Interfaces;
 using EventAgency.Services.Core.Interfaces;
 using EventAgency.Web.ViewModels.EventReservation;
 using Microsoft.AspNetCore.Authorization;
@@ -12,25 +13,27 @@ namespace EventAgency.WebApi.Controllers
     [AllowAnonymous]
     public class EventReservationRequestsApiController : ControllerBase
     {
-        private readonly IEventReservationRequestService eventReservationRequestService;
+        private readonly IEventReservationManagementService eventReservationRequestService;
+        private readonly IEventReservationRequestService eventReservationRequest;
 
-        public EventReservationRequestsApiController(IEventReservationRequestService eventReservationRequestService)
+        public EventReservationRequestsApiController(IEventReservationManagementService eventReservationRequestService, IEventReservationRequestService eventReservationRequest)
         {
                 this.eventReservationRequestService = eventReservationRequestService;
+                this.eventReservationRequest = eventReservationRequest;
         }
 
         [HttpPost]
         public async Task<ActionResult<EventReservationRequest>> CreateRequest([FromBody] EventReservationRequest request)
         {
-            if (request == null)
+            if (request == null || string.IsNullOrWhiteSpace(request.UserEmail))
             {
-                return BadRequest("Invalid request.");
+                return BadRequest("UserEmail is required.");
             }
 
             try
             {
-                var createdRequest = await this.eventReservationRequestService
-                    .AddRequestAsync(request.RequestedDate.Date, request.EventType);
+                var createdRequest = await this.eventReservationRequest
+                    .AddRequestAsync(request.RequestedDate.Date, request.EventType, request.UserEmail);
 
                 return CreatedAtAction(nameof(CreateRequest), new { id = createdRequest.Id }, createdRequest);
             }
@@ -54,29 +57,6 @@ namespace EventAgency.WebApi.Controllers
                 return BadRequest($"An error occurred: {ex.Message}");
             }
         }
-
-        [HttpGet("date/{date}")]
-        public async Task<ActionResult<EventReservationRequest>> GetRequestByDate(DateTime date)
-        {
-            try
-            {
-                var currDate = date.Date;
-                var request = await this.eventReservationRequestService.GetRequestByDateAsync(currDate);
-
-                if (request == null)
-                {
-                    return NotFound("No reservation request found for the specified date.");
-                }
-
-                return Ok(request);
-            }
-            catch (Exception ex)
-            {
-                // Логирайте грешката или върнете съобщение за грешка
-                return StatusCode(500, $"Internal server error: {ex.Message}");
-            }
-        }
-
 
     }
 }

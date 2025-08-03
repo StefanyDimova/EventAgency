@@ -13,7 +13,7 @@
             <img src="@Model.ImageUrl" class="card-img-top rounded mb-4" alt="@Model.Name" style="max-height: 400px; object-fit: cover;" />
 
             <div class="card-body">
-                <p class="card-text fs-5">@Model.Description</p>
+                <p class="card-text fs-5">@Html.Raw(Model.Description?.Replace("\n", "<br />"))</p>
 
                 <div class="text-end mt-3">
                     <a asp-controller="Event" asp-action="Index" class="btn btn-secondary">

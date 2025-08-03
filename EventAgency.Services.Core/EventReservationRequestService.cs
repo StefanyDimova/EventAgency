@@ -18,24 +18,18 @@ namespace EventAgency.Services.Core
             this.eventReservationRequestRepository = eventReservationRequestRepository;
         }
 
-        public async Task<EventReservationRequest> AddRequestAsync(DateTime requestedDate, string eventType)
+        public async Task<EventReservationRequest> AddRequestAsync(DateTime requestedDate, string eventType, string userEmail)
         {
             EventReservationRequest request = new EventReservationRequest
             {
                 RequestedDate = requestedDate,
                 EventType = eventType,
-                IsApproved = false // Заявката започва като непотвърдена
+                IsApproved = false,
+                UserEmail = userEmail
             };
 
             await this.eventReservationRequestRepository.AddRequestAsync(request);
             return request;
-        }
-
-        // Извличане на всички непотвърдени заявки
-        public async Task<IEnumerable<EventReservationRequest>> GetPendingRequestsAsync()
-        {
-            IEnumerable<EventReservationRequest> pendingRequests = await this.eventReservationRequestRepository.GetAllPendingRequestsAsync();
-            return pendingRequests;
         }
 
         // Извличане на заявка по дата
@@ -45,19 +39,10 @@ namespace EventAgency.Services.Core
             return await eventReservationRequestRepository.GetRequestByDateAsync(date);
         }
 
-        public async Task ApproveRequestAsync(string id)
-        {
-            Guid newGuid = Guid.TryParse(id, out Guid parsedGuid) ? parsedGuid : Guid.Empty;
-            var request = await eventReservationRequestRepository.GetByIdAsync(parsedGuid);
 
-            if (request == null)
-            {
-                throw new ArgumentException("Заявката не е намерена.");
-            }
 
-            request.IsApproved = true;
-            await eventReservationRequestRepository.SaveChangesAsync();
-        }
+
+
 
     }
 }

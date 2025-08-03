@@ -8,12 +8,14 @@ namespace EventAgency.Web.ViewModels.Admin.EventReservationManagement
 {
     public class ReservationRequestViewModel
     {
-        public string Id { get; set; }
+        public string Id { get; set; } = null!;
 
         public DateTime RequestedDate { get; set; }
 
-        public string EventType { get; set; }
+        public string EventType { get; set; } = null!;
 
         public bool IsApproved { get; set; }
+
+        public string? UserEmail { get; set; }
     }
 }

@@ -9,10 +9,9 @@ namespace EventAgency.Services.Core.Interfaces
 {
     public interface IEventReservationRequestService
     {
-        Task<EventReservationRequest> AddRequestAsync(DateTime requestedDate, string eventType);
-        Task<IEnumerable<EventReservationRequest>> GetPendingRequestsAsync();
+        Task<EventReservationRequest> AddRequestAsync(DateTime requestedDate, string eventType, string userEmail);
         Task<EventReservationRequest?> GetRequestByDateAsync(DateTime date);
 
-        Task ApproveRequestAsync(string id);
+
     }
 }

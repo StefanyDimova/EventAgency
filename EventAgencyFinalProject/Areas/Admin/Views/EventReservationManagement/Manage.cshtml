@@ -12,6 +12,7 @@
             <th>Дата</th>
             <th>Тип събитие</th>
             <th>Статус</th>
+            <th>Потребител</th>
             <th class="text-center">Действие</th>
         </tr>
     </thead>
@@ -31,6 +32,7 @@
                         <span class="badge bg-warning text-dark">Чака одобрение</span>
                     }
                 </td>
+                <td>@reservation.UserEmail</td>
                 <td class="text-center">
                     @if (!reservation.IsApproved)
                     {

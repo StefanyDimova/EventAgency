@@ -29,7 +29,7 @@ namespace EventAgency.Data.Common
             /// <summary>
             /// Event Description should be able to store text with length up to 1000 characters.
             /// </summary>
-            public const int DescriptionMaxLength = 1000;
+            public const int DescriptionMaxLength = 10000;
 
             /// <summary>
             /// Maximum allowed length for image URL.

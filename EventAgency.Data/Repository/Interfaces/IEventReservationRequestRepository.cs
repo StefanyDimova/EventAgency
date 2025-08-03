@@ -16,5 +16,7 @@ namespace EventAgency.Data.Repository.Interfaces
         Task<IEnumerable<EventReservationRequest>> GetAllPendingRequestsAsync();
 
         Task AddRequestAsync(EventReservationRequest request);
+
+        Task<IEnumerable<EventReservationRequest>> GetAllApprovedAsync();
     }
 }
