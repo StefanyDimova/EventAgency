@@ -56,17 +56,18 @@ namespace EventAgencyFinalProject
                 app.UseHsts();
             }
 
-            app.UseStatusCodePagesWithRedirects("Home/Error?statusCode={0}");
-
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
             app.UseRouting();
             app.SeedDefaultIdentity();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseAdminRedirection();
+
+            app.UseStatusCodePagesWithRedirects("/Home/Error?statusCode={0}");
 
             app.MapControllerRoute(
                 name: "areas",

@@ -19,12 +19,16 @@ namespace EventAgency.Web.Infrastructure.Middlewares
         {
             if (context.User.Identity?.IsAuthenticated ?? false)
             {
-                if (context.Request.Path == IndexPath &&
-                    context.User.IsInRole(adminRoleName))
-                {
-                    context.Response.Redirect(AdminIndexPath);
+                string path = context.Request.Path.Value?.ToLower() ?? string.Empty;
 
-                    return;
+                // Ако е в Identity (Login/Register/Account) -> пропускаме middleware-а
+                if (!path.StartsWith("/identity") && path == "/")
+                {
+                    if (context.User.IsInRole(adminRoleName))
+                    {
+                        context.Response.Redirect("/Admin");
+                        return;
+                    }
                 }
             }
 
