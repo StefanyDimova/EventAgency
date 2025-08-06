@@ -49,15 +49,15 @@
                 <div class="mb-3">
                     <label asp-for="CategoryId" class="form-label fw-bold">Категория</label>
                     <select asp-for="CategoryId" class="form-select" asp-items="@(new SelectList(Model.Categories, "Id", "Name"))">
-                        <option value="">Избери категория</option>
+                        <option value="">-- Избери главна категория --</option>
                     </select>
                     <span asp-validation-for="CategoryId" class="text-danger small"></span>
                 </div>
 
                 <div class="mb-3">
                     <label asp-for="SubCategoryId" class="form-label fw-bold">Подкатегория</label>
-                    <select asp-for="SubCategoryId" class="form-select" asp-items="@(new SelectList(Model.SubCategories, "Id", "Name"))">
-                        <option value="">Избери подкатегория</option>
+                    <select asp-for="SubCategoryId" class="form-select">
+                        <option value="">-- Моля, изберете категория първо --</option>
                     </select>
                     <span asp-validation-for="SubCategoryId" class="text-danger small"></span>
                 </div>
@@ -72,5 +72,50 @@
     </div>
 </div>
 
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            const selectedSubCategoryId = '@Model.SubCategoryId';
+
+            function loadSubcategories(selectedParentId, selectedSubcategoryId) {
+                if (selectedParentId) {
+                    $.ajax({
+                        url: '/Product/GetSubcategories',
+                        type: 'GET',
+                        data: { parentId: selectedParentId },
+                        success: function (subcategories) {
+                            const $subCatSelect = $('#SubCategoryId');
+                            $subCatSelect.empty();
+
+                            if (subcategories.length === 0) {
+                                $subCatSelect.append('<option value="">-- Няма подкатегории --</option>');
+                            } else {
+                                $subCatSelect.append('<option value="">-- Избери подкатегория --</option>');
+                                $.each(subcategories, function (i, subcat) {
+                                    const isSelected = subcat.id == selectedSubcategoryId ? 'selected' : '';
+                                    $subCatSelect.append('<option value="' + subcat.id + '" ' + isSelected + '>' + subcat.name + '</option>');
+                                });
+                            }
+                        },
+                        error: function () {
+                            alert('Възникна грешка при зареждане на подкатегории.');
+                        }
+                    });
+                }
+            }
+
+            $('#CategoryId').change(function () {
+                const selectedCategoryId = $(this).val();
+                loadSubcategories(selectedCategoryId, null);
+            });
+
+            // Автоматично зареждане при зареждане на страницата
+            const initialCategoryId = $('#CategoryId').val();
+            loadSubcategories(initialCategoryId, selectedSubCategoryId);
+        });
+    </script>
+}
 
 
