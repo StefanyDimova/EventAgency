@@ -3,6 +3,11 @@
 <div class="container py-5">
     <h2 class="text-center mb-4">Управление на поръчки</h2>
 
+    <div class="d-flex justify-content-between mb-3">
+        <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="btn btn-secondary fw-bold">
+            <i class="bi bi-arrow-left"></i> Назад към таблото
+        </a>
+    </div>
     @if (!Model.Any())
     {
         <div class="alert alert-warning text-center">

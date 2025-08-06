@@ -40,13 +40,13 @@
                                     </div>
 
                                     <button type="submit" class="btn btn-success me-2">Добави в количка</button>
-                                    <a asp-action="Index" asp-controller="Product" class="btn btn-secondary">Обратно към продуктите</a>
+                                    <a asp-action="Index" asp-controller="Cart" class="btn btn-secondary">Обратно към количката</a>
                                 </form>
                             }
                             else
                             {
                                 <p class="text-danger mt-3 fw-bold">Продуктът е изчерпан.</p>
-                                <a asp-action="Index" asp-controller="Product" class="btn btn-secondary">Обратно към продуктите</a>
+                                <a asp-action="Index" asp-controller="Cart" class="btn btn-secondary">Обратно към количката</a>
                             }
 
                             <hr />
